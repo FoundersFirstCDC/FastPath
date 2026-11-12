@@ -828,6 +828,7 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 24px;
+      align-items: start;
     }
 
     .person-card {
@@ -875,6 +876,52 @@
       color: var(--ink-body);
       font-size: 14px;
       font-weight: 500;
+    }
+
+    /* Collapsible Bio inside Person Card */
+    .person-bio {
+      margin-top: 14px;
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
+    }
+
+    .person-bio summary {
+      font-family: 'Poppins', sans-serif;
+      font-size: 12.5px;
+      font-weight: 800;
+      color: var(--navy);
+      cursor: pointer;
+      list-style: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .person-bio summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .person-bio summary::after {
+      content: "+";
+      font-size: 15px;
+      color: var(--gold-deep);
+    }
+
+    .person-bio[open] summary::after {
+      content: "−";
+    }
+
+    .person-bio summary:hover {
+      color: var(--gold-deep);
+    }
+
+    .person-bio-text {
+      margin-top: 10px;
+      font-size: 13.5px;
+      line-height: 1.6;
+      color: var(--ink-body);
+      display: grid;
+      gap: 10px;
     }
 
     /* Cohort Yearbook & Contact Section */
@@ -1557,13 +1604,11 @@
         <!-- Judge 1: Jessica Zoraida -->
         <div class="person-card">
           <div class="yb-media-row">
-            <div class="yb-headshot-slot" title="Jessica Zoraida Headshot Placeholder">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-              <span>Headshot</span>
+            <div class="yb-headshot-slot has-img">
+              <img src="https://foundersfirstcdc.github.io/FastPath/BPR_JessicaZoraida_Headshot.png" alt="Jessica Zoraida" />
             </div>
-            <div class="yb-logo-slot" title="Big Picture Results Logo Placeholder">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9.5" r="1.5"/><path d="M21 15l-5-5L5 20"/></svg>
-              <span>Company Logo</span>
+            <div class="yb-logo-slot has-img">
+              <img src="https://foundersfirstcdc.github.io/FastPath/BPR_JessicaZoraida_Logo.png" alt="Big Picture Results Logo" />
             </div>
           </div>
           <span class="person-role">Judge &bull; Nov 20</span>
@@ -1575,13 +1620,11 @@
         <!-- Judge 2: Claudio Burgin -->
         <div class="person-card">
           <div class="yb-media-row">
-            <div class="yb-headshot-slot" title="Claudio Burgin Headshot Placeholder">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-              <span>Headshot</span>
+            <div class="yb-headshot-slot has-img">
+              <img src="https://foundersfirstcdc.github.io/FastPath/USBANK_ClaudioBurgin_Headshot.jpg" alt="Claudio Burgin" />
             </div>
-            <div class="yb-logo-slot" title="U.S. Bank Logo Placeholder">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9.5" r="1.5"/><path d="M21 15l-5-5L5 20"/></svg>
-              <span>Company Logo</span>
+            <div class="yb-logo-slot has-img">
+              <img src="https://foundersfirstcdc.github.io/FastPath/USBANK_ClaudioBurgin_Logo.jpg" alt="U.S. Bank Logo" />
             </div>
           </div>
           <span class="person-role">Judge &bull; Nov 20</span>
@@ -1593,19 +1636,26 @@
         <!-- Judge 3: Jade Cabrera -->
         <div class="person-card">
           <div class="yb-media-row">
-            <div class="yb-headshot-slot" title="Jade Cabrera Headshot Placeholder">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-              <span>Headshot</span>
+            <div class="yb-headshot-slot has-img">
+              <img src="https://foundersfirstcdc.github.io/FastPath/JPMorganChase_JadeCabrera_Headshot.jpg" alt="Jade Cabrera" />
             </div>
-            <div class="yb-logo-slot" title="Chase Bank Logo Placeholder">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9.5" r="1.5"/><path d="M21 15l-5-5L5 20"/></svg>
-              <span>Company Logo</span>
+            <div class="yb-logo-slot has-img">
+              <img src="https://foundersfirstcdc.github.io/FastPath/JPMorganChase_JadeCabrera_Logo.png" alt="JPMorganChase Logo" />
             </div>
           </div>
           <span class="person-role">Judge &bull; Nov 20</span>
           <h3>Jade Cabrera</h3>
-          <div class="person-title">VP-Community Manager</div>
+          <div class="person-title">Vice President, Community Manager</div>
           <div class="person-org">Chase Bank</div>
+          <details class="person-bio">
+            <summary>Read Bio</summary>
+            <div class="person-bio-text">
+              <p>Jade Cabrera serves as Community Manager for Central San Diego at JPMorganChase, where she expands access to economic opportunity through financial education and strategic community partnerships in her hometown.</p>
+              <p>Jade built the foundation of her career in Washington, D.C., where she spent years at the intersection of technology, policy, and public service. Most recently, she served as Manager of Public Policy External Engagement at Amazon Web Services, where she created pathways for founders and entrepreneurs shaping the next generation of technology to engage directly with D.C. policymakers on the future of their industries.</p>
+              <p>Prior to AWS, she spent two years as a public servant in the Federal government, serving at both the White House and the U.S. Department of Commerce's Office of Public Engagement—connecting communities, industry leaders and coalitions to the decision-making tables that shape national policy.</p>
+              <p>Today, Jade channels that national-scale experience in coalition-building and stakeholder engagement into local impact, deepening JPMorganChase's presence and investment in San Diego's communities.</p>
+            </div>
+          </details>
         </div>
 
         <!-- Pitch Welcome: Dr. Steven Jones -->
@@ -1832,7 +1882,7 @@
           </a>
         </div>
 
-        <!-- 8. Al Bozorgi / Ellenor McIntosh / Twipes (Single Photo with Both Founders) -->
+        <!-- 8. Al Bozorgi / Ellenor McIntosh / Twipes -->
         <div class="yearbook-card">
           <div class="yb-media-row">
             <div class="yb-headshots-group">
