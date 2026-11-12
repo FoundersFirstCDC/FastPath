@@ -752,22 +752,6 @@
       background: #ffffff;
     }
 
-    .yb-headshot-slot svg {
-      width: 22px;
-      height: 22px;
-      opacity: 0.75;
-    }
-
-    .yb-headshot-slot span {
-      font-family: 'Poppins', sans-serif;
-      font-size: 9px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.4px;
-      margin-top: 2px;
-      color: var(--navy);
-    }
-
     .yb-headshot-slot img {
       width: 100%;
       height: 100%;
@@ -795,23 +779,6 @@
     .yb-logo-slot.has-img {
       background: #ffffff;
       border: 1px solid var(--border);
-    }
-
-    .yb-logo-slot svg {
-      width: 17px;
-      height: 17px;
-      opacity: 0.7;
-      color: var(--navy);
-    }
-
-    .yb-logo-slot span {
-      font-family: 'Poppins', sans-serif;
-      font-size: 9px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.4px;
-      margin-top: 2px;
-      color: var(--navy);
     }
 
     .yb-logo-slot img {
@@ -878,6 +845,16 @@
       font-weight: 500;
     }
 
+    .person-org a {
+      color: var(--navy);
+      font-weight: 700;
+      text-decoration: underline;
+    }
+
+    .person-org a:hover {
+      color: var(--gold-deep);
+    }
+
     /* Collapsible Bio inside Person Card */
     .person-bio {
       margin-top: 14px;
@@ -922,6 +899,12 @@
       color: var(--ink-body);
       display: grid;
       gap: 10px;
+    }
+
+    .person-bio-text a {
+      color: var(--navy);
+      font-weight: 700;
+      text-decoration: underline;
     }
 
     /* Cohort Yearbook & Contact Section */
@@ -1615,6 +1598,14 @@
           <h3>Jessica Zoraida</h3>
           <div class="person-title">Founder CEO</div>
           <div class="person-org">Big Picture Results</div>
+          <details class="person-bio">
+            <summary>Read Bio</summary>
+            <div class="person-bio-text">
+              <p>Jessica Zoraida is the CEO and Founder of Big Picture Results, where she equips growing businesses—particularly those led by women and New Majority founders—with financial, tax, strategic, and operational systems to increase profitability and prepare for growth or exit.</p>
+              <p>She brings 30 years of experience across corporate banking (12 years), entrepreneurship (18+ years), nonprofit, government, and education. An IRS Enrolled Agent and QuickBooks ProAdvisor, she also serves as a Course Instructor and Executive in Residence at the California State University San Marcos (CSUSM) College of Business.</p>
+              <p>Jessica holds an MBA in Strategy, Corporate Finance, and Entrepreneurship from New York University and a BS in Economics and Finance from Manhattan University.</p>
+            </div>
+          </details>
         </div>
 
         <!-- Judge 2: Claudio Burgin -->
@@ -1631,6 +1622,14 @@
           <h3>Claudio Burgin</h3>
           <div class="person-title">Assistant Vice President, Business Access Advisor</div>
           <div class="person-org">U.S. Bank</div>
+          <details class="person-bio">
+            <summary>Read Bio</summary>
+            <div class="person-bio-text">
+              <p>Claudio Burgin serves as Assistant Vice President and Business Access Advisor at U.S. Bank, where he helps small business owners identify financial challenges, build customized growth plans, and connect with capital, financial education, and community resources.</p>
+              <p>With nearly 19 years at U.S. Bank—including prior roles as Branch Manager AVP and Licensed Co-Manager—he actively partners with regional organizations to expand access to banking and business credit across San Diego.</p>
+              <p>Claudio holds a Bachelor's degree in International Business from Universidad Autónoma de Baja California, is a graduate of the San Diego Regional Chamber of Commerce LEAD program, and serves on the boards of the San Diego County Hispanic Chamber of Commerce and South County EDC.</p>
+            </div>
+          </details>
         </div>
 
         <!-- Judge 3: Jade Cabrera -->
@@ -1687,7 +1686,7 @@
           <span class="person-role">Fireside Speaker &bull; Nov 19</span>
           <h3>Felena Hanson</h3>
           <div class="person-title">Founder</div>
-          <div class="person-org">Hera Hub (<a href="https://herahub.com" target="_blank" rel="noopener noreferrer" style="color: var(--navy); font-weight: 700; text-decoration: underline;">herahub.com</a>)</div>
+          <div class="person-org">Hera Hub (<a href="https://herahub.com" target="_blank" rel="noopener noreferrer">herahub.com</a>)</div>
         </div>
 
         <!-- Host & Emcee: Adam Riggs-Zeigen -->
@@ -1703,7 +1702,15 @@
           <span class="person-role">Host &amp; Emcee &bull; Nov 19–20</span>
           <h3>Adam Riggs-Zeigen</h3>
           <div class="person-title">Program Host &amp; Emcee</div>
-          <div class="person-org">Fall 2026 FastPath Pitch Event</div>
+          <div class="person-org">RZ Coaching (<a href="https://www.fitdonutlover.com/" target="_blank" rel="noopener noreferrer">fitdonutlover.com</a>) &bull; Founders First</div>
+          <details class="person-bio">
+            <summary>Read Bio</summary>
+            <div class="person-bio-text">
+              <p>Adam Riggs-Zeigen is the Founder of RZ Coaching (<a href="https://www.fitdonutlover.com/" target="_blank" rel="noopener noreferrer">fitdonutlover.com</a>) and Head of Programs and Technology at Founders First, where he has coached more than 70 small business founders to achieve an average 64% increase in revenue and 92% growth in full-time employees.</p>
+              <p>Prior to RZ Coaching, he spent over 15 years as an entrepreneur and product leader, founding Rock My World Media (creators of RockMyRun, used by 22M+ athletes and 2,000+ fitness studios, and Jolt.ai), earning the Tech Coast Angels Quick Pitch Competition win and San Diego's Most Innovative New Product Award.</p>
+              <p>Adam holds an MBA in Digital Business &amp; Entrepreneurship from San Diego State University and a BS in Computer Science &amp; Business Economics from UC Santa Barbara.</p>
+            </div>
+          </details>
         </div>
 
         <!-- Dinner Guest: Oscar Franco -->
@@ -1713,7 +1720,7 @@
               <img src="https://foundersfirstcdc.github.io/FastPath/FFCP_OscarFranco_Headshot.jpg" alt="Oscar Franco" />
             </div>
             <div class="yb-logo-slot has-img">
-              <img src="https://foundersfirstcdc.github.io/FastPath/FFCP_Logo.jpg" alt="Founders First Capital Partners Logo" />
+              <img src="https://foundersfirstcdc.github.io/FastPath/FFCP_Logo.jpg" alt="Founders First Logo" />
             </div>
           </div>
           <span class="person-role">Dinner Guest &bull; Nov 19</span>
@@ -1931,16 +1938,17 @@
         <!-- David Resetar -->
         <div class="person-card">
           <div class="yb-media-row">
-<div class="yb-headshot-slot has-img">
+            <div class="yb-headshot-slot has-img">
               <img src="https://foundersfirstcdc.github.io/FastPath/FFCP_DavidResetar_Headshot.jpg" alt="David Resetar" />
-            </div>            <div class="yb-logo-slot has-img">
-              <img src="https://foundersfirstcdc.github.io/FastPath/ffcdclogo01.jpg" alt="Founders First CDC Logo" />
+            </div>
+            <div class="yb-logo-slot has-img">
+              <img src="https://foundersfirstcdc.github.io/FastPath/FFCP_Logo.jpg" alt="Founders First Logo" />
             </div>
           </div>
           <span class="person-role">Event Coordinator</span>
           <h3>David Resetar</h3>
           <div class="person-title">Program Coordinator – TX</div>
-          <div class="person-org">Founders First CDC</div>
+          <div class="person-org">Founders First</div>
           <div class="team-contact-links">
             <a href="mailto:dresetar@f1stcp.com">dresetar@f1stcp.com</a>
             <a href="tel:5044086299">Mobile: (504) 408-6299</a>
@@ -1971,7 +1979,7 @@
               <img src="https://foundersfirstcdc.github.io/FastPath/FFCP_SawmSoltani_Headshot.jpg" alt="Sawm Soltani" />
             </div>
             <div class="yb-logo-slot has-img">
-              <img src="https://foundersfirstcdc.github.io/FastPath/FFCP_Logo.jpg" alt="Founders First Capital Partners Logo" />
+              <img src="https://foundersfirstcdc.github.io/FastPath/FFCP_Logo.jpg" alt="Founders First Logo" />
             </div>
           </div>
           <span class="person-role">Event Team</span>
