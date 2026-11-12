@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fall 2026 FastPath Pitch Event | Founders First Capital Partners</title>
-  <meta name="description" content="Official schedule, venues, judges, and event guide for the Fall 2026 FastPath Pitch Event in San Diego (November 19–20, 2026)." />
+  <title>Fall 2026 FastPath Pitch Event | Founders First</title>
+  <meta name="description" content="Official schedule, venues, judges, cohort yearbook, and event guide for the Fall 2026 FastPath Pitch Event in San Diego (November 19–20, 2026)." />
   <meta name="robots" content="index, follow, max-image-preview:large" />
   <link rel="canonical" href="https://foundersfirstcdc.github.io/FastPath/" />
 
@@ -17,9 +17,9 @@
   <!-- Open Graph / SMS / Email / Social Hyperlink Preview -->
   <meta property="og:locale" content="en_US" />
   <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="Founders First Capital Partners" />
+  <meta property="og:site_name" content="Founders First" />
   <meta property="og:title" content="Fall 2026 FastPath Pitch Event | San Diego (Nov 19–20)" />
-  <meta property="og:description" content="Official schedule, venues, judges, and event guide for the Fall 2026 FastPath Pitch Event at Cooley LLP in San Diego." />
+  <meta property="og:description" content="Official schedule, venues, judges, cohort yearbook, and event guide for the Fall 2026 FastPath Pitch Event at Cooley LLP in San Diego." />
   <meta property="og:url" content="https://foundersfirstcdc.github.io/FastPath/" />
   <meta property="og:image" content="https://foundersfirstcdc.github.io/FastPath/ffcdclogo01.jpg" />
   <meta property="og:image:secure_url" content="https://foundersfirstcdc.github.io/FastPath/ffcdclogo01.jpg" />
@@ -29,7 +29,7 @@
   <!-- Twitter / X & Messaging Card Preview -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Fall 2026 FastPath Pitch Event | San Diego (Nov 19–20)" />
-  <meta name="twitter:description" content="Official schedule, venues, judges, and event guide for the Fall 2026 FastPath Pitch Event at Cooley LLP in San Diego." />
+  <meta name="twitter:description" content="Official schedule, venues, judges, cohort yearbook, and event guide for the Fall 2026 FastPath Pitch Event at Cooley LLP in San Diego." />
   <meta name="twitter:image" content="https://foundersfirstcdc.github.io/FastPath/ffcdclogo01.jpg" />
 
   <!-- Structured Data for Web Search Image & Event Rich Results -->
@@ -62,7 +62,7 @@
         },
         "organizer": {
           "@type": "Organization",
-          "name": "Founders First Capital Partners, Inc.",
+          "name": "Founders First",
           "url": "https://foundersfirstcapitalpartners.com/",
           "logo": "https://foundersfirstcdc.github.io/FastPath/ffcdclogo01.jpg"
         }
@@ -71,7 +71,7 @@
         "@type": "WebPage",
         "@id": "https://foundersfirstcdc.github.io/FastPath/",
         "url": "https://foundersfirstcdc.github.io/FastPath/",
-        "name": "Fall 2026 FastPath Pitch Event | Founders First Capital Partners",
+        "name": "Fall 2026 FastPath Pitch Event | Founders First",
         "primaryImageOfPage": {
           "@type": "ImageObject",
           "url": "https://foundersfirstcdc.github.io/FastPath/ffcdclogo01.jpg"
@@ -205,13 +205,13 @@
     nav.main-nav {
       display: flex;
       align-items: center;
-      gap: 26px;
+      gap: 24px;
     }
 
     nav.main-nav a {
       color: #fff;
       font-weight: 600;
-      font-size: 0.95rem;
+      font-size: 0.92rem;
       transition: color 0.2s;
     }
 
@@ -653,6 +653,216 @@
       font-size: 0.92rem;
     }
 
+    /* Cohort Yearbook & Contact Section */
+    .yearbook-section {
+      background: var(--bg-light);
+      border-top: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .yearbook-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-bottom: 48px;
+    }
+
+    .yearbook-card {
+      background: #ffffff;
+      border: 1px solid var(--border-light);
+      border-radius: 14px;
+      padding: 26px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .yearbook-card:hover {
+      transform: translateY(-4px);
+      border-color: #cbbbe3;
+    }
+
+    .yb-media-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding-bottom: 18px;
+      margin-bottom: 18px;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .yb-headshots-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .yb-headshot-slot {
+      width: 68px;
+      height: 68px;
+      border-radius: 50%;
+      background: linear-gradient(145deg, #f3eef9 0%, #e7dff3 100%);
+      border: 2px dashed #b9a4d6;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+      flex-shrink: 0;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .yb-headshot-slot.dual {
+      width: 58px;
+      height: 58px;
+    }
+
+    .yb-headshot-slot svg {
+      width: 24px;
+      height: 24px;
+      opacity: 0.75;
+    }
+
+    .yb-headshot-slot span {
+      font-size: 0.6rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      margin-top: 2px;
+      color: var(--primary);
+    }
+
+    .yb-headshot-slot img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .yb-logo-slot {
+      width: 124px;
+      height: 52px;
+      border-radius: 8px;
+      background: #faf9fc;
+      border: 1.5px dashed #cfc5de;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 6px 10px;
+      color: var(--text-muted);
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+
+    .yb-logo-slot svg {
+      width: 18px;
+      height: 18px;
+      opacity: 0.65;
+      color: var(--primary);
+    }
+
+    .yb-logo-slot span {
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      margin-top: 2px;
+    }
+
+    .yb-logo-slot img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .yb-founder-name {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      line-height: 1.25;
+      margin-bottom: 4px;
+    }
+
+    .yb-company-meta {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--accent-hover);
+      margin-bottom: 12px;
+    }
+
+    .yb-company-meta span {
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .yb-desc {
+      font-size: 0.93rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+      margin-bottom: 18px;
+      flex-grow: 1;
+    }
+
+    .yb-footer-link {
+      padding-top: 12px;
+      border-top: 1px solid var(--border-light);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .yb-footer-link:hover {
+      color: var(--accent-hover);
+    }
+
+    /* Coordinator Contact Bar */
+    .coordinator-box {
+      background: #ffffff;
+      border: 1px solid var(--border-light);
+      border-left: 5px solid var(--primary);
+      border-radius: 12px;
+      padding: 28px 32px;
+      box-shadow: var(--shadow);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .coordinator-box h3 {
+      font-size: 1.2rem;
+      color: var(--primary-dark);
+      margin-bottom: 4px;
+    }
+
+    .coordinator-box p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    .coordinator-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .coordinator-links a:hover {
+      color: var(--accent-hover);
+      text-decoration: underline;
+    }
+
     /* Interstitial Callout Bar */
     .interstitial {
       background: var(--primary-dark);
@@ -781,18 +991,31 @@
       color: #9e93ad;
     }
 
+    @media (max-width: 1024px) {
+      .yearbook-grid,
+      .cards-3 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
     @media (max-width: 960px) {
       .split-grid,
       .feature-block,
       .feature-block.reverse,
       .schedule-grid,
-      .cards-3,
       .footer-grid {
         grid-template-columns: 1fr;
       }
 
       nav.main-nav {
         display: none;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .yearbook-grid,
+      .cards-3 {
+        grid-template-columns: 1fr;
       }
     }
 
@@ -831,6 +1054,7 @@
         <a href="#fireside">Fireside Chat</a>
         <a href="#schedule">Schedule</a>
         <a href="#judges">Judges &amp; Speakers</a>
+        <a href="#cohort">Cohort Yearbook</a>
         <a href="#faq">FAQ</a>
       </nav>
       <a href="https://foundersfirstcdc.github.io/FastPath/SanDiego_FastPath-Pitch_Event-Guide_Nov19-20.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Event Guide (PDF)</a>
@@ -847,7 +1071,7 @@
         <div class="hero-actions">
           <a href="https://foundersfirstcdc.github.io/FastPath/SanDiego_FastPath-Pitch_Event-Guide_Nov19-20.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Download Event Guide (PDF)</a>
           <a href="#schedule" class="btn btn-white">View Schedule</a>
-          <a href="https://www.eventbrite.com/e/fastpath-2026-southern-california-fireside-chat-tickets-2002848458655" target="_blank" rel="noopener noreferrer" class="btn btn-ghost-white">Fireside Chat RSVP</a>
+          <a href="#cohort" class="btn btn-ghost-white">Cohort Yearbook</a>
         </div>
       </div>
     </div>
@@ -1111,7 +1335,7 @@
         <div class="person-card">
           <span class="person-role">Judge &bull; Nov 20</span>
           <h3>Jessica Zoraida</h3>
-          <div class="person-title">Founder &amp; CEO</div>
+          <div class="person-title">Founder CEO</div>
           <div class="person-org">Big Picture Results</div>
         </div>
 
@@ -1127,7 +1351,7 @@
         <div class="person-card">
           <span class="person-role">Judge &bull; Nov 20</span>
           <h3>Jade Cabrera</h3>
-          <div class="person-title">VP – Community Manager</div>
+          <div class="person-title">VP-Community Manager</div>
           <div class="person-org">Chase Bank</div>
         </div>
 
@@ -1153,6 +1377,242 @@
           <h3>Oscar Franco</h3>
           <div class="person-title">Alternative Credit &amp; Revenue-Based Financing Expert</div>
           <div class="person-org">FastPath Executive Dinner</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FastPath Cohort Yearbook & Contact Section -->
+  <section id="cohort" class="section yearbook-section">
+    <div id="contact" class="container">
+      <div class="section-header">
+        <h2>Fall 2026 FastPath Cohort Yearbook</h2>
+        <p>Participating founders, companies, and event contact directory.</p>
+      </div>
+
+      <div class="yearbook-grid">
+        <!-- 1. Obi Ibeto / EPINEC -->
+        <div class="yearbook-card">
+          <div class="yb-media-row">
+            <div class="yb-headshots-group">
+              <div class="yb-headshot-slot" title="Obi Ibeto Headshot Placeholder">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+                <span>Headshot</span>
+              </div>
+            </div>
+            <div class="yb-logo-slot" title="EPINEC Company Logo Placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9.5" r="1.5"/><path d="M21 15l-5-5L5 20"/></svg>
+              <span>Company Logo</span>
+            </div>
+          </div>
+          <h3 class="yb-founder-name">Obi Ibeto</h3>
+          <div class="yb-company-meta">EPINEC <span>&bull; Belmont, MA</span></div>
+          <p class="yb-desc">Strategic consulting technology services, managed cybersecurity, cloud solutions, and IT manpower support services.</p>
+          <a href="https://epinec.us" target="_blank" rel="noopener noreferrer" class="yb-footer-link">
+            <span>epinec.us</span>
+            <span>&#8599;</span>
+          </a>
+        </div>
+
+        <!-- 2. Teja Smith / Get Social -->
+        <div class="yearbook-card">
+          <div class="yb-media-row">
+            <div class="yb-headshots-group">
+              <div class="yb-headshot-slot" title="Teja Smith Headshot Placeholder">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+                <span>Headshot</span>
+              </div>
+            </div>
+            <div class="yb-logo-slot" title="Get Social Company Logo Placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9.5" r="1.5"/><path d="M21 15l-5-5L5 20"/></svg>
+              <span>Company Logo</span>
+            </div>
+          </div>
+          <h3 class="yb-founder-name">Teja Smith</h3>
+          <div class="yb-company-meta">Get Social <span>&bull; Los Angeles, CA</span></div>
+          <p class="yb-desc">Los Angeles-based digital strategy and social media agency helping mission-driven organizations build online communities.</p>
+          <a href="https://getsocialwithteja.com" target="_blank" rel="noopener noreferrer" class="yb-footer-link">
+            <span>getsocialwithteja.com</span>
+            <span>&#8599;</span>
+          </a>
+        </div>
+
+        <!-- 3. Gladys Vonglahn / Gladys' Cleaning Service -->
+        <div class="yearbook-card">
+          <div class="yb-media-row">
+            <div class="yb-headshots-group">
+              <div class="yb-headshot-slot" title="Gladys Vonglahn Headshot Placeholder">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+                <span>Headshot</span>
+              </div>
+            </div>
+            <div class="yb-logo-slot" title="Gladys' Cleaning Service Logo Placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9.5" r="1.5"/><path d="M21 15l-5-5L5 20"/></svg>
+              <span>Company Logo</span>
+            </div>
+          </div>
+          <h3 class="yb-founder-name">Gladys Vonglahn</h3>
+          <div class="yb-company-meta">Gladys' Cleaning Service <span>&bull; Union, NJ</span></div>
+          <p class="yb-desc">Commercial and residential cleaning service provider serving the Tri-State area (New Jersey, New York, and Pennsylvania) with personalized cleaning solutions.</p>
+          <a href="https://gladyscleaningservice.com" target="_blank" rel="noopener noreferrer" class="yb-footer-link">
+            <span>gladyscleaningservice.com</span>
+            <span>&#8599;</span>
+          </a>
+        </div>
+
+        <!-- 4. Stephanie Benison / Prosperity Property Services -->
+        <div class="yearbook-card">
+          <div class="yb-media-row">
+            <div class="yb-headshots-group">
+              <div class="yb-headshot-slot" title="Stephanie Benison Headshot Placeholder">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+                <span>Headshot</span>
+              </div>
+            </div>
+            <div class="yb-logo-slot" title="Prosperity Property Services Logo Placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9.5" r="1.5"/><path d="M21 15l-5-5L5 20"/></svg>
+              <span>Company Logo</span>
+            </div>
+          </div>
+          <h3 class="yb-founder-name">Stephanie Benison</h3>
+          <div class="yb-company-meta">Prosperity Property Services <span>&bull; Calumet Park / Riverdale, IL</span></div>
+          <p class="yb-desc">Minority-owned property management and general contracting company specializing in property development, carpentry, landscaping, and cleaning.</p>
+          <a href="https://prosperitypropertyservices.com" target="_blank" rel="noopener noreferrer" class="yb-footer-link">
+            <span>prosperitypropertyservices.com</span>
+            <span>&#8599;</span>
+          </a>
+        </div>
+
+        <!-- 5. Elin Barton / Riveo Creative -->
+        <div class="yearbook-card">
+          <div class="yb-media-row">
+            <div class="yb-headshots-group">
+              <div class="yb-headshot-slot" title="Elin Barton Headshot Placeholder">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+                <span>Headshot</span>
+              </div>
+            </div>
+            <div class="yb-logo-slot" title="Riveo Creative Logo Placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9.5" r="1.5"/><path d="M21 15l-5-5L5 20"/></svg>
+              <span>Company Logo</span>
+            </div>
+          </div>
+          <h3 class="yb-founder-name">Elin Barton</h3>
+          <div class="yb-company-meta">Riveo Creative <span>&bull; Vestal, NY</span></div>
+          <p class="yb-desc">Strategic video storytelling, marketing planning, branding, content creation, motion graphics, and commercial production agency.</p>
+          <a href="https://riveocreative.com" target="_blank" rel="noopener noreferrer" class="yb-footer-link">
+            <span>riveocreative.com</span>
+            <span>&#8599;</span>
+          </a>
+        </div>
+
+        <!-- 6. Stephanie Wong / SWE Solutions -->
+        <div class="yearbook-card">
+          <div class="yb-media-row">
+            <div class="yb-headshots-group">
+              <div class="yb-headshot-slot" title="Stephanie Wong Headshot Placeholder">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+                <span>Headshot</span>
+              </div>
+            </div>
+            <div class="yb-logo-slot" title="SWE Solutions Logo Placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9.5" r="1.5"/><path d="M21 15l-5-5L5 20"/></svg>
+              <span>Company Logo</span>
+            </div>
+          </div>
+          <h3 class="yb-founder-name">Stephanie Wong</h3>
+          <div class="yb-company-meta">SWE Solutions <span>&bull; Naperville, IL</span></div>
+          <p class="yb-desc">Civil engineering company offering Real-Time Kinematic (RTK) drone imagery, 3D modeling, 4D visualization, construction inspection, and Phase II roadway design services prequalified by IDOT.</p>
+          <a href="https://swe-solutions.com" target="_blank" rel="noopener noreferrer" class="yb-footer-link">
+            <span>swe-solutions.com</span>
+            <span>&#8599;</span>
+          </a>
+        </div>
+
+        <!-- 7. Reuben Ayoub / TLC Rents -->
+        <div class="yearbook-card">
+          <div class="yb-media-row">
+            <div class="yb-headshots-group">
+              <div class="yb-headshot-slot" title="Reuben Ayoub Headshot Placeholder">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+                <span>Headshot</span>
+              </div>
+            </div>
+            <div class="yb-logo-slot" title="TLC Rents Logo Placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9.5" r="1.5"/><path d="M21 15l-5-5L5 20"/></svg>
+              <span>Company Logo</span>
+            </div>
+          </div>
+          <h3 class="yb-founder-name">Reuben Ayoub</h3>
+          <div class="yb-company-meta">TLC Rents <span>&bull; Atlanta, GA</span></div>
+          <p class="yb-desc">Full-service event and party rental company offering chairs, tables, linens, tents, china, A/V, catering, and staging equipment across Metro Atlanta and film productions.</p>
+          <a href="https://tlcrents.com" target="_blank" rel="noopener noreferrer" class="yb-footer-link">
+            <span>tlcrents.com</span>
+            <span>&#8599;</span>
+          </a>
+        </div>
+
+        <!-- 8. Al Bozorgi / Ellenor McIntosh / Twipes -->
+        <div class="yearbook-card">
+          <div class="yb-media-row">
+            <div class="yb-headshots-group">
+              <div class="yb-headshot-slot dual" title="Al Bozorgi Headshot Placeholder">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+                <span>Al</span>
+              </div>
+              <div class="yb-headshot-slot dual" title="Ellenor McIntosh Headshot Placeholder">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+                <span>Ellenor</span>
+              </div>
+            </div>
+            <div class="yb-logo-slot" title="Twipes Logo Placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9.5" r="1.5"/><path d="M21 15l-5-5L5 20"/></svg>
+              <span>Company Logo</span>
+            </div>
+          </div>
+          <h3 class="yb-founder-name">Al Bozorgi / Ellenor McIntosh</h3>
+          <div class="yb-company-meta">Twipes <span>&bull; Buffalo, NY</span></div>
+          <p class="yb-desc">Biotech manufacturing startup creating flushable, biodegradable, chemical-free personal wipe products that dissolve in water within 3 hours.</p>
+          <a href="https://twipes.com" target="_blank" rel="noopener noreferrer" class="yb-footer-link">
+            <span>twipes.com</span>
+            <span>&#8599;</span>
+          </a>
+        </div>
+
+        <!-- 9. Joslyn Tatum / USA Mobile Drug Testing -->
+        <div class="yearbook-card">
+          <div class="yb-media-row">
+            <div class="yb-headshots-group">
+              <div class="yb-headshot-slot" title="Joslyn Tatum Headshot Placeholder">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+                <span>Headshot</span>
+              </div>
+            </div>
+            <div class="yb-logo-slot" title="USA Mobile Drug Testing Logo Placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9.5" r="1.5"/><path d="M21 15l-5-5L5 20"/></svg>
+              <span>Company Logo</span>
+            </div>
+          </div>
+          <h3 class="yb-founder-name">Joslyn Tatum</h3>
+          <div class="yb-company-meta">USA Mobile Drug Testing <span>&bull; Plano, TX</span></div>
+          <p class="yb-desc">24/7 mobile drug, alcohol, and occupational health testing.</p>
+          <a href="https://usamdt.com/dallas" target="_blank" rel="noopener noreferrer" class="yb-footer-link">
+            <span>usamdt.com/dallas</span>
+            <span>&#8599;</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Event Coordinator Contact Bar -->
+      <div class="coordinator-box">
+        <div>
+          <h3>Event Coordinator Contact</h3>
+          <p><strong>David Resetar</strong> &bull; Program Coordinator – TX, Founders First</p>
+        </div>
+        <div class="coordinator-links">
+          <a href="mailto:dresetar@f1stcp.com">dresetar@f1stcp.com</a>
+          <a href="tel:5044086299">Mobile: (504) 408-6299</a>
+          <a href="tel:8583283054">Office: (858) 328-3054</a>
         </div>
       </div>
     </div>
@@ -1226,7 +1686,7 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-col">
-          <h4>Founders First Capital Partners, Inc.</h4>
+          <h4>Founders First</h4>
           <p>9920 Pacific Heights Blvd., Suite #105, San Diego, CA 92121 &bull; <a href="tel:8582644102">(858) 264-4102</a></p>
           <p style="margin-top: 10px; font-size: 0.85rem; color: #9e93ad;">Loans made or arranged pursuant to a California Financing Law license. License #60DBO-90427.</p>
           <p style="margin-top: 10px; font-size: 0.85rem; color: #9e93ad;">Privacy Notice: This informational event page does not use advertising cookies or collect personal data.</p>
@@ -1250,6 +1710,7 @@
             <li><a href="#overview">Locations &amp; Lodging</a></li>
             <li><a href="#schedule">Nov 19–20 Schedule</a></li>
             <li><a href="#judges">Judges &amp; Speakers</a></li>
+            <li><a href="#cohort">Cohort Yearbook</a></li>
             <li><a href="https://www.eventbrite.com/e/fastpath-2026-southern-california-fireside-chat-tickets-2002848458655" target="_blank" rel="noopener noreferrer">Fireside Chat Eventbrite</a></li>
             <li><a href="https://foundersfirstcapitalpartners.com/" target="_blank" rel="noopener noreferrer">Founders First Official Site</a></li>
           </ul>
@@ -1257,7 +1718,7 @@
       </div>
 
       <div class="footer-bottom">
-        <div>&copy; 2026 Founders First Capital Partners, Inc. All rights reserved.</div>
+        <div>&copy; 2026 Founders First. All rights reserved.</div>
         <div>Fall 2026 FastPath Pitch Event &bull; San Diego, CA</div>
       </div>
     </div>
