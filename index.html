@@ -1129,7 +1129,7 @@
       color: var(--gold-deep);
     }
 
-    /* Judge Password Modal */
+    /* Passcode Modal */
     .fp-modal-backdrop {
       display: none;
       position: fixed;
@@ -1630,7 +1630,7 @@
       <div class="judge-action-bar">
         <div>
           <h3>Judge Pitch Deck &amp; Scoring Access</h3>
-          <p>Company Summaries open immediately. Pitch Decks and the official Judge Scoring Form require passcodes provided to judges for the Friday, November 20 pitch session.</p>
+          <p>Company Summaries open immediately. Pitch Decks and the official Judge Scoring Form each require their separate passcodes for the Friday, November 20 pitch session.</p>
         </div>
         <button type="button" class="btn btn-gold" onclick="openJudgeForm()">Submit Judge Scores &#128274;</button>
       </div>
@@ -2461,10 +2461,10 @@
     </div>
   </footer>
 
-  <!-- Passcode Modal (Handles Both Pitch Decks & Judge Scoring Form) -->
+  <!-- Passcode Modal (Handles Both Pitch Decks & Judge Scoring Form Separately) -->
   <div id="deckModal" class="fp-modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="deckModalTitle">
     <div class="fp-modal">
-      <h3 id="deckModalTitle">Judge &amp; VIP Access</h3>
+      <h3 id="deckModalTitle">Access Verification</h3>
       <p id="deckModalSubtitle">Enter the passcode to continue.</p>
       <form id="deckPasswordForm">
         <input type="password" id="deckPasswordInput" placeholder="Enter passcode" autocomplete="off" required />
@@ -2477,7 +2477,7 @@
     </div>
   </div>
 
-  <!-- Interactive FAQ Accordion & Passcode Modal Scripts -->
+  <!-- Interactive FAQ Accordion & Dual-Passcode Modal Scripts -->
   <script>
     document.querySelectorAll('.faq-question').forEach(button => {
       button.addEventListener('click', () => {
@@ -2490,6 +2490,12 @@
       });
     });
 
+    // Clear any legacy sessionStorage keys so every page load starts locked
+    try {
+      sessionStorage.removeItem('fp_deck_unlocked');
+      sessionStorage.removeItem('fp_judge_form_unlocked');
+    } catch (e) {}
+
     const deckFiles = {
       EPINEC: 'EPINEC_ShieldForce_Obi_PitchDeck.pdf',
       GetSocial: 'GetSocial_Teja_PitchDeck.pdf',
@@ -2501,6 +2507,8 @@
       USAMDT: 'USAMDT_Joslyn_PitchDeck.pdf'
     };
 
+    let deckUnlocked = false;
+    let judgeFormUnlocked = false;
     let modalContext = null;
 
     function launchDeckFile(companyKey) {
@@ -2514,13 +2522,13 @@
     }
 
     function openDeck(companyKey) {
-      if (sessionStorage.getItem('fp_deck_unlocked') === 'true') {
+      if (deckUnlocked) {
         launchDeckFile(companyKey);
         return;
       }
       modalContext = { type: 'deck', key: companyKey };
-      document.getElementById('deckModalTitle').textContent = 'Judge & VIP Pitch Deck Access';
-      document.getElementById('deckModalSubtitle').textContent = 'Enter the event passcode to unlock and open cohort pitch decks.';
+      document.getElementById('deckModalTitle').textContent = 'Pitch Deck Access';
+      document.getElementById('deckModalSubtitle').textContent = 'Enter the pitch deck passcode to unlock cohort pitch decks.';
       document.getElementById('deckSubmitBtn').textContent = 'Unlock Deck';
       document.getElementById('deckPasswordInput').value = '';
       document.getElementById('deckModalError').textContent = '';
@@ -2529,7 +2537,7 @@
     }
 
     function openJudgeForm() {
-      if (sessionStorage.getItem('fp_judge_form_unlocked') === 'true') {
+      if (judgeFormUnlocked) {
         launchJudgeForm();
         return;
       }
@@ -2555,16 +2563,16 @@
 
       if (modalContext.type === 'deck') {
         if (entered === 'fastpath') {
-          sessionStorage.setItem('fp_deck_unlocked', 'true');
+          deckUnlocked = true;
           const targetKey = modalContext.key;
           closeDeckModal();
           launchDeckFile(targetKey);
         } else {
-          document.getElementById('deckModalError').textContent = 'Incorrect passcode. Please try again.';
+          document.getElementById('deckModalError').textContent = 'Incorrect pitch deck passcode. Please try again.';
         }
       } else if (modalContext.type === 'judge_form') {
         if (entered === 'judges') {
-          sessionStorage.setItem('fp_judge_form_unlocked', 'true');
+          judgeFormUnlocked = true;
           closeDeckModal();
           launchJudgeForm();
         } else {
