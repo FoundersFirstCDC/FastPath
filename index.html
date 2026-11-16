@@ -970,6 +970,59 @@
       flex-grow: 1;
     }
 
+    /* Cohort Document Action Buttons */
+    .yb-doc-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .yb-doc-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      padding: 9px 10px;
+      border-radius: 6px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 11.5px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-align: center;
+      border: 1px solid var(--navy);
+      line-height: 1.2;
+    }
+
+    .yb-doc-summary {
+      background: #ffffff;
+      color: var(--navy);
+    }
+
+    .yb-doc-summary:hover {
+      background: var(--surface-cool);
+    }
+
+    .yb-doc-deck {
+      background: var(--navy);
+      color: #ffffff;
+    }
+
+    .yb-doc-deck:hover {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: var(--navy);
+    }
+
+    .yb-doc-pending {
+      background: var(--surface-cool);
+      border-color: var(--border);
+      color: var(--ink-soft);
+      cursor: default;
+      opacity: 0.78;
+    }
+
     .yb-footer-link {
       padding-top: 12px;
       border-top: 1px solid var(--border);
@@ -984,6 +1037,76 @@
 
     .yb-footer-link:hover {
       color: var(--gold-deep);
+    }
+
+    /* Judge Password Modal */
+    .fp-modal-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(4, 24, 69, 0.78);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .fp-modal-backdrop.open {
+      display: flex;
+    }
+
+    .fp-modal {
+      background: #ffffff;
+      border-radius: 10px;
+      max-width: 420px;
+      width: 100%;
+      padding: 30px;
+      border-top: 5px solid var(--gold);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+    }
+
+    .fp-modal h3 {
+      font-size: 20px;
+      font-weight: 900;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+
+    .fp-modal p {
+      font-size: 14px;
+      color: var(--ink-body);
+      margin-bottom: 18px;
+    }
+
+    .fp-modal input {
+      width: 100%;
+      height: 46px;
+      padding: 0 14px;
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .fp-modal input:focus {
+      outline: 2px solid var(--navy);
+      border-color: var(--navy);
+    }
+
+    .fp-modal-error {
+      color: #b91c1c;
+      font-size: 12.5px;
+      font-weight: 700;
+      min-height: 18px;
+      margin-bottom: 12px;
+    }
+
+    .fp-modal-actions {
+      display: flex;
+      gap: 10px;
+      justify-content: flex-end;
     }
 
     /* Event Team & Coordinator Subsection */
@@ -1743,7 +1866,7 @@
       <div class="section-header">
         <span class="section-eyebrow">Cohort Directory</span>
         <h2>Fall 2026 FastPath Cohort Yearbook.</h2>
-        <p>Participating founders, companies, and event contact directory.</p>
+        <p>Participating founders, company summaries, judge-access pitch decks, and event contacts.</p>
       </div>
 
       <div class="yearbook-grid">
@@ -1762,6 +1885,10 @@
           <h3 class="yb-founder-name">Obi Ibeto</h3>
           <div class="yb-company-meta">EPINEC <span>&bull; Belmont, MA</span></div>
           <p class="yb-desc">Strategic consulting technology services, managed cybersecurity, cloud solutions, and IT manpower support services.</p>
+          <div class="yb-doc-actions">
+            <a href="https://foundersfirstcdc.github.io/FastPath/summaries/EPINEC_ShieldForce_Obi_CompanySummaryOverview.pdf" target="_blank" rel="noopener noreferrer" class="yb-doc-btn yb-doc-summary">Company Summary</a>
+            <button type="button" class="yb-doc-btn yb-doc-deck" onclick="openDeck('EPINEC')">Pitch Deck &#128274;</button>
+          </div>
           <a href="https://epinec.us" target="_blank" rel="noopener noreferrer" class="yb-footer-link">
             <span>epinec.us</span>
             <span>&#8594;</span>
@@ -1783,6 +1910,10 @@
           <h3 class="yb-founder-name">Teja Smith</h3>
           <div class="yb-company-meta">Get Social <span>&bull; Los Angeles, CA</span></div>
           <p class="yb-desc">Los Angeles-based digital strategy and social media agency helping mission-driven organizations build online communities.</p>
+          <div class="yb-doc-actions">
+            <a href="https://foundersfirstcdc.github.io/FastPath/summaries/GetSocial_Teja_CompanySummaryOverview.pdf" target="_blank" rel="noopener noreferrer" class="yb-doc-btn yb-doc-summary">Company Summary</a>
+            <button type="button" class="yb-doc-btn yb-doc-deck" onclick="openDeck('GetSocial')">Pitch Deck &#128274;</button>
+          </div>
           <a href="https://getsocialwithteja.com" target="_blank" rel="noopener noreferrer" class="yb-footer-link">
             <span>getsocialwithteja.com</span>
             <span>&#8594;</span>
@@ -1804,6 +1935,10 @@
           <h3 class="yb-founder-name">Gladys Vonglahn</h3>
           <div class="yb-company-meta">Gladys' Cleaning Service <span>&bull; Union, NJ</span></div>
           <p class="yb-desc">Commercial and residential cleaning service provider serving the Tri-State area (New Jersey, New York, and Pennsylvania) with personalized cleaning solutions.</p>
+          <div class="yb-doc-actions">
+            <a href="https://foundersfirstcdc.github.io/FastPath/summaries/GladysCleaning_Gladys_CompanySummaryOverview.pdf" target="_blank" rel="noopener noreferrer" class="yb-doc-btn yb-doc-summary">Company Summary</a>
+            <button type="button" class="yb-doc-btn yb-doc-deck" onclick="openDeck('GladysCleaning')">Pitch Deck &#128274;</button>
+          </div>
           <a href="https://gladyscleaningservice.com" target="_blank" rel="noopener noreferrer" class="yb-footer-link">
             <span>gladyscleaningservice.com</span>
             <span>&#8594;</span>
@@ -1825,6 +1960,10 @@
           <h3 class="yb-founder-name">Stephanie Benison</h3>
           <div class="yb-company-meta">Prosperity Property Services <span>&bull; Calumet Park / Riverdale, IL</span></div>
           <p class="yb-desc">Minority-owned property management and general contracting company specializing in property development, carpentry, landscaping, and cleaning.</p>
+          <div class="yb-doc-actions">
+            <a href="https://foundersfirstcdc.github.io/FastPath/summaries/ProsperityPropertyServices_StephanieB_CompanySummaryOverview.pdf" target="_blank" rel="noopener noreferrer" class="yb-doc-btn yb-doc-summary">Company Summary</a>
+            <button type="button" class="yb-doc-btn yb-doc-deck" onclick="openDeck('PPS')">Pitch Deck &#128274;</button>
+          </div>
           <a href="https://prosperitypropertyservices.com" target="_blank" rel="noopener noreferrer" class="yb-footer-link">
             <span>prosperitypropertyservices.com</span>
             <span>&#8594;</span>
@@ -1846,6 +1985,10 @@
           <h3 class="yb-founder-name">Elin Barton</h3>
           <div class="yb-company-meta">Riveo Creative <span>&bull; Vestal, NY</span></div>
           <p class="yb-desc">Strategic video storytelling, marketing planning, branding, content creation, motion graphics, and commercial production agency.</p>
+          <div class="yb-doc-actions">
+            <a href="https://foundersfirstcdc.github.io/FastPath/summaries/Riveo_Elin_CompanySummaryOverview.pdf" target="_blank" rel="noopener noreferrer" class="yb-doc-btn yb-doc-summary">Company Summary</a>
+            <button type="button" class="yb-doc-btn yb-doc-deck" onclick="openDeck('Riveo')">Pitch Deck &#128274;</button>
+          </div>
           <a href="https://riveocreative.com" target="_blank" rel="noopener noreferrer" class="yb-footer-link">
             <span>riveocreative.com</span>
             <span>&#8594;</span>
@@ -1867,6 +2010,10 @@
           <h3 class="yb-founder-name">Stephanie Wong</h3>
           <div class="yb-company-meta">SWE Solutions <span>&bull; Naperville, IL</span></div>
           <p class="yb-desc">Civil engineering company offering Real-Time Kinematic (RTK) drone imagery, 3D modeling, 4D visualization, construction inspection, and Phase II roadway design services prequalified by IDOT.</p>
+          <div class="yb-doc-actions">
+            <a href="https://foundersfirstcdc.github.io/FastPath/summaries/SWE_StephanieW_CompanySummaryOverview.pdf" target="_blank" rel="noopener noreferrer" class="yb-doc-btn yb-doc-summary">Company Summary</a>
+            <button type="button" class="yb-doc-btn yb-doc-deck" onclick="openDeck('SWE')">Pitch Deck &#128274;</button>
+          </div>
           <a href="https://swe-solutions.com" target="_blank" rel="noopener noreferrer" class="yb-footer-link">
             <span>swe-solutions.com</span>
             <span>&#8594;</span>
@@ -1888,6 +2035,10 @@
           <h3 class="yb-founder-name">Reuben Ayoub</h3>
           <div class="yb-company-meta">TLC Rents <span>&bull; Atlanta, GA</span></div>
           <p class="yb-desc">Full-service event and party rental company offering chairs, tables, linens, tents, china, A/V, catering, and staging equipment across Metro Atlanta and film productions.</p>
+          <div class="yb-doc-actions">
+            <a href="https://foundersfirstcdc.github.io/FastPath/summaries/TLC_Reuben_CompanySummaryOverview.pdf" target="_blank" rel="noopener noreferrer" class="yb-doc-btn yb-doc-summary">Company Summary</a>
+            <button type="button" class="yb-doc-btn yb-doc-deck" onclick="openDeck('TLC')">Pitch Deck &#128274;</button>
+          </div>
           <a href="https://tlcrents.com" target="_blank" rel="noopener noreferrer" class="yb-footer-link">
             <span>tlcrents.com</span>
             <span>&#8594;</span>
@@ -1909,6 +2060,10 @@
           <h3 class="yb-founder-name">Al Bozorgi / Ellenor McIntosh</h3>
           <div class="yb-company-meta">Twipes <span>&bull; Buffalo, NY</span></div>
           <p class="yb-desc">Biotech manufacturing startup creating flushable, biodegradable, chemical-free personal wipe products that dissolve in water within 3 hours.</p>
+          <div class="yb-doc-actions">
+            <span class="yb-doc-btn yb-doc-pending">Summary Pending</span>
+            <span class="yb-doc-btn yb-doc-pending">Deck Pending</span>
+          </div>
           <a href="https://twipes.com" target="_blank" rel="noopener noreferrer" class="yb-footer-link">
             <span>twipes.com</span>
             <span>&#8594;</span>
@@ -1930,6 +2085,10 @@
           <h3 class="yb-founder-name">Joslyn Tatum</h3>
           <div class="yb-company-meta">USA Mobile Drug Testing <span>&bull; Plano, TX</span></div>
           <p class="yb-desc">24/7 mobile drug, alcohol, and occupational health testing.</p>
+          <div class="yb-doc-actions">
+            <a href="https://foundersfirstcdc.github.io/FastPath/summaries/USAMDT_Joslyn_CompanySummaryOverview.pdf" target="_blank" rel="noopener noreferrer" class="yb-doc-btn yb-doc-summary">Company Summary</a>
+            <button type="button" class="yb-doc-btn yb-doc-deck" onclick="openDeck('USAMDT')">Pitch Deck &#128274;</button>
+          </div>
           <a href="https://usamdt.com/dallas" target="_blank" rel="noopener noreferrer" class="yb-footer-link">
             <span>usamdt.com/dallas</span>
             <span>&#8594;</span>
@@ -1983,8 +2142,11 @@
           <details class="person-bio">
             <summary>Read Bio</summary>
             <div class="person-bio-text">
-              <p>Dr. Jay Fulgencio is a Chicago-based Program Development Manager at Founders First CDC (having previously held program roles at Founders First), where he focuses on program design, curriculum delivery, and founder education.</p>
+              <p>Dr. Jay Fulgencio is a Chicago-based Program Development Manager at Founders First CDC (having previously held program roles at Founders First), where he focuses on program design, curriculum delivery, and founder education. He brings experience as an entrepreneurship educator, instructional designer, and business owner.</p>
               <p><strong>Program Development:</strong> Manages program operations and supports digital learning and acceleration initiatives, including Passport Premium and FastPath. Facilitates cohort onboarding and leads member success resource sessions.</p>
+              <p><strong>Business &amp; Consulting:</strong> Founder and President of Learngenix, an e-learning platform and authorized reseller for MindEdge and Cypher Learning. Consults U.S. and international companies and entrepreneurs.</p>
+              <p><strong>Academia &amp; Governance:</strong> Teaches at Roosevelt University using Open Educational Resources (OER). Serves as an Elected Member of the Illinois Education Association (IEA) Higher Educational Council, Treasurer of IEA Region 67, and a member of the Roosevelt Adjunct Faculty Association.</p>
+              <p><strong>Education &amp; Credentials:</strong> Holds a Ph.D. and M.S. from Oklahoma State University and a B.A. from Northeastern Illinois University. Certified Financial Education Instructor (NFEC), Certified Practitioner of the Entrepreneurial Mindset Profile (Eckerd College), Master Online Leader and Administrator (UIS), Digital Teaching and Learning Certified Expert (Blackboard Academy), and Moodle Certified Educator.</p>
               <p><strong>Honors &amp; Publications:</strong> Named a Negocios Now &ldquo;40 Under 40&rdquo; honoree and a USASBE Teaching and Learning Scholar. Author of personal finance and startup eBooks (with SALT) and writer for Millennial Magazine, Mic, and H&amp;R Block Blog Talk.</p>
             </div>
           </details>
@@ -2129,7 +2291,23 @@
     </div>
   </footer>
 
-  <!-- Interactive FAQ Accordion Script -->
+  <!-- Pitch Deck Password Modal -->
+  <div id="deckModal" class="fp-modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="deckModalTitle">
+    <div class="fp-modal">
+      <h3 id="deckModalTitle">Judge &amp; VIP Pitch Deck Access</h3>
+      <p id="deckModalSubtitle">Enter the event passcode to unlock and download cohort pitch decks.</p>
+      <form id="deckPasswordForm">
+        <input type="password" id="deckPasswordInput" placeholder="Enter passcode" autocomplete="off" required />
+        <div id="deckModalError" class="fp-modal-error"></div>
+        <div class="fp-modal-actions">
+          <button type="button" class="btn btn-outline-navy" onclick="closeDeckModal()">Cancel</button>
+          <button type="submit" class="btn btn-gold">Unlock Deck</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Interactive FAQ Accordion & Pitch Deck Modal Scripts -->
   <script>
     document.querySelectorAll('.faq-question').forEach(button => {
       button.addEventListener('click', () => {
@@ -2140,6 +2318,59 @@
           item.classList.add('active');
         }
       });
+    });
+
+    const deckFiles = {
+      EPINEC: 'EPINEC_ShieldForce_Obi_PitchDeck.pdf',
+      GetSocial: 'GetSocial_Teja_PitchDeck.pdf',
+      GladysCleaning: 'GladysCleaning_Gladys_PitchDeck.pdf',
+      PPS: 'ProsperityPropertyServices_StephanieB_PitchDeck.pdf',
+      Riveo: 'Riveo_Elin_PitchDeck.pdf',
+      SWE: 'SWE_StephanieW_PitchDeck.pdf',
+      TLC: 'TLC_Reuben_PitchDeck.pdf',
+      USAMDT: 'USAMDT_Joslyn_PitchDeck.pdf'
+    };
+
+    let selectedCompany = null;
+
+    function launchDeckFile(companyKey) {
+      const file = deckFiles[companyKey];
+      if (!file) return;
+      window.open('https://foundersfirstcdc.github.io/FastPath/decks-fp26/' + file, '_blank', 'noopener,noreferrer');
+    }
+
+    function openDeck(companyKey) {
+      if (sessionStorage.getItem('fp_deck_unlocked') === 'true') {
+        launchDeckFile(companyKey);
+        return;
+      }
+      selectedCompany = companyKey;
+      document.getElementById('deckPasswordInput').value = '';
+      document.getElementById('deckModalError').textContent = '';
+      document.getElementById('deckModal').classList.add('open');
+      setTimeout(() => document.getElementById('deckPasswordInput').focus(), 50);
+    }
+
+    function closeDeckModal() {
+      document.getElementById('deckModal').classList.remove('open');
+      selectedCompany = null;
+    }
+
+    document.getElementById('deckPasswordForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const entered = document.getElementById('deckPasswordInput').value.trim().toLowerCase();
+      if (entered === 'fastpath') {
+        sessionStorage.setItem('fp_deck_unlocked', 'true');
+        const target = selectedCompany;
+        closeDeckModal();
+        launchDeckFile(target);
+      } else {
+        document.getElementById('deckModalError').textContent = 'Incorrect passcode. Please try again.';
+      }
+    });
+
+    document.getElementById('deckModal').addEventListener('click', function(e) {
+      if (e.target === this) closeDeckModal();
     });
   </script>
 
