@@ -292,6 +292,7 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      gap: 6px;
       min-height: 46px;
       padding: 0 22px;
       border-radius: 7px;
@@ -1572,7 +1573,7 @@
     <nav class="mobile-subnav" aria-label="Mobile Quick Navigation">
       <div class="mobile-subnav-inner">
         <a href="#cohort" class="mobile-pill-gold">Summaries &amp; Decks</a>
-        <a href="https://foundersfirstcapitalpartners.formstack.com/forms/fastpath_judge_form_ffcdc" target="_blank" rel="noopener noreferrer" class="mobile-pill-gold">Judge Scoring Form</a>
+        <a href="#judge-scoring" onclick="event.preventDefault(); openJudgeForm();" class="mobile-pill-gold">Submit Judge Scores &#128274;</a>
         <a href="#schedule">Schedule</a>
         <a href="#overview">Venues</a>
         <a href="#judges">Judges</a>
@@ -1590,7 +1591,7 @@
         <p>Official schedule, venue details, company summaries, pitch decks, and judge scoring form for the November 19–20, 2026 cohort pitch competition at Cooley LLP.</p>
         <div class="hero-actions">
           <a href="#cohort" class="btn btn-gold">Company Summaries &amp; Pitch Decks</a>
-          <a href="https://foundersfirstcapitalpartners.formstack.com/forms/fastpath_judge_form_ffcdc" target="_blank" rel="noopener noreferrer" class="btn btn-gold">Submit Judge Scores &#8599;</a>
+          <button type="button" class="btn btn-gold" onclick="openJudgeForm()">Submit Judge Scores &#128274;</button>
           <a href="https://foundersfirstcdc.github.io/FastPath/SanDiego_FastPath-Pitch_Event-Guide_Nov19-20.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-outline-white">Event Guide (PDF)</a>
           <a href="#schedule" class="btn btn-outline-white">Schedule</a>
         </div>
@@ -1622,16 +1623,16 @@
       <div class="section-header">
         <span class="section-eyebrow">Cohort Pitch Materials</span>
         <h2>Company summaries &amp; pitch decks.</h2>
-        <p>Select any company below to open its Company Summary Overview or unlock its Pitch Deck. Judges submit official evaluations using the Judge Scoring Form.</p>
+        <p>Select any company below to open its Company Summary Overview or unlock its Pitch Deck. Judges submit official evaluations using the password-protected Judge Scoring Form.</p>
       </div>
 
       <!-- Judge & VIP Action Bar -->
       <div class="judge-action-bar">
         <div>
           <h3>Judge Pitch Deck &amp; Scoring Access</h3>
-          <p>Company Summaries open immediately. Pitch Decks require the event passcode. Judges submit scores during the Friday, November 20 pitch session via the form link.</p>
+          <p>Company Summaries open immediately. Pitch Decks and the official Judge Scoring Form require passcodes provided to judges for the Friday, November 20 pitch session.</p>
         </div>
-        <a href="https://foundersfirstcapitalpartners.formstack.com/forms/fastpath_judge_form_ffcdc" target="_blank" rel="noopener noreferrer" class="btn btn-gold">Open Judge Scoring Form &#8599;</a>
+        <button type="button" class="btn btn-gold" onclick="openJudgeForm()">Submit Judge Scores &#128274;</button>
       </div>
 
       <div class="yearbook-grid">
@@ -2443,7 +2444,7 @@
           <h4>Quick Links</h4>
           <ul>
             <li><a href="#cohort">Company Summaries &amp; Pitch Decks</a></li>
-            <li><a href="https://foundersfirstcapitalpartners.formstack.com/forms/fastpath_judge_form_ffcdc" target="_blank" rel="noopener noreferrer">Judge Scoring Form</a></li>
+            <li><a href="#judge-scoring" onclick="event.preventDefault(); openJudgeForm();">Submit Judge Scores &#128274;</a></li>
             <li><a href="https://foundersfirstcdc.github.io/FastPath/SanDiego_FastPath-Pitch_Event-Guide_Nov19-20.pdf" target="_blank" rel="noopener noreferrer">Official Event Guide (PDF)</a></li>
             <li><a href="#schedule">Nov 19–20 Schedule</a></li>
             <li><a href="#overview">Locations &amp; Lodging</a></li>
@@ -2460,23 +2461,23 @@
     </div>
   </footer>
 
-  <!-- Pitch Deck Password Modal -->
+  <!-- Passcode Modal (Handles Both Pitch Decks & Judge Scoring Form) -->
   <div id="deckModal" class="fp-modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="deckModalTitle">
     <div class="fp-modal">
-      <h3 id="deckModalTitle">Judge &amp; VIP Pitch Deck Access</h3>
-      <p id="deckModalSubtitle">Enter the event passcode to unlock and open cohort pitch decks.</p>
+      <h3 id="deckModalTitle">Judge &amp; VIP Access</h3>
+      <p id="deckModalSubtitle">Enter the passcode to continue.</p>
       <form id="deckPasswordForm">
         <input type="password" id="deckPasswordInput" placeholder="Enter passcode" autocomplete="off" required />
         <div id="deckModalError" class="fp-modal-error"></div>
         <div class="fp-modal-actions">
           <button type="button" class="btn btn-outline-navy" onclick="closeDeckModal()">Cancel</button>
-          <button type="submit" class="btn btn-gold">Unlock Deck</button>
+          <button type="submit" id="deckSubmitBtn" class="btn btn-gold">Unlock</button>
         </div>
       </form>
     </div>
   </div>
 
-  <!-- Interactive FAQ Accordion & Pitch Deck Modal Scripts -->
+  <!-- Interactive FAQ Accordion & Passcode Modal Scripts -->
   <script>
     document.querySelectorAll('.faq-question').forEach(button => {
       button.addEventListener('click', () => {
@@ -2500,7 +2501,7 @@
       USAMDT: 'USAMDT_Joslyn_PitchDeck.pdf'
     };
 
-    let selectedCompany = null;
+    let modalContext = null;
 
     function launchDeckFile(companyKey) {
       const file = deckFiles[companyKey];
@@ -2508,12 +2509,34 @@
       window.open('https://foundersfirstcdc.github.io/FastPath/decks-fp26/' + file, '_blank', 'noopener,noreferrer');
     }
 
+    function launchJudgeForm() {
+      window.open('https://foundersfirstcapitalpartners.formstack.com/forms/fastpath_judge_form_ffcdc', '_blank', 'noopener,noreferrer');
+    }
+
     function openDeck(companyKey) {
       if (sessionStorage.getItem('fp_deck_unlocked') === 'true') {
         launchDeckFile(companyKey);
         return;
       }
-      selectedCompany = companyKey;
+      modalContext = { type: 'deck', key: companyKey };
+      document.getElementById('deckModalTitle').textContent = 'Judge & VIP Pitch Deck Access';
+      document.getElementById('deckModalSubtitle').textContent = 'Enter the event passcode to unlock and open cohort pitch decks.';
+      document.getElementById('deckSubmitBtn').textContent = 'Unlock Deck';
+      document.getElementById('deckPasswordInput').value = '';
+      document.getElementById('deckModalError').textContent = '';
+      document.getElementById('deckModal').classList.add('open');
+      setTimeout(() => document.getElementById('deckPasswordInput').focus(), 50);
+    }
+
+    function openJudgeForm() {
+      if (sessionStorage.getItem('fp_judge_form_unlocked') === 'true') {
+        launchJudgeForm();
+        return;
+      }
+      modalContext = { type: 'judge_form' };
+      document.getElementById('deckModalTitle').textContent = 'Official Judge Scoring Form';
+      document.getElementById('deckModalSubtitle').textContent = 'Enter the judge passcode to open the official scoring form.';
+      document.getElementById('deckSubmitBtn').textContent = 'Unlock Scoring Form';
       document.getElementById('deckPasswordInput').value = '';
       document.getElementById('deckModalError').textContent = '';
       document.getElementById('deckModal').classList.add('open');
@@ -2522,24 +2545,42 @@
 
     function closeDeckModal() {
       document.getElementById('deckModal').classList.remove('open');
-      selectedCompany = null;
+      modalContext = null;
     }
 
     document.getElementById('deckPasswordForm').addEventListener('submit', function(e) {
       e.preventDefault();
+      if (!modalContext) return;
       const entered = document.getElementById('deckPasswordInput').value.trim().toLowerCase();
-      if (entered === 'fastpath') {
-        sessionStorage.setItem('fp_deck_unlocked', 'true');
-        const target = selectedCompany;
-        closeDeckModal();
-        launchDeckFile(target);
-      } else {
-        document.getElementById('deckModalError').textContent = 'Incorrect passcode. Please try again.';
+
+      if (modalContext.type === 'deck') {
+        if (entered === 'fastpath') {
+          sessionStorage.setItem('fp_deck_unlocked', 'true');
+          const targetKey = modalContext.key;
+          closeDeckModal();
+          launchDeckFile(targetKey);
+        } else {
+          document.getElementById('deckModalError').textContent = 'Incorrect passcode. Please try again.';
+        }
+      } else if (modalContext.type === 'judge_form') {
+        if (entered === 'judges') {
+          sessionStorage.setItem('fp_judge_form_unlocked', 'true');
+          closeDeckModal();
+          launchJudgeForm();
+        } else {
+          document.getElementById('deckModalError').textContent = 'Incorrect judge passcode. Please try again.';
+        }
       }
     });
 
     document.getElementById('deckModal').addEventListener('click', function(e) {
       if (e.target === this) closeDeckModal();
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && document.getElementById('deckModal').classList.contains('open')) {
+        closeDeckModal();
+      }
     });
   </script>
 
