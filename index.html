@@ -713,7 +713,7 @@
       flex-shrink: 0;
     }
 
-    /* 3D Flip Cards Grid */
+    /* Cards Grid (Cohort & People) */
     .cards-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -721,73 +721,25 @@
       align-items: start;
     }
 
-    .flip-slot {
-      perspective: 1200px;
-      perspective-origin: 50% 50%;
-      min-width: 0;
-      height: 455px;
-    }
-
-    .flip-card {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      transition: transform 0.3s ease;
-    }
-
-    .flip-slot:hover .flip-card:not(.is-flipped) {
-      transform: translateY(-4px);
-    }
-
-    .flip-inner {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      transform-style: preserve-3d;
-      transform-origin: 50% 50%;
-      will-change: transform;
-      transition: transform 0.65s cubic-bezier(0.45, 0.05, 0.2, 1);
-    }
-
-    .flip-card.is-flipped .flip-inner {
-      transform: rotateY(180deg);
-    }
-
-    .flip-face {
-      position: absolute;
-      inset: 0;
-      border-radius: var(--radius);
+    .cohort-card,
+    .person-card {
       background: #ffffff;
       border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
       box-shadow: var(--shadow);
-      padding: 22px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      backface-visibility: hidden;
-      -webkit-backface-visibility: hidden;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+      position: relative;
       overflow: hidden;
     }
 
-    .flip-face.front {
-      visibility: visible;
-      transition: visibility 0s linear 0.325s;
-      cursor: pointer;
-    }
-
-    .flip-card.is-flipped .flip-face.front {
-      visibility: hidden;
-    }
-
-    .flip-face.back {
-      transform: rotateY(180deg);
-      visibility: hidden;
-      transition: visibility 0s linear 0.325s;
-      border-top: 4px solid var(--gold);
-    }
-
-    .flip-card.is-flipped .flip-face.back {
-      visibility: visible;
+    .cohort-card:hover,
+    .person-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--navy);
     }
 
     /* Card Back Overlay for Riffle Shuffle Animation */
@@ -830,7 +782,7 @@
       opacity: 1;
     }
 
-    .cards-grid.is-shuffling .flip-card {
+    .cards-grid.is-shuffling .cohort-card {
       animation: riffle 0.68s ease-in-out;
     }
 
@@ -841,101 +793,38 @@
       100% { transform: none; }
     }
 
-    /* Gradient Fade-Out on Truncated Bios */
-    .bio-fade-preview {
-      position: relative;
-      font-size: 13px;
-      line-height: 1.52;
-      color: var(--ink-body);
-      max-height: 82px;
-      overflow: hidden;
-      margin-bottom: 10px;
-      mask-image: linear-gradient(#000 calc(100% - 28px), transparent);
-      -webkit-mask-image: linear-gradient(#000 calc(100% - 28px), transparent);
-    }
-
-    .flip-trigger-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: rgba(6, 36, 100, 0.06);
-      border: 1px solid rgba(6, 36, 100, 0.15);
-      color: var(--navy);
-      font-family: 'Poppins', sans-serif;
-      font-size: 11.5px;
+    .cohort-card h3,
+    .person-card h3 {
+      font-size: 1.15rem;
       font-weight: 800;
-      padding: 6px 12px;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      position: relative;
+      color: var(--navy);
+      line-height: 1.3;
+      margin-bottom: 4px;
     }
 
-    .flip-trigger-btn::after {
-      content: "";
-      position: absolute;
-      inset: -6px -4px;
+    .cohort-founders {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--gold-warm);
+      margin-bottom: 10px;
     }
 
-    .flip-trigger-btn:hover {
-      background: var(--navy);
-      color: #ffffff;
+    .cohort-founders span {
+      color: var(--ink-soft);
+      font-weight: 500;
     }
 
-    .flip-back-header {
+    .cohort-actions {
       display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 10px;
-      padding-bottom: 8px;
-      border-bottom: 1px solid var(--border);
-      margin-bottom: 8px;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
     }
 
-    .flip-back-title {
-      font-family: 'Poppins', sans-serif;
-      font-size: 15.5px;
-      font-weight: 800;
-      color: var(--navy);
-      line-height: 1.25;
-    }
-
-    .flip-close-btn {
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      border: 1px solid var(--border);
-      background: var(--surface-cool);
-      color: var(--navy);
-      font-size: 16px;
-      font-weight: 800;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      flex-shrink: 0;
-      position: relative;
-    }
-
-    .flip-close-btn::after {
-      content: "";
-      position: absolute;
-      inset: -6px;
-    }
-
-    .flip-close-btn:hover {
-      background: var(--gold);
-      border-color: var(--gold);
-    }
-
-    .flip-back-bio {
-      flex: 1 1 auto;
-      overflow-y: auto;
-      font-size: 12.5px;
-      line-height: 1.5;
-      color: var(--ink-body);
-      padding-right: 4px;
-      margin-bottom: 10px;
+    .cohort-actions .btn {
+      width: 100%;
     }
 
     .cohort-actions-compact {
@@ -954,54 +843,15 @@
       grid-column: 1 / -1;
     }
 
-    /* Person Card (Speakers, Judges, Staff) */
-    .person-card {
-      background: #ffffff;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 24px;
-      box-shadow: var(--shadow);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      transition: transform 0.2s ease, border-color 0.2s ease;
-    }
-
-    .person-card:hover {
-      transform: translateY(-2px);
-      border-color: var(--navy);
-    }
-
-    .cohort-card-title,
-    .person-card h3 {
-      font-size: 1.15rem;
-      font-weight: 800;
-      color: var(--navy);
-      line-height: 1.3;
-      margin-bottom: 4px;
-    }
-
-    .cohort-founders {
-      font-size: 13px;
-      font-weight: 700;
-      color: var(--gold-warm);
-      margin-bottom: 10px;
-    }
-
-    .cohort-founders span {
-      color: var(--ink-soft);
-      font-weight: 500;
-    }
-
     .yb-footer-link {
-      margin-top: 10px;
-      padding-top: 10px;
+      margin-top: 14px;
+      padding-top: 12px;
       border-top: 1px solid var(--border);
       display: flex;
       align-items: center;
       justify-content: space-between;
       font-family: 'Poppins', sans-serif;
-      font-size: 12.5px;
+      font-size: 13px;
       font-weight: 800;
       color: var(--navy);
       position: relative;
@@ -1023,12 +873,12 @@
       align-items: center;
       justify-content: space-between;
       gap: 12px;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
     }
 
     .yb-headshot-slot {
-      width: 72px;
-      height: 72px;
+      width: 76px;
+      height: 76px;
       border-radius: 50%;
       background: var(--surface-cool);
       border: 2px solid var(--border);
@@ -1052,8 +902,8 @@
     }
 
     .yb-logo-slot {
-      height: 42px;
-      max-width: 126px;
+      height: 44px;
+      max-width: 130px;
       padding: 4px 8px;
       border-radius: 6px;
       background: #ffffff;
@@ -1069,8 +919,8 @@
     }
 
     .yb-logo-slot img {
-      max-height: 30px;
-      max-width: 108px;
+      max-height: 32px;
+      max-width: 112px;
       width: auto;
       object-fit: contain;
       display: block;
@@ -1088,7 +938,7 @@
       letter-spacing: 0.5px;
       padding: 3px 9px;
       border-radius: 5px;
-      margin-bottom: 6px;
+      margin-bottom: 8px;
     }
 
     .person-role.is-winner {
@@ -1130,7 +980,7 @@
       text-decoration: underline;
     }
 
-    /* Expandable Bio (<details>) */
+    /* Expandable Bio (<details> with + / − Mark) */
     details.person-bio {
       margin-top: 8px;
     }
@@ -1766,10 +1616,6 @@
         grid-template-columns: 1fr;
       }
 
-      .flip-slot {
-        height: 445px;
-      }
-
       .map-card {
         padding: 16px;
       }
@@ -1781,8 +1627,7 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .flip-inner,
-      .flip-card,
+      .cohort-card,
       .modal-box,
       .fp-toast {
         transition: none !important;
@@ -1799,6 +1644,7 @@
       header.site-header,
       .mobile-subnav,
       .cohort-toolbar,
+      .deck-back-cover,
       .modal-backdrop,
       .pitch-reel-backdrop,
       .fp-toast {
@@ -1818,37 +1664,11 @@
       }
 
       .award-card,
-      .flip-slot,
+      .cohort-card,
       .person-card,
       .map-card {
         break-inside: avoid;
-      }
-
-      .flip-slot {
-        height: auto;
-      }
-
-      .flip-inner {
-        transform: none !important;
-      }
-
-      .flip-face {
-        position: relative;
-        inset: auto;
-        transform: none !important;
-        visibility: visible !important;
         box-shadow: none;
-      }
-
-      .flip-face.back,
-      .deck-back-cover {
-        display: none !important;
-      }
-
-      .bio-fade-preview {
-        max-height: none;
-        mask-image: none;
-        -webkit-mask-image: none;
       }
     }
   </style>
@@ -2012,13 +1832,12 @@
     </div>
   </section>
 
-  <!-- Cohort Participants (3D Flip Cards + Filter Tabs + Shuffle Deck) -->
+  <!-- Cohort Participants -->
   <section id="cohort" class="page-section">
     <div class="container">
       <div class="section-header">
         <div class="section-eyebrow">Graduating Companies</div>
         <h2 class="section-title">Fall 2026 Cohort Participants</h2>
-        <p class="section-subtitle">Click any card to flip it over for the full company bio, summary, downloadable photos, and password-protected pitch materials.</p>
       </div>
 
       <!-- Filter Tabs with Mobile Edge Fade & Shuffle Deck Button -->
@@ -2815,12 +2634,6 @@
       }, 360);
     }
 
-    function toggleFlipCard(companyId) {
-      const card = document.getElementById(`flip-card-${companyId}`);
-      if (!card) return;
-      card.classList.toggle('is-flipped');
-    }
-
     function renderCohort() {
       const grid = document.getElementById('cohort-grid');
       let list = displayedParticipants;
@@ -2844,70 +2657,48 @@
         const isUnlocked = unlockedEmails.has(p.email.toLowerCase());
         const lockIcon = isUnlocked ? '&#128275;' : '&#128274;';
 
-        let backButtons = `
-          <a href="${p.summaryLink}" target="_blank" rel="noopener noreferrer" class="btn btn-outline-navy btn-sm" onclick="event.stopPropagation()">Company Summary</a>
-          <a href="${p.photosLink}" target="_blank" rel="noopener noreferrer" class="btn btn-outline-navy btn-sm" onclick="event.stopPropagation()">Download Photos</a>
+        let actionButtons = `
+          <a href="${p.summaryLink}" target="_blank" rel="noopener noreferrer" class="btn btn-outline-navy btn-sm">Company Summary</a>
+          <a href="${p.photosLink}" target="_blank" rel="noopener noreferrer" class="btn btn-outline-navy btn-sm">Download Photos</a>
         `;
 
         if (p.hasPitch) {
-          backButtons += `
-            <button type="button" onclick="event.stopPropagation(); requestPitchReel('${p.id}')" class="btn btn-soft-navy btn-sm">${lockIcon} Watch Pitch</button>
-            <button type="button" onclick="event.stopPropagation(); requestAccess('${p.email}', '${p.deckLink}')" class="btn btn-soft-navy btn-sm">${lockIcon} Final Pitch Deck</button>
-            <button type="button" onclick="event.stopPropagation(); requestAccess('${p.email}', '${p.feedbackLink}')" class="btn btn-navy btn-sm btn-full">${lockIcon} Judge Scores and Feedback</button>
+          actionButtons += `
+            <button type="button" onclick="requestPitchReel('${p.id}')" class="btn btn-soft-navy btn-sm">${lockIcon} Watch Pitch</button>
+            <button type="button" onclick="requestAccess('${p.email}', '${p.deckLink}')" class="btn btn-soft-navy btn-sm">${lockIcon} Final Pitch Deck</button>
+            <button type="button" onclick="requestAccess('${p.email}', '${p.feedbackLink}')" class="btn btn-navy btn-sm">${lockIcon} Judge Scores and Feedback</button>
           `;
         }
 
         html += `
-          <div class="flip-slot" id="flip-slot-${p.id}">
-            <div class="flip-card" id="flip-card-${p.id}">
-              <div class="deck-back-cover" aria-hidden="true">
-                <img src="https://fastpath.foundersfirstcdc.org/ffcdclogo01.jpg" alt="" />
-                <span>Founders First CDC</span>
-              </div>
+          <div class="cohort-card" id="cohort-card-${p.id}">
+            <div class="deck-back-cover" aria-hidden="true">
+              <img src="https://fastpath.foundersfirstcdc.org/ffcdclogo01.jpg" alt="" />
+              <span>Founders First CDC</span>
+            </div>
 
-              <div class="flip-inner">
-                <!-- Front Face -->
-                <div class="flip-face front" onclick="toggleFlipCard('${p.id}')">
-                  <div>
-                    <div class="yb-media-row">
-                      <div class="yb-headshot-slot">${headshotHtml}</div>
-                      <div class="yb-logo-slot">${logoHtml}</div>
-                    </div>
-                    <span class="person-role ${p.isWinner ? 'is-winner' : ''}">${p.awardBadge}</span>
-                    <h3 class="cohort-card-title">${p.company}</h3>
-                    <div class="cohort-founders">${p.names} <span>&bull; ${p.location}</span></div>
-                    <div class="bio-fade-preview">${p.bio}</div>
-                  </div>
-                  <div>
-                    <button type="button" class="flip-trigger-btn" onclick="event.stopPropagation(); toggleFlipCard('${p.id}')">&#8635; Flip for Bio and Materials</button>
-                    <a href="${p.websiteUrl}" target="_blank" rel="noopener noreferrer" class="yb-footer-link" onclick="event.stopPropagation()">
-                      <span>${p.websiteLabel}</span>
-                      <span>&#8594;</span>
-                    </a>
-                  </div>
-                </div>
-
-                <!-- Back Face -->
-                <div class="flip-face back">
-                  <div class="flip-back-header">
-                    <div>
-                      <div class="flip-back-title">${p.company}</div>
-                      <div style="font-size: 12px; font-weight: 600; color: var(--ink-soft);">${p.names}</div>
-                    </div>
-                    <button type="button" class="flip-close-btn" onclick="toggleFlipCard('${p.id}')" aria-label="Flip card back">&#8635;</button>
-                  </div>
-                  <div class="flip-back-bio">${p.bio}</div>
-                  <div>
-                    <div class="cohort-actions-compact">
-                      ${backButtons}
-                    </div>
-                    <a href="${p.websiteUrl}" target="_blank" rel="noopener noreferrer" class="yb-footer-link">
-                      <span>${p.websiteLabel}</span>
-                      <span>&#8594;</span>
-                    </a>
-                  </div>
-                </div>
+            <div>
+              <div class="yb-media-row">
+                <div class="yb-headshot-slot">${headshotHtml}</div>
+                <div class="yb-logo-slot">${logoHtml}</div>
               </div>
+              <span class="person-role ${p.isWinner ? 'is-winner' : ''}">${p.awardBadge}</span>
+              <h3>${p.company}</h3>
+              <div class="cohort-founders">${p.names} <span>&bull; ${p.location}</span></div>
+              <details class="person-bio">
+                <summary>Read Bio</summary>
+                <div class="person-bio-text"><p>${p.bio}</p></div>
+              </details>
+            </div>
+
+            <div>
+              <div class="cohort-actions">
+                ${actionButtons}
+              </div>
+              <a href="${p.websiteUrl}" target="_blank" rel="noopener noreferrer" class="yb-footer-link">
+                <span>${p.websiteLabel}</span>
+                <span>&#8594;</span>
+              </a>
             </div>
           </div>
         `;
