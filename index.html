@@ -1,300 +1,1440 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>San Diego FastPath Pitch Event Recap</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        .modal-active { overflow: hidden; }
-        .expandable-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; }
-        .expanded { max-height: 500px; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fall 2026 FastPath Pitch Event Recap | San Diego (Nov 19–20)</title>
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://fastpath.foundersfirstcdc.org/" />
+
+  <!-- Browser Tab Favicon & Mobile Home Screen Icon -->
+  <link rel="icon" type="image/jpeg" href="https://fastpath.foundersfirstcdc.org/ffcdclogo01.jpg" />
+  <link rel="shortcut icon" type="image/jpeg" href="https://fastpath.foundersfirstcdc.org/ffcdclogo01.jpg" />
+  <link rel="apple-touch-icon" href="https://fastpath.foundersfirstcdc.org/ffcdclogo01.jpg" />
+  <meta name="thumbnail" content="https://fastpath.foundersfirstcdc.org/ffcdclogo01.jpg" />
+
+  <!-- Open Graph / SMS / Email / Social Hyperlink Preview -->
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Founders First CDC" />
+  <meta property="og:title" content="Fall 2026 FastPath Pitch Event | San Diego (Nov 19–20)" />
+  <meta property="og:description" content="Recap, award winners, photo gallery, company summaries, pitch decks, and judge feedback for the Fall 2026 FastPath Pitch Event at Cooley LLP." />
+  <meta property="og:url" content="https://fastpath.foundersfirstcdc.org/" />
+  <meta property="og:image" content="https://fastpath.foundersfirstcdc.org/ffcdclogo01.jpg" />
+  <meta property="og:image:secure_url" content="https://fastpath.foundersfirstcdc.org/ffcdclogo01.jpg" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:alt" content="Founders First CDC Logo" />
+
+  <!-- Twitter / X & Messaging Card Preview -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Fall 2026 FastPath Pitch Event | San Diego (Nov 19–20)" />
+  <meta name="twitter:description" content="Recap, award winners, photo gallery, company summaries, pitch decks, and judge feedback for the Fall 2026 FastPath Pitch Event at Cooley LLP." />
+  <meta name="twitter:image" content="https://fastpath.foundersfirstcdc.org/ffcdclogo01.jpg" />
+
+  <!-- Structured Data for Web Search Image & Event Rich Results -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Event",
+        "name": "Fall 2026 FastPath Pitch Event",
+        "startDate": "2026-11-19T12:00:00-08:00",
+        "endDate": "2026-11-20T18:00:00-08:00",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "image": [
+          "https://fastpath.foundersfirstcdc.org/ffcdclogo01.jpg"
+        ],
+        "description": "Fall 2026 FastPath Pitch Event in San Diego, CA (November 19–20, 2026) at Cooley LLP.",
+        "location": {
+          "@type": "Place",
+          "name": "Cooley LLP - Balboa Conference Room",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "10265 Science Center Dr",
+            "addressLocality": "San Diego",
+            "addressRegion": "CA",
+            "postalCode": "92121",
+            "addressCountry": "US"
+          }
+        },
+        "organizer": {
+          "@type": "Organization",
+          "name": "Founders First CDC",
+          "url": "https://foundersfirstcdc.org/",
+          "logo": "https://fastpath.foundersfirstcdc.org/ffcdclogo01.jpg"
+        }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://fastpath.foundersfirstcdc.org/",
+        "url": "https://fastpath.foundersfirstcdc.org/",
+        "name": "Fall 2026 FastPath Pitch Event | Founders First CDC",
+        "primaryImageOfPage": {
+          "@type": "ImageObject",
+          "url": "https://fastpath.foundersfirstcdc.org/ffcdclogo01.jpg"
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Official Founders First CDC Typography: Poppins + Montserrat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --navy: #062464;
+      --navy-deep: #0F2557;
+      --navy-dark: #041845;
+      --gold: #EAAA01;
+      --gold-warm: #b88b32;
+      --gold-deep: #C98F0C;
+      --ink: #10182f;
+      --ink-body: #384765;
+      --ink-soft: #4A5872;
+      --surface-white: #ffffff;
+      --surface-cool: #f4f5fa;
+      --surface-paper: #F5F1EA;
+      --border: #dce2ee;
+      --rule: rgba(15, 37, 87, 0.14);
+      --radius: 10px;
+      --shadow: 0 10px 28px rgba(6, 36, 100, 0.07);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--ink-body);
+      background-color: var(--surface-white);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, .font-heading {
+      font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Top Utility Bar */
+    .top-bar {
+      background: var(--navy-dark);
+      color: rgba(255, 255, 255, 0.88);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 12.5px;
+      font-weight: 600;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .top-bar .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .top-bar-highlight {
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    /* Main Header */
+    header.site-header {
+      background: var(--navy);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #ffffff;
+      min-width: 0;
+    }
+
+    .brand-logo-wrap {
+      background: #ffffff;
+      padding: 5px 9px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 42px;
+      flex-shrink: 0;
+    }
+
+    .brand-logo-wrap img {
+      max-height: 32px;
+      width: auto;
+      display: block;
+    }
+
+    .brand-text {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 800;
+      font-size: 14.5px;
+      line-height: 1.2;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+
+    .brand-text span {
+      display: block;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11.5px;
+      font-weight: 600;
+      color: var(--gold);
+      text-transform: none;
+      letter-spacing: 0;
+      margin-top: 2px;
+    }
+
+    nav.main-nav {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    nav.main-nav a {
+      color: #ffffff;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+      transition: color 0.2s ease;
+      white-space: nowrap;
+    }
+
+    nav.main-nav a:hover {
+      color: var(--gold);
+    }
+
+    .header-cta-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    /* Mobile Quick-Jump Strip */
+    .mobile-subnav {
+      display: none;
+      background: var(--navy-dark);
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+
+    .mobile-subnav::-webkit-scrollbar {
+      display: none;
+    }
+
+    .mobile-subnav-inner {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      white-space: nowrap;
+    }
+
+    .mobile-subnav a {
+      font-family: 'Poppins', sans-serif;
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      padding: 6px 12px;
+      border-radius: 999px;
+    }
+
+    .mobile-subnav a.mobile-pill-gold {
+      background: var(--gold);
+      color: var(--navy);
+      border-color: var(--gold);
+      font-weight: 800;
+    }
+
+    /* Official FFCDC Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      min-height: 44px;
+      padding: 0 20px;
+      border-radius: 7px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 800;
+      font-size: 13px;
+      line-height: 1.1;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: 1px solid transparent;
+      text-align: center;
+    }
+
+    .btn-sm {
+      min-height: 38px;
+      padding: 0 14px;
+      font-size: 12px;
+    }
+
+    .btn-gold {
+      background: var(--gold);
+      color: var(--navy);
+      border-color: var(--gold);
+    }
+
+    .btn-gold:hover {
+      background: #ffffff;
+      border-color: #ffffff;
+      color: var(--navy);
+      transform: translateY(-1px);
+    }
+
+    .btn-navy {
+      background: var(--navy);
+      color: #ffffff;
+      border-color: var(--navy);
+    }
+
+    .btn-navy:hover {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: var(--navy);
+      transform: translateY(-1px);
+    }
+
+    .btn-outline-white {
+      background: transparent;
+      color: #ffffff;
+      border-color: rgba(255, 255, 255, 0.75);
+    }
+
+    .btn-outline-white:hover {
+      background: #ffffff;
+      border-color: #ffffff;
+      color: var(--navy);
+      transform: translateY(-1px);
+    }
+
+    .btn-outline-navy {
+      background: #ffffff;
+      color: var(--navy);
+      border-color: var(--border);
+    }
+
+    .btn-outline-navy:hover {
+      background: var(--surface-cool);
+      border-color: var(--navy);
+    }
+
+    .btn-soft-navy {
+      background: rgba(6, 36, 100, 0.06);
+      color: var(--navy);
+      border-color: rgba(6, 36, 100, 0.16);
+    }
+
+    .btn-soft-navy:hover {
+      background: rgba(6, 36, 100, 0.12);
+      border-color: var(--navy);
+    }
+
+    /* Hero Banner */
+    .hero {
+      background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 60%, var(--navy-deep) 100%);
+      color: #ffffff;
+      padding: 56px 0 60px;
+      border-bottom: 4px solid var(--gold);
+    }
+
+    .hero-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .hero-kicker {
+      display: inline-block;
+      background: rgba(234, 170, 1, 0.16);
+      color: var(--gold);
+      border: 1px solid rgba(234, 170, 1, 0.45);
+      font-family: 'Poppins', sans-serif;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 999px;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 4vw, 2.9rem);
+      font-weight: 900;
+      line-height: 1.15;
+      margin-bottom: 14px;
+      color: #ffffff;
+    }
+
+    .hero-meta {
+      display: inline-flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 10px 18px;
+      background: rgba(255, 255, 255, 0.09);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 14.5px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 22px;
+    }
+
+    .hero-meta span.meta-dot {
+      color: var(--gold);
+    }
+
+    .hero-blurb {
+      font-size: 15.5px;
+      line-height: 1.65;
+      color: rgba(255, 255, 255, 0.9);
+      max-width: 740px;
+      margin: 0 auto;
+    }
+
+    .hero-blurb a {
+      color: var(--gold);
+      font-weight: 700;
+      text-decoration: underline;
+    }
+
+    .hero-blurb a:hover {
+      color: #ffffff;
+    }
+
+    /* Section Layout */
+    section.page-section {
+      padding: 60px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    section.page-section.bg-cool {
+      background: var(--surface-cool);
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 36px;
+    }
+
+    .section-eyebrow {
+      font-family: 'Poppins', sans-serif;
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--gold-deep);
+      margin-bottom: 6px;
+    }
+
+    .section-title {
+      font-size: clamp(1.6rem, 3vw, 2.1rem);
+      font-weight: 800;
+      color: var(--navy);
+      line-height: 1.2;
+    }
+
+    /* Photo Collage Grid */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .gallery-slot {
+      aspect-ratio: 1 / 1;
+      background: var(--surface-cool);
+      border: 2px dashed var(--border);
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 12px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--ink-soft);
+      overflow: hidden;
+    }
+
+    .gallery-slot img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Award Winners Grid */
+    .awards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .award-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-top: 5px solid var(--gold);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+
+    .award-card h3 {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+
+    .award-prize {
+      display: inline-block;
+      background: rgba(234, 170, 1, 0.16);
+      color: var(--navy);
+      font-family: 'Poppins', sans-serif;
+      font-size: 12.5px;
+      font-weight: 800;
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-bottom: 18px;
+    }
+
+    .award-winner-item {
+      padding: 8px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .award-winner-item:first-of-type {
+      border-top: none;
+      padding-top: 0;
+    }
+
+    .award-company {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      font-size: 15.5px;
+      color: var(--ink);
+    }
+
+    .award-founders {
+      font-size: 13px;
+      color: var(--ink-soft);
+    }
+
+    /* Cards Grid (Cohort & People) */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .cohort-card,
+    .person-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .cohort-card h3,
+    .person-card h3 {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--navy);
+      line-height: 1.3;
+      margin-bottom: 4px;
+    }
+
+    .cohort-founders {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ink-soft);
+      margin-bottom: 12px;
+    }
+
+    .cohort-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 18px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+
+    .cohort-actions .btn {
+      width: 100%;
+    }
+
+    /* Person Card Specifics (Jay Fulgencio & Speakers/Judges/Staff) */
+    .yb-media-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .yb-headshot-slot {
+      width: 78px;
+      height: 78px;
+      border-radius: 50%;
+      background: var(--surface-cool);
+      border: 2px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      flex-shrink: 0;
+      font-family: 'Poppins', sans-serif;
+      font-size: 10.5px;
+      font-weight: 700;
+      color: var(--ink-soft);
+      text-align: center;
+    }
+
+    .yb-headshot-slot img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .yb-logo-slot {
+      height: 40px;
+      padding: 4px 8px;
+      border-radius: 6px;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .yb-logo-slot img {
+      max-height: 28px;
+      width: auto;
+      display: block;
+    }
+
+    .person-role {
+      display: inline-block;
+      align-self: flex-start;
+      background: rgba(6, 36, 100, 0.08);
+      color: var(--navy);
+      font-family: 'Poppins', sans-serif;
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 4px 10px;
+      border-radius: 5px;
+      margin-bottom: 8px;
+    }
+
+    .person-title {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 2px;
+    }
+
+    .person-org {
+      font-size: 12.5px;
+      color: var(--ink-soft);
+      margin-bottom: 10px;
+    }
+
+    .team-contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 12px;
+    }
+
+    .team-contact-links a:hover {
+      color: var(--gold-deep);
+      text-decoration: underline;
+    }
+
+    /* Expandable Bio (<details>) */
+    details.person-bio {
+      margin-top: 8px;
+    }
+
+    details.person-bio summary {
+      list-style: none;
+      cursor: pointer;
+      font-family: 'Poppins', sans-serif;
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--navy);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      user-select: none;
+    }
+
+    details.person-bio summary::-webkit-details-marker {
+      display: none;
+    }
+
+    details.person-bio summary::before {
+      content: "+";
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 18px;
+      height: 18px;
+      border-radius: 4px;
+      background: var(--navy);
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    details.person-bio[open] summary::before {
+      content: "−";
+      background: var(--gold);
+      color: var(--navy);
+    }
+
+    .person-bio-text {
+      margin-top: 10px;
+      padding: 12px;
+      background: var(--surface-cool);
+      border-radius: 6px;
+      font-size: 13px;
+      line-height: 1.55;
+      color: var(--ink-body);
+    }
+
+    .person-bio-text p {
+      margin-bottom: 8px;
+    }
+
+    .person-bio-text p:last-child {
+      margin-bottom: 0;
+    }
+
+    .person-footer-action {
+      margin-top: 16px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
+    }
+
+    .person-footer-action .btn {
+      width: 100%;
+    }
+
+    /* Footer Venue Acknowledgment */
+    footer.site-footer {
+      background: var(--navy-dark);
+      color: rgba(255, 255, 255, 0.88);
+      padding: 52px 0 44px;
+      text-align: center;
+    }
+
+    .footer-inner {
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    .footer-eyebrow {
+      font-family: 'Poppins', sans-serif;
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+
+    .footer-venue-name {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 6px;
+    }
+
+    .footer-venue-address {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+
+    .footer-venue-desc {
+      font-size: 14px;
+      line-height: 1.65;
+      color: rgba(255, 255, 255, 0.82);
+    }
+
+    /* Secure Access Modal */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(4, 24, 69, 0.72);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      z-index: 2000;
+    }
+
+    .modal-backdrop.is-open {
+      display: flex;
+    }
+
+    .modal-box {
+      background: #ffffff;
+      border-radius: var(--radius);
+      border-top: 5px solid var(--gold);
+      max-width: 420px;
+      width: 100%;
+      padding: 28px 24px;
+      box-shadow: 0 20px 50px rgba(4, 24, 69, 0.35);
+      position: relative;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: transparent;
+      border: none;
+      font-size: 22px;
+      line-height: 1;
+      color: var(--ink-soft);
+      cursor: pointer;
+    }
+
+    .modal-box h3 {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .modal-box p {
+      font-size: 13.5px;
+      color: var(--ink-body);
+      margin-bottom: 16px;
+    }
+
+    .modal-input {
+      width: 100%;
+      padding: 11px 14px;
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 14px;
+      margin-bottom: 12px;
+    }
+
+    .modal-input:focus {
+      outline: none;
+      border-color: var(--navy);
+    }
+
+    .modal-error {
+      display: none;
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #b91c1c;
+      margin-bottom: 12px;
+    }
+
+    .modal-error.is-visible {
+      display: block;
+    }
+
+    @media (max-width: 960px) {
+      nav.main-nav {
+        display: none;
+      }
+
+      .mobile-subnav {
+        display: block;
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .awards-grid,
+      .cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .awards-grid,
+      .cards-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .top-bar .container {
+        justify-content: center;
+        text-align: center;
+      }
+    }
+  </style>
 </head>
-<body class="bg-slate-50 text-slate-800 font-sans antialiased">
+<body>
 
-    <!-- Header -->
-    <header class="bg-blue-900 text-white py-16 px-4 text-center">
-        <div class="max-w-4xl mx-auto">
-            <h1 class="text-4xl md:text-5xl font-bold mb-4">San Diego FastPath Pitch Event</h1>
-            <p class="text-xl text-blue-100">Fall 2026 Cohort Recap</p>
+  <!-- Top Utility Bar -->
+  <div class="top-bar">
+    <div class="container">
+      <div>Founders First CDC &bull; FastPath Program</div>
+      <div class="top-bar-highlight">November 19–20, 2026 &bull; Cooley LLP, Torrey Pines, San Diego, CA</div>
+    </div>
+  </div>
+
+  <!-- Main Sticky Header -->
+  <header class="site-header">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="#top" class="brand">
+          <div class="brand-logo-wrap">
+            <img src="https://fastpath.foundersfirstcdc.org/ffcdclogo01.jpg" alt="Founders First CDC Logo" />
+          </div>
+          <div class="brand-text">
+            San Diego FastPath
+            <span>Fall 2026 Pitch Event Recap</span>
+          </div>
+        </a>
+
+        <nav class="main-nav" aria-label="Primary Navigation">
+          <a href="#gallery">Gallery</a>
+          <a href="#winners">Award Winners</a>
+          <a href="#cohort">Cohort</a>
+          <a href="#team">Speakers, Judges, and Staff</a>
+          <a href="#venue">Venue</a>
+        </nav>
+
+        <div class="header-cta-group">
+          <a href="https://foundersfirstcdc.org/fastpath" target="_blank" rel="noopener noreferrer" class="btn btn-gold btn-sm">FastPath Program</a>
         </div>
-    </header>
-
-    <!-- Program and Event Overview -->
-    <section class="max-w-4xl mx-auto py-12 px-4 text-center border-b border-slate-200">
-        <h2 class="text-2xl font-semibold text-blue-900 mb-3">About the FastPath Program and Pitch Event</h2>
-        <p class="text-slate-700 leading-relaxed">
-            The <a href="https://foundersfirstcdc.org/fastpath" target="_blank" rel="noopener noreferrer" class="text-blue-600 font-medium underline hover:text-blue-800">FastPath Program</a> by Founders First CDC supports growth-stage businesses scaling their operations and revenue. Held on November 19–20, 2026, the San Diego FastPath Pitch Event served as the capstone for the Fall 2026 cohort, featuring 5-minute founder pitches, 3-minute judge question and answer sessions, awards, and graduation.
-        </p>
-    </section>
-
-    <!-- Photo Collage Placeholder -->
-    <section class="max-w-6xl mx-auto py-12 px-4 border-b border-slate-200">
-        <h2 class="text-3xl font-bold text-center text-blue-900 mb-8">Event Gallery</h2>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <!-- PLACEHOLDER IMAGES: Replace with actual GitHub image tags or paths -->
-            <div class="aspect-square bg-slate-200 rounded-lg shadow flex items-center justify-center text-slate-400 text-sm font-medium">PLACEHOLDER PHOTO 1</div>
-            <div class="aspect-square bg-slate-200 rounded-lg shadow flex items-center justify-center text-slate-400 text-sm font-medium">PLACEHOLDER PHOTO 2</div>
-            <div class="aspect-square bg-slate-200 rounded-lg shadow flex items-center justify-center text-slate-400 text-sm font-medium">PLACEHOLDER PHOTO 3</div>
-            <div class="aspect-square bg-slate-200 rounded-lg shadow flex items-center justify-center text-slate-400 text-sm font-medium">PLACEHOLDER PHOTO 4</div>
-            <div class="aspect-square bg-slate-200 rounded-lg shadow flex items-center justify-center text-slate-400 text-sm font-medium">PLACEHOLDER PHOTO 5</div>
-            <div class="aspect-square bg-slate-200 rounded-lg shadow flex items-center justify-center text-slate-400 text-sm font-medium">PLACEHOLDER PHOTO 6</div>
-            <div class="aspect-square bg-slate-200 rounded-lg shadow flex items-center justify-center text-slate-400 text-sm font-medium">PLACEHOLDER PHOTO 7</div>
-            <div class="aspect-square bg-slate-200 rounded-lg shadow flex items-center justify-center text-slate-400 text-sm font-medium">PLACEHOLDER PHOTO 8</div>
-        </div>
-    </section>
-
-    <!-- Award Winners -->
-    <section class="max-w-4xl mx-auto py-12 px-4 border-b border-slate-200">
-        <h2 class="text-3xl font-bold text-center text-blue-900 mb-8">Award Winners</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-            <div class="bg-white p-6 rounded-lg shadow border-t-4 border-blue-600">
-                <h3 class="text-xl font-bold text-slate-800 mb-2">Pitch Award</h3>
-                <p class="text-sm text-blue-600 font-semibold mb-2">$1,000 and Coaching</p>
-                <p class="font-medium">Twipes</p>
-                <p class="text-sm text-slate-500">Alborz Bozorgi and Ellenor McIntosh</p>
-            </div>
-            <div class="bg-white p-6 rounded-lg shadow border-t-4 border-blue-600">
-                <h3 class="text-xl font-bold text-slate-800 mb-2">CESIM Award</h3>
-                <p class="text-sm text-blue-600 font-semibold mb-2">$250 Each</p>
-                <ul class="font-medium space-y-2">
-                    <li>EPINEC <span class="text-sm text-slate-500 block font-normal">Obi Emeka Ibeto</span></li>
-                    <li>Get Social <span class="text-sm text-slate-500 block font-normal">Teja Renee Smith</span></li>
-                    <li>TLC Rents <span class="text-sm text-slate-500 block font-normal">Reuben F. Ayoub and Michael Gonzales</span></li>
-                    <li>Gladys' Cleaning Service <span class="text-sm text-slate-500 block font-normal">Gladys Vonglahn and Kennedy Castro</span></li>
-                </ul>
-            </div>
-            <div class="bg-white p-6 rounded-lg shadow border-t-4 border-blue-600">
-                <h3 class="text-xl font-bold text-slate-800 mb-2">FUUUSE Award</h3>
-                <p class="text-sm text-blue-600 font-semibold mb-2">$100</p>
-                <p class="font-medium">Gladys' Cleaning Service</p>
-                <p class="text-sm text-slate-500">Gladys Vonglahn and Kennedy Castro</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Cohort Participants Grid -->
-    <section class="max-w-6xl mx-auto py-12 px-4 border-b border-slate-200">
-        <h2 class="text-3xl font-bold text-center text-blue-900 mb-8">Fall 2026 Cohort Participants</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="cohort-grid">
-            <!-- JavaScript populates this grid -->
-        </div>
-    </section>
-
-    <!-- Speakers, Judges, and Staff -->
-    <section class="max-w-6xl mx-auto py-12 px-4">
-        <h2 class="text-3xl font-bold text-center text-blue-900 mb-8">Speakers, Judges, and Staff</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 text-center">
-            <div class="bg-white p-6 rounded-lg shadow flex flex-col justify-between">
-                <div>
-                    <div class="w-24 h-24 bg-slate-200 rounded-full mx-auto mb-4 flex items-center justify-center text-xs text-slate-400">HEADSHOT</div>
-                    <h3 class="font-bold text-lg">Adam Riggs-Zeigen</h3>
-                    <p class="text-sm text-blue-600">Emcee and Fireside Host</p>
-                    <p class="text-sm mt-2 cursor-pointer text-blue-500 font-medium" onclick="toggleBio('bio-adam')">+ View Bio</p>
-                    <div id="bio-adam" class="expandable-content text-sm text-left mt-2 text-slate-600">[PLACEHOLDER BIO]</div>
-                </div>
-                <div class="mt-4 pt-3 border-t border-slate-100">
-                    <a href="#PLACEHOLDER_PHOTOS_LINK" target="_blank" class="block w-full text-center bg-slate-100 hover:bg-slate-200 text-slate-700 py-2 rounded text-sm transition">Download Photos</a>
-                </div>
-            </div>
-            <div class="bg-white p-6 rounded-lg shadow flex flex-col justify-between">
-                <div>
-                    <div class="w-24 h-24 bg-slate-200 rounded-full mx-auto mb-4 flex items-center justify-center text-xs text-slate-400">HEADSHOT</div>
-                    <h3 class="font-bold text-lg">Dr. Steven Jones</h3>
-                    <p class="text-sm text-blue-600">Interim CEO, Founders First CDC</p>
-                    <p class="text-sm mt-2 cursor-pointer text-blue-500 font-medium" onclick="toggleBio('bio-steven')">+ View Bio</p>
-                    <div id="bio-steven" class="expandable-content text-sm text-left mt-2 text-slate-600">[PLACEHOLDER BIO]</div>
-                </div>
-                <div class="mt-4 pt-3 border-t border-slate-100">
-                    <a href="#PLACEHOLDER_PHOTOS_LINK" target="_blank" class="block w-full text-center bg-slate-100 hover:bg-slate-200 text-slate-700 py-2 rounded text-sm transition">Download Photos</a>
-                </div>
-            </div>
-            <div class="bg-white p-6 rounded-lg shadow flex flex-col justify-between">
-                <div>
-                    <div class="w-24 h-24 bg-slate-200 rounded-full mx-auto mb-4 flex items-center justify-center text-xs text-slate-400">HEADSHOT</div>
-                    <h3 class="font-bold text-lg">Felena Hanson</h3>
-                    <p class="text-sm text-blue-600">Fireside Speaker (Founder, Hera Hub)</p>
-                    <p class="text-sm mt-2 cursor-pointer text-blue-500 font-medium" onclick="toggleBio('bio-felena')">+ View Bio</p>
-                    <div id="bio-felena" class="expandable-content text-sm text-left mt-2 text-slate-600">[PLACEHOLDER BIO]</div>
-                </div>
-                <div class="mt-4 pt-3 border-t border-slate-100">
-                    <a href="#PLACEHOLDER_PHOTOS_LINK" target="_blank" class="block w-full text-center bg-slate-100 hover:bg-slate-200 text-slate-700 py-2 rounded text-sm transition">Download Photos</a>
-                </div>
-            </div>
-            <div class="bg-white p-6 rounded-lg shadow flex flex-col justify-between">
-                <div>
-                    <div class="w-24 h-24 bg-slate-200 rounded-full mx-auto mb-4 flex items-center justify-center text-xs text-slate-400">HEADSHOT</div>
-                    <h3 class="font-bold text-lg">Oscar Franco</h3>
-                    <p class="text-sm text-blue-600">Dinner Expert</p>
-                    <p class="text-sm mt-2 cursor-pointer text-blue-500 font-medium" onclick="toggleBio('bio-oscar')">+ View Bio</p>
-                    <div id="bio-oscar" class="expandable-content text-sm text-left mt-2 text-slate-600">[PLACEHOLDER BIO]</div>
-                </div>
-                <div class="mt-4 pt-3 border-t border-slate-100">
-                    <a href="#PLACEHOLDER_PHOTOS_LINK" target="_blank" class="block w-full text-center bg-slate-100 hover:bg-slate-200 text-slate-700 py-2 rounded text-sm transition">Download Photos</a>
-                </div>
-            </div>
-            <div class="bg-white p-6 rounded-lg shadow flex flex-col justify-between">
-                <div>
-                    <div class="w-24 h-24 bg-slate-200 rounded-full mx-auto mb-4 flex items-center justify-center text-xs text-slate-400">HEADSHOT</div>
-                    <h3 class="font-bold text-lg">Claudio Burgin</h3>
-                    <p class="text-sm text-blue-600">Pitch Judge (U.S. Bank)</p>
-                    <p class="text-sm mt-2 cursor-pointer text-blue-500 font-medium" onclick="toggleBio('bio-claudio')">+ View Bio</p>
-                    <div id="bio-claudio" class="expandable-content text-sm text-left mt-2 text-slate-600">[PLACEHOLDER BIO]</div>
-                </div>
-                <div class="mt-4 pt-3 border-t border-slate-100">
-                    <a href="#PLACEHOLDER_PHOTOS_LINK" target="_blank" class="block w-full text-center bg-slate-100 hover:bg-slate-200 text-slate-700 py-2 rounded text-sm transition">Download Photos</a>
-                </div>
-            </div>
-            <div class="bg-white p-6 rounded-lg shadow flex flex-col justify-between">
-                <div>
-                    <div class="w-24 h-24 bg-slate-200 rounded-full mx-auto mb-4 flex items-center justify-center text-xs text-slate-400">HEADSHOT</div>
-                    <h3 class="font-bold text-lg">Jade Cabrera</h3>
-                    <p class="text-sm text-blue-600">Pitch Judge (Chase Bank)</p>
-                    <p class="text-sm mt-2 cursor-pointer text-blue-500 font-medium" onclick="toggleBio('bio-jade')">+ View Bio</p>
-                    <div id="bio-jade" class="expandable-content text-sm text-left mt-2 text-slate-600">[PLACEHOLDER BIO]</div>
-                </div>
-                <div class="mt-4 pt-3 border-t border-slate-100">
-                    <a href="#PLACEHOLDER_PHOTOS_LINK" target="_blank" class="block w-full text-center bg-slate-100 hover:bg-slate-200 text-slate-700 py-2 rounded text-sm transition">Download Photos</a>
-                </div>
-            </div>
-            <div class="bg-white p-6 rounded-lg shadow flex flex-col justify-between">
-                <div>
-                    <div class="w-24 h-24 bg-slate-200 rounded-full mx-auto mb-4 flex items-center justify-center text-xs text-slate-400">HEADSHOT</div>
-                    <h3 class="font-bold text-lg">Sawm Soltani</h3>
-                    <p class="text-sm text-blue-600">Registration and Pitch Practice</p>
-                    <p class="text-sm mt-2 cursor-pointer text-blue-500 font-medium" onclick="toggleBio('bio-sawm')">+ View Bio</p>
-                    <div id="bio-sawm" class="expandable-content text-sm text-left mt-2 text-slate-600">[PLACEHOLDER BIO]</div>
-                </div>
-                <div class="mt-4 pt-3 border-t border-slate-100">
-                    <a href="#PLACEHOLDER_PHOTOS_LINK" target="_blank" class="block w-full text-center bg-slate-100 hover:bg-slate-200 text-slate-700 py-2 rounded text-sm transition">Download Photos</a>
-                </div>
-            </div>
-            <div class="bg-white p-6 rounded-lg shadow flex flex-col justify-between">
-                <div>
-                    <div class="w-24 h-24 bg-slate-200 rounded-full mx-auto mb-4 flex items-center justify-center text-xs text-slate-400">HEADSHOT</div>
-                    <h3 class="font-bold text-lg">David Resetar</h3>
-                    <p class="text-sm text-blue-600">Audio Visual and Scoring</p>
-                    <p class="text-sm mt-2 cursor-pointer text-blue-500 font-medium" onclick="toggleBio('bio-david')">+ View Bio</p>
-                    <div id="bio-david" class="expandable-content text-sm text-left mt-2 text-slate-600">[PLACEHOLDER BIO]</div>
-                </div>
-                <div class="mt-4 pt-3 border-t border-slate-100">
-                    <a href="#PLACEHOLDER_PHOTOS_LINK" target="_blank" class="block w-full text-center bg-slate-100 hover:bg-slate-200 text-slate-700 py-2 rounded text-sm transition">Download Photos</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Venue Thank You -->
-    <footer class="bg-slate-100 border-t border-slate-200 mt-8">
-        <div class="max-w-4xl mx-auto py-12 px-4 text-center">
-            <h2 class="text-2xl font-semibold text-blue-900 mb-3">Special Thanks to Our Venue</h2>
-            <h3 class="text-xl font-bold text-slate-800 mb-1">Cooley LLP</h3>
-            <p class="text-slate-600 mb-4">10265 Science Center Dr, San Diego, CA 92121 | (858) 550-6000</p>
-            <p class="text-slate-700 leading-relaxed">
-                Based in the Torrey Pines life sciences hub, Cooley's San Diego office has served the region's technology and life sciences companies since 1992. We extend our deepest gratitude for their hospitality and continued support of the FastPath program and innovative founders.
-            </p>
-        </div>
-    </footer>
-
-    <!-- Password Modal -->
-    <div id="password-modal" class="hidden fixed inset-0 bg-slate-900 bg-opacity-50 flex items-center justify-center z-50">
-        <div class="bg-white p-8 rounded-lg shadow-lg max-w-sm w-full mx-4 relative">
-            <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-            </button>
-            <h3 class="text-xl font-bold text-blue-900 mb-2">Secure Access</h3>
-            <p class="text-sm text-slate-600 mb-4">Please enter the participant's email address to access private documents.</p>
-            <input type="email" id="modal-password" onkeydown="if(event.key==='Enter') verifyPassword()" class="w-full border border-slate-300 rounded px-3 py-2 mb-4 focus:outline-none focus:border-blue-500" placeholder="Email address">
-            <p id="modal-error" class="text-red-500 text-sm mb-4 hidden">Incorrect email address. Please try again.</p>
-            <button onclick="verifyPassword()" class="w-full bg-blue-600 text-white rounded py-2 hover:bg-blue-700 transition">Access Documents</button>
-        </div>
+      </div>
     </div>
 
-    <!-- Application Script -->
-    <script>
-        const participants = [
-            { id: "epinec", company: "EPINEC", names: "Obi Emeka Ibeto", email: "obiibeto@epinec.us", summaryLink: "#PLACEHOLDER_SUMMARY_LINK", photosLink: "#PLACEHOLDER_PHOTOS_LINK", pitchLink: "#PLACEHOLDER_PITCH_LINK", deckLink: "#PLACEHOLDER_DECK_LINK", feedbackLink: "#PLACEHOLDER_FEEDBACK_LINK", hasPitch: true },
-            { id: "getsocial", company: "Get Social", names: "Teja Renee Smith", email: "teja@getsocialwithteja.com", summaryLink: "#PLACEHOLDER_SUMMARY_LINK", photosLink: "#PLACEHOLDER_PHOTOS_LINK", pitchLink: "#PLACEHOLDER_PITCH_LINK", deckLink: "#PLACEHOLDER_DECK_LINK", feedbackLink: "#PLACEHOLDER_FEEDBACK_LINK", hasPitch: true },
-            { id: "gladys", company: "Gladys' Cleaning Service", names: "Gladys Vonglahn and Kennedy Castro", email: "gladyscleaningservicellc@gmail.com", summaryLink: "#PLACEHOLDER_SUMMARY_LINK", photosLink: "#PLACEHOLDER_PHOTOS_LINK", pitchLink: "#PLACEHOLDER_PITCH_LINK", deckLink: "#PLACEHOLDER_DECK_LINK", feedbackLink: "#PLACEHOLDER_FEEDBACK_LINK", hasPitch: true },
-            { id: "prosperity", company: "Prosperity Property Services", names: "Stephanie Elise Benison and Michael Benison", email: "sbenison@prosperitypropertyservices.com", summaryLink: "#PLACEHOLDER_SUMMARY_LINK", photosLink: "#PLACEHOLDER_PHOTOS_LINK", pitchLink: "#PLACEHOLDER_PITCH_LINK", deckLink: "#PLACEHOLDER_DECK_LINK", feedbackLink: "#PLACEHOLDER_FEEDBACK_LINK", hasPitch: true },
-            { id: "riveo", company: "Riveo Creative", names: "Elin Barton", email: "ebarton@riveocreative.com", summaryLink: "#PLACEHOLDER_SUMMARY_LINK", photosLink: "#PLACEHOLDER_PHOTOS_LINK", pitchLink: "#PLACEHOLDER_PITCH_LINK", deckLink: "#PLACEHOLDER_DECK_LINK", feedbackLink: "#PLACEHOLDER_FEEDBACK_LINK", hasPitch: true },
-            { id: "swe", company: "SWE Solutions", names: "Stephanie Diane Wong", email: "swong@swe-solutions.com", summaryLink: "#PLACEHOLDER_SUMMARY_LINK", photosLink: "#PLACEHOLDER_PHOTOS_LINK", pitchLink: "#PLACEHOLDER_PITCH_LINK", deckLink: "#PLACEHOLDER_DECK_LINK", feedbackLink: "#PLACEHOLDER_FEEDBACK_LINK", hasPitch: true },
-            { id: "tlc", company: "TLC Rents", names: "Reuben F. Ayoub and Michael Gonzales", email: "reuben@tlcrents.com", summaryLink: "#PLACEHOLDER_SUMMARY_LINK", photosLink: "#PLACEHOLDER_PHOTOS_LINK", pitchLink: "#PLACEHOLDER_PITCH_LINK", deckLink: "#PLACEHOLDER_DECK_LINK", feedbackLink: "#PLACEHOLDER_FEEDBACK_LINK", hasPitch: true },
-            { id: "twipes", company: "Twipes", names: "Alborz Bozorgi and Ellenor McIntosh", email: "alborz@twipes.com", summaryLink: "#PLACEHOLDER_SUMMARY_LINK", photosLink: "#PLACEHOLDER_PHOTOS_LINK", pitchLink: "#PLACEHOLDER_PITCH_LINK", deckLink: "#PLACEHOLDER_DECK_LINK", feedbackLink: "#PLACEHOLDER_FEEDBACK_LINK", hasPitch: true },
-            { id: "usa", company: "USA Mobile Drug Testing", names: "Joslyn Maree Tatum", email: "joslyn.tatum@usamdt.com", summaryLink: "#PLACEHOLDER_SUMMARY_LINK", photosLink: "#PLACEHOLDER_PHOTOS_LINK", pitchLink: "#PLACEHOLDER_PITCH_LINK", deckLink: "#PLACEHOLDER_DECK_LINK", feedbackLink: "#PLACEHOLDER_FEEDBACK_LINK", hasPitch: true },
-            { id: "spatial", company: "SpatialGIS", names: "Kendrick Faison", email: "kendrick@spatialgisservices.com", summaryLink: "#PLACEHOLDER_SUMMARY_LINK", photosLink: "#PLACEHOLDER_PHOTOS_LINK", hasPitch: false }
-        ];
+    <!-- Mobile Quick-Jump Strip -->
+    <div class="mobile-subnav">
+      <div class="mobile-subnav-inner">
+        <a href="#gallery">Gallery</a>
+        <a href="#winners" class="mobile-pill-gold">Winners</a>
+        <a href="#cohort">Cohort</a>
+        <a href="#team">Team and Judges</a>
+        <a href="#venue">Venue</a>
+      </div>
+    </div>
+  </header>
 
-        let currentTargetLink = '';
-        let currentRequiredEmail = '';
+  <!-- Hero & Program Overview -->
+  <section id="top" class="hero">
+    <div class="container">
+      <div class="hero-inner">
+        <div class="hero-kicker">Fall 2026 Cohort Recap</div>
+        <h1>San Diego FastPath Pitch Event</h1>
+        <div class="hero-meta">
+          <span>November 19–20, 2026</span>
+          <span class="meta-dot">&bull;</span>
+          <span>Cooley LLP, Torrey Pines, San Diego, CA</span>
+        </div>
+        <p class="hero-blurb">
+          The <a href="https://foundersfirstcdc.org/fastpath" target="_blank" rel="noopener noreferrer">FastPath Program</a> by Founders First CDC supports growth-stage businesses scaling their operations and revenue. Held on November 19–20, 2026 at Cooley LLP in Torrey Pines, San Diego, CA, this capstone event featured 5-minute founder pitches, 3-minute judge question and answer sessions, awards, and graduation.
+        </p>
+      </div>
+    </div>
+  </section>
 
-        function renderCohort() {
-            const grid = document.getElementById('cohort-grid');
-            let html = '';
-            
-            participants.forEach(p => {
-                let actionButtons = `
-                    <a href="${p.summaryLink}" target="_blank" class="block w-full text-center bg-slate-100 hover:bg-slate-200 text-slate-700 py-2 rounded text-sm mb-2 transition">Company Summary</a>
-                    <a href="${p.photosLink}" target="_blank" class="block w-full text-center bg-slate-100 hover:bg-slate-200 text-slate-700 py-2 rounded text-sm mb-2 transition">Download Photos</a>
-                `;
+  <!-- Photo Collage -->
+  <section id="gallery" class="page-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">Event Highlights</div>
+        <h2 class="section-title">Photo Gallery</h2>
+      </div>
+      <div class="gallery-grid">
+        <!-- PLACEHOLDER PHOTOS: Replace each div content with <img src="YOUR_GITHUB_IMAGE_URL" alt="Event Photo" /> -->
+        <div class="gallery-slot">PLACEHOLDER PHOTO 1</div>
+        <div class="gallery-slot">PLACEHOLDER PHOTO 2</div>
+        <div class="gallery-slot">PLACEHOLDER PHOTO 3</div>
+        <div class="gallery-slot">PLACEHOLDER PHOTO 4</div>
+        <div class="gallery-slot">PLACEHOLDER PHOTO 5</div>
+        <div class="gallery-slot">PLACEHOLDER PHOTO 6</div>
+        <div class="gallery-slot">PLACEHOLDER PHOTO 7</div>
+        <div class="gallery-slot">PLACEHOLDER PHOTO 8</div>
+      </div>
+    </div>
+  </section>
 
-                if (p.hasPitch) {
-                    actionButtons += `
-                        <button onclick="requestAccess('${p.email}', '${p.pitchLink}')" class="w-full text-center bg-blue-50 border border-blue-200 hover:bg-blue-100 text-blue-700 py-2 rounded text-sm mb-2 transition flex items-center justify-center gap-2">🔒 Watch Pitch</button>
-                        <button onclick="requestAccess('${p.email}', '${p.deckLink}')" class="w-full text-center bg-blue-50 border border-blue-200 hover:bg-blue-100 text-blue-700 py-2 rounded text-sm mb-2 transition flex items-center justify-center gap-2">🔒 Final Pitch Deck</button>
-                        <button onclick="requestAccess('${p.email}', '${p.feedbackLink}')" class="w-full text-center bg-blue-900 hover:bg-blue-800 text-white py-2 rounded text-sm transition flex items-center justify-center gap-2">🔒 Judge Scores and Feedback</button>
-                    `;
-                }
+  <!-- Award Winners -->
+  <section id="winners" class="page-section bg-cool">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">Cohort Recognition</div>
+        <h2 class="section-title">Award Winners</h2>
+      </div>
+      <div class="awards-grid">
+        <div class="award-card">
+          <h3>Pitch Award</h3>
+          <div class="award-prize">$1,000 and Coaching</div>
+          <div class="award-winner-item">
+            <div class="award-company">Twipes</div>
+            <div class="award-founders">Alborz Bozorgi and Ellenor McIntosh</div>
+          </div>
+        </div>
 
-                html += `
-                    <div class="bg-white p-6 rounded-lg shadow border border-slate-100 flex flex-col h-full">
-                        <div class="flex-grow">
-                            <h3 class="font-bold text-xl text-blue-900">${p.company}</h3>
-                            <p class="text-slate-600 mb-4">${p.names}</p>
-                            <p class="text-sm text-blue-500 cursor-pointer mb-4 font-medium" onclick="toggleBio('bio-${p.id}')">+ View Bio</p>
-                            <div id="bio-${p.id}" class="expandable-content text-sm text-slate-600 mb-4">[PLACEHOLDER BIO]</div>
-                        </div>
-                        <div class="mt-auto">
-                            ${actionButtons}
-                        </div>
-                    </div>
-                `;
-            });
-            grid.innerHTML = html;
+        <div class="award-card">
+          <h3>CESIM Award</h3>
+          <div class="award-prize">$250 Each (4 Winners)</div>
+          <div class="award-winner-item">
+            <div class="award-company">EPINEC</div>
+            <div class="award-founders">Obi Emeka Ibeto</div>
+          </div>
+          <div class="award-winner-item">
+            <div class="award-company">Get Social</div>
+            <div class="award-founders">Teja Renee Smith</div>
+          </div>
+          <div class="award-winner-item">
+            <div class="award-company">TLC Rents</div>
+            <div class="award-founders">Reuben F. Ayoub and Michael Gonzales</div>
+          </div>
+          <div class="award-winner-item">
+            <div class="award-company">Gladys' Cleaning Service</div>
+            <div class="award-founders">Gladys Vonglahn and Kennedy Castro</div>
+          </div>
+        </div>
+
+        <div class="award-card">
+          <h3>FUUUSE Award</h3>
+          <div class="award-prize">$100</div>
+          <div class="award-winner-item">
+            <div class="award-company">Gladys' Cleaning Service</div>
+            <div class="award-founders">Gladys Vonglahn and Kennedy Castro</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cohort Participants -->
+  <section id="cohort" class="page-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">Graduating Companies</div>
+        <h2 class="section-title">Fall 2026 Cohort Participants</h2>
+      </div>
+      <div class="cards-grid" id="cohort-grid">
+        <!-- Populated dynamically by JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Speakers, Judges, and Staff -->
+  <section id="team" class="page-section bg-cool">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">Leadership and Evaluation</div>
+        <h2 class="section-title">Speakers, Judges, and Staff</h2>
+      </div>
+
+      <div class="cards-grid">
+
+        <!-- Adam Riggs-Zeigen -->
+        <div class="person-card">
+          <div>
+            <div class="yb-media-row">
+              <div class="yb-headshot-slot">HEADSHOT</div>
+              <div class="yb-logo-slot">
+                <img src="https://fastpath.foundersfirstcdc.org/ffcdclogo01.jpg" alt="Founders First CDC Logo" />
+              </div>
+            </div>
+            <span class="person-role">Host</span>
+            <h3>Adam Riggs-Zeigen</h3>
+            <div class="person-title">Emcee and Fireside Host</div>
+            <div class="person-org">Founders First CDC</div>
+            <details class="person-bio">
+              <summary>View Bio</summary>
+              <div class="person-bio-text">[PLACEHOLDER BIO]</div>
+            </details>
+          </div>
+          <div class="person-footer-action">
+            <a href="#PLACEHOLDER_PHOTOS_LINK" target="_blank" class="btn btn-outline-navy btn-sm">Download Photos</a>
+          </div>
+        </div>
+
+        <!-- Dr. Steven Jones -->
+        <div class="person-card">
+          <div>
+            <div class="yb-media-row">
+              <div class="yb-headshot-slot">HEADSHOT</div>
+              <div class="yb-logo-slot">
+                <img src="https://fastpath.foundersfirstcdc.org/ffcdclogo01.jpg" alt="Founders First CDC Logo" />
+              </div>
+            </div>
+            <span class="person-role">Leadership</span>
+            <h3>Dr. Steven Jones</h3>
+            <div class="person-title">Interim CEO</div>
+            <div class="person-org">Founders First CDC</div>
+            <details class="person-bio">
+              <summary>View Bio</summary>
+              <div class="person-bio-text">[PLACEHOLDER BIO]</div>
+            </details>
+          </div>
+          <div class="person-footer-action">
+            <a href="#PLACEHOLDER_PHOTOS_LINK" target="_blank" class="btn btn-outline-navy btn-sm">Download Photos</a>
+          </div>
+        </div>
+
+        <!-- Felena Hanson -->
+        <div class="person-card">
+          <div>
+            <div class="yb-media-row">
+              <div class="yb-headshot-slot">HEADSHOT</div>
+              <div class="yb-logo-slot">
+                <img src="https://fastpath.foundersfirstcdc.org/ffcdclogo01.jpg" alt="Founders First CDC Logo" />
+              </div>
+            </div>
+            <span class="person-role">Speaker</span>
+            <h3>Felena Hanson</h3>
+            <div class="person-title">Fireside Speaker</div>
+            <div class="person-org">Founder, Hera Hub</div>
+            <details class="person-bio">
+              <summary>View Bio</summary>
+              <div class="person-bio-text">[PLACEHOLDER BIO]</div>
+            </details>
+          </div>
+          <div class="person-footer-action">
+            <a href="#PLACEHOLDER_PHOTOS_LINK" target="_blank" class="btn btn-outline-navy btn-sm">Download Photos</a>
+          </div>
+        </div>
+
+        <!-- Oscar Franco -->
+        <div class="person-card">
+          <div>
+            <div class="yb-media-row">
+              <div class="yb-headshot-slot">HEADSHOT</div>
+              <div class="yb-logo-slot">
+                <img src="https://fastpath.foundersfirstcdc.org/ffcdclogo01.jpg" alt="Founders First CDC Logo" />
+              </div>
+            </div>
+            <span class="person-role">Guest Expert</span>
+            <h3>Oscar Franco</h3>
+            <div class="person-title">Dinner Guest Speaker</div>
+            <div class="person-org">Alternative Credit and Revenue-Based Financing</div>
+            <details class="person-bio">
+              <summary>View Bio</summary>
+              <div class="person-bio-text">[PLACEHOLDER BIO]</div>
+            </details>
+          </div>
+          <div class="person-footer-action">
+            <a href="#PLACEHOLDER_PHOTOS_LINK" target="_blank" class="btn btn-outline-navy btn-sm">Download Photos</a>
+          </div>
+        </div>
+
+        <!-- Claudio Burgin -->
+        <div class="person-card">
+          <div>
+            <div class="yb-media-row">
+              <div class="yb-headshot-slot">HEADSHOT</div>
+              <div class="yb-logo-slot">
+                <img src="https://fastpath.foundersfirstcdc.org/ffcdclogo01.jpg" alt="Founders First CDC Logo" />
+              </div>
+            </div>
+            <span class="person-role">Pitch Judge</span>
+            <h3>Claudio Burgin</h3>
+            <div class="person-title">Pitch Judge</div>
+            <div class="person-org">U.S. Bank</div>
+            <details class="person-bio">
+              <summary>View Bio</summary>
+              <div class="person-bio-text">[PLACEHOLDER BIO]</div>
+            </details>
+          </div>
+          <div class="person-footer-action">
+            <a href="#PLACEHOLDER_PHOTOS_LINK" target="_blank" class="btn btn-outline-navy btn-sm">Download Photos</a>
+          </div>
+        </div>
+
+        <!-- Jade Cabrera -->
+        <div class="person-card">
+          <div>
+            <div class="yb-media-row">
+              <div class="yb-headshot-slot">HEADSHOT</div>
+              <div class="yb-logo-slot">
+                <img src="https://fastpath.foundersfirstcdc.org/ffcdclogo01.jpg" alt="Founders First CDC Logo" />
+              </div>
+            </div>
+            <span class="person-role">Pitch Judge</span>
+            <h3>Jade Cabrera</h3>
+            <div class="person-title">Pitch Judge</div>
+            <div class="person-org">Chase Bank</div>
+            <details class="person-bio">
+              <summary>View Bio</summary>
+              <div class="person-bio-text">[PLACEHOLDER BIO]</div>
+            </details>
+          </div>
+          <div class="person-footer-action">
+            <a href="#PLACEHOLDER_PHOTOS_LINK" target="_blank" class="btn btn-outline-navy btn-sm">Download Photos</a>
+          </div>
+        </div>
+
+        <!-- Jose “Jay” Fulgencio, Ph.D. -->
+        <div class="person-card">
+          <div>
+            <div class="yb-media-row">
+              <div class="yb-headshot-slot has-img">
+                <img src="https://fastpath.foundersfirstcdc.org/FFCDC_JayFulgencio_Headshot.jpg" alt="Jose Jay Fulgencio, Ph.D." />
+              </div>
+              <div class="yb-logo-slot has-img">
+                <img src="https://fastpath.foundersfirstcdc.org/ffcdclogo01.jpg" alt="Founders First CDC Logo" />
+              </div>
+            </div>
+            <span class="person-role">Program Team</span>
+            <h3>Jose &ldquo;Jay&rdquo; Fulgencio, Ph.D.</h3>
+            <div class="person-title">Program Development Manager, Programs</div>
+            <div class="person-org">Founders First CDC &bull; Chicago, IL (CT)</div>
+            <div class="team-contact-links">
+              <a href="mailto:jfulgencio@foundersfirstcdc.org">jfulgencio@foundersfirstcdc.org</a>
+              <a href="tel:7733477927">(773) 347-7927</a>
+              <a href="https://foundersfirstcdc.org/" target="_blank" rel="noopener noreferrer">foundersfirstcdc.org</a>
+            </div>
+            <details class="person-bio">
+              <summary>Read Bio</summary>
+              <div class="person-bio-text">
+                <p>Dr. Jay Fulgencio is a Chicago-based Program Development Manager at Founders First CDC (having previously held program roles at Founders First), where he focuses on program design, curriculum delivery, and founder education. He brings experience as an entrepreneurship educator, instructional designer, and business owner.</p>
+                <p><strong>Program Development:</strong> Manages program operations and supports digital learning and acceleration initiatives, including Passport Premium and FastPath. Facilitates cohort onboarding and leads member success resource sessions.</p>
+                <p><strong>Business and Consulting:</strong> Founder and President of Learngenix, an e-learning platform and authorized reseller for MindEdge and Cypher Learning. Consults U.S. and international companies and entrepreneurs.</p>
+                <p><strong>Academia and Governance:</strong> Teaches at Roosevelt University using Open Educational Resources (OER). Serves as an Elected Member of the Illinois Education Association (IEA) Higher Educational Council, Treasurer of IEA Region 67, and a member of the Roosevelt Adjunct Faculty Association.</p>
+                <p><strong>Education and Credentials:</strong> Holds a Ph.D. and M.S. from Oklahoma State University and a B.A. from Northeastern Illinois University. Certified Financial Education Instructor (NFEC), Certified Practitioner of the Entrepreneurial Mindset Profile (Eckerd College), Master Online Leader and Administrator (UIS), Digital Teaching and Learning Certified Expert (Blackboard Academy), and Moodle Certified Educator.</p>
+                <p><strong>Honors and Publications:</strong> Named a Negocios Now &ldquo;40 Under 40&rdquo; honoree and a USASBE Teaching and Learning Scholar. Author of personal finance and startup eBooks (with SALT) and writer for Millennial Magazine, Mic, and H&amp;R Block Blog Talk.</p>
+              </div>
+            </details>
+          </div>
+          <div class="person-footer-action">
+            <a href="#PLACEHOLDER_PHOTOS_LINK" target="_blank" class="btn btn-outline-navy btn-sm">Download Photos</a>
+          </div>
+        </div>
+
+        <!-- Sawm Soltani -->
+        <div class="person-card">
+          <div>
+            <div class="yb-media-row">
+              <div class="yb-headshot-slot">HEADSHOT</div>
+              <div class="yb-logo-slot">
+                <img src="https://fastpath.foundersfirstcdc.org/ffcdclogo01.jpg" alt="Founders First CDC Logo" />
+              </div>
+            </div>
+            <span class="person-role">Program Team</span>
+            <h3>Sawm Soltani</h3>
+            <div class="person-title">Registration and Pitch Practice</div>
+            <div class="person-org">Founders First CDC</div>
+            <details class="person-bio">
+              <summary>View Bio</summary>
+              <div class="person-bio-text">[PLACEHOLDER BIO]</div>
+            </details>
+          </div>
+          <div class="person-footer-action">
+            <a href="#PLACEHOLDER_PHOTOS_LINK" target="_blank" class="btn btn-outline-navy btn-sm">Download Photos</a>
+          </div>
+        </div>
+
+        <!-- David Resetar -->
+        <div class="person-card">
+          <div>
+            <div class="yb-media-row">
+              <div class="yb-headshot-slot">HEADSHOT</div>
+              <div class="yb-logo-slot">
+                <img src="https://fastpath.foundersfirstcdc.org/ffcdclogo01.jpg" alt="Founders First CDC Logo" />
+              </div>
+            </div>
+            <span class="person-role">Event Operations</span>
+            <h3>David Resetar</h3>
+            <div class="person-title">Audio Visual and Scoring</div>
+            <div class="person-org">Founders First CDC</div>
+            <details class="person-bio">
+              <summary>View Bio</summary>
+              <div class="person-bio-text">[PLACEHOLDER BIO]</div>
+            </details>
+          </div>
+          <div class="person-footer-action">
+            <a href="#PLACEHOLDER_PHOTOS_LINK" target="_blank" class="btn btn-outline-navy btn-sm">Download Photos</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Venue Thank You Footer -->
+  <footer id="venue" class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-eyebrow">Special Thanks to Our Venue</div>
+        <div class="footer-venue-name">Cooley LLP</div>
+        <div class="footer-venue-address">10265 Science Center Dr, San Diego, CA 92121 | (858) 550-6000</div>
+        <p class="footer-venue-desc">
+          Based in the Torrey Pines life sciences hub, Cooley's San Diego office has served the region's technology and life sciences companies since 1992. We extend our deepest gratitude for their hospitality and continued support of the FastPath program and innovative founders.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Password Modal -->
+  <div id="password-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-box">
+      <button type="button" onclick="closeModal()" class="modal-close" aria-label="Close modal">&times;</button>
+      <h3 id="modal-title">Secure Access</h3>
+      <p>Enter the participant's email address to open private pitch materials and judge feedback.</p>
+      <input type="email" id="modal-password" onkeydown="if(event.key==='Enter') verifyPassword()" class="modal-input" placeholder="Participant email address" />
+      <div id="modal-error" class="modal-error">Incorrect email address. Please try again.</div>
+      <button type="button" onclick="verifyPassword()" class="btn btn-navy" style="width: 100%;">Access Documents</button>
+    </div>
+  </div>
+
+  <!-- Application Script -->
+  <script>
+    const participants = [
+      { id: "epinec", company: "EPINEC", names: "Obi Emeka Ibeto", email: "obiibeto@epinec.us", summaryLink: "#PLACEHOLDER_SUMMARY_LINK", photosLink: "#PLACEHOLDER_PHOTOS_LINK", pitchLink: "#PLACEHOLDER_PITCH_LINK", deckLink: "#PLACEHOLDER_DECK_LINK", feedbackLink: "#PLACEHOLDER_FEEDBACK_LINK", hasPitch: true },
+      { id: "getsocial", company: "Get Social", names: "Teja Renee Smith", email: "teja@getsocialwithteja.com", summaryLink: "#PLACEHOLDER_SUMMARY_LINK", photosLink: "#PLACEHOLDER_PHOTOS_LINK", pitchLink: "#PLACEHOLDER_PITCH_LINK", deckLink: "#PLACEHOLDER_DECK_LINK", feedbackLink: "#PLACEHOLDER_FEEDBACK_LINK", hasPitch: true },
+      { id: "gladys", company: "Gladys' Cleaning Service", names: "Gladys Vonglahn and Kennedy Castro", email: "gladyscleaningservicellc@gmail.com", summaryLink: "#PLACEHOLDER_SUMMARY_LINK", photosLink: "#PLACEHOLDER_PHOTOS_LINK", pitchLink: "#PLACEHOLDER_PITCH_LINK", deckLink: "#PLACEHOLDER_DECK_LINK", feedbackLink: "#PLACEHOLDER_FEEDBACK_LINK", hasPitch: true },
+      { id: "prosperity", company: "Prosperity Property Services", names: "Stephanie Elise Benison and Michael Benison", email: "sbenison@prosperitypropertyservices.com", summaryLink: "#PLACEHOLDER_SUMMARY_LINK", photosLink: "#PLACEHOLDER_PHOTOS_LINK", pitchLink: "#PLACEHOLDER_PITCH_LINK", deckLink: "#PLACEHOLDER_DECK_LINK", feedbackLink: "#PLACEHOLDER_FEEDBACK_LINK", hasPitch: true },
+      { id: "riveo", company: "Riveo Creative", names: "Elin Barton", email: "ebarton@riveocreative.com", summaryLink: "#PLACEHOLDER_SUMMARY_LINK", photosLink: "#PLACEHOLDER_PHOTOS_LINK", pitchLink: "#PLACEHOLDER_PITCH_LINK", deckLink: "#PLACEHOLDER_DECK_LINK", feedbackLink: "#PLACEHOLDER_FEEDBACK_LINK", hasPitch: true },
+      { id: "swe", company: "SWE Solutions", names: "Stephanie Diane Wong", email: "swong@swe-solutions.com", summaryLink: "#PLACEHOLDER_SUMMARY_LINK", photosLink: "#PLACEHOLDER_PHOTOS_LINK", pitchLink: "#PLACEHOLDER_PITCH_LINK", deckLink: "#PLACEHOLDER_DECK_LINK", feedbackLink: "#PLACEHOLDER_FEEDBACK_LINK", hasPitch: true },
+      { id: "tlc", company: "TLC Rents", names: "Reuben F. Ayoub and Michael Gonzales", email: "reuben@tlcrents.com", summaryLink: "#PLACEHOLDER_SUMMARY_LINK", photosLink: "#PLACEHOLDER_PHOTOS_LINK", pitchLink: "#PLACEHOLDER_PITCH_LINK", deckLink: "#PLACEHOLDER_DECK_LINK", feedbackLink: "#PLACEHOLDER_FEEDBACK_LINK", hasPitch: true },
+      { id: "twipes", company: "Twipes", names: "Alborz Bozorgi and Ellenor McIntosh", email: "alborz@twipes.com", summaryLink: "#PLACEHOLDER_SUMMARY_LINK", photosLink: "#PLACEHOLDER_PHOTOS_LINK", pitchLink: "#PLACEHOLDER_PITCH_LINK", deckLink: "#PLACEHOLDER_DECK_LINK", feedbackLink: "#PLACEHOLDER_FEEDBACK_LINK", hasPitch: true },
+      { id: "usa", company: "USA Mobile Drug Testing", names: "Joslyn Maree Tatum", email: "joslyn.tatum@usamdt.com", summaryLink: "#PLACEHOLDER_SUMMARY_LINK", photosLink: "#PLACEHOLDER_PHOTOS_LINK", pitchLink: "#PLACEHOLDER_PITCH_LINK", deckLink: "#PLACEHOLDER_DECK_LINK", feedbackLink: "#PLACEHOLDER_FEEDBACK_LINK", hasPitch: true },
+      { id: "spatial", company: "SpatialGIS", names: "Kendrick Faison", email: "kendrick@spatialgisservices.com", summaryLink: "#PLACEHOLDER_SUMMARY_LINK", photosLink: "#PLACEHOLDER_PHOTOS_LINK", hasPitch: false }
+    ];
+
+    let currentTargetLink = '';
+    let currentRequiredEmail = '';
+
+    function renderCohort() {
+      const grid = document.getElementById('cohort-grid');
+      let html = '';
+
+      participants.forEach(p => {
+        let actionButtons = `
+          <a href="${p.summaryLink}" target="_blank" class="btn btn-outline-navy btn-sm">Company Summary</a>
+          <a href="${p.photosLink}" target="_blank" class="btn btn-outline-navy btn-sm">Download Photos</a>
+        `;
+
+        if (p.hasPitch) {
+          actionButtons += `
+            <button type="button" onclick="requestAccess('${p.email}', '${p.pitchLink}')" class="btn btn-soft-navy btn-sm">&#128274; Watch Pitch</button>
+            <button type="button" onclick="requestAccess('${p.email}', '${p.deckLink}')" class="btn btn-soft-navy btn-sm">&#128274; Final Pitch Deck</button>
+            <button type="button" onclick="requestAccess('${p.email}', '${p.feedbackLink}')" class="btn btn-navy btn-sm">&#128274; Judge Scores and Feedback</button>
+          `;
         }
 
-        function toggleBio(id) {
-            const el = document.getElementById(id);
-            el.classList.toggle('expanded');
-        }
+        html += `
+          <div class="cohort-card">
+            <div>
+              <h3>${p.company}</h3>
+              <div class="cohort-founders">${p.names}</div>
+              <details class="person-bio">
+                <summary>View Bio</summary>
+                <div class="person-bio-text">[PLACEHOLDER BIO]</div>
+              </details>
+            </div>
+            <div class="cohort-actions">
+              ${actionButtons}
+            </div>
+          </div>
+        `;
+      });
 
-        function requestAccess(email, link) {
-            currentRequiredEmail = email.toLowerCase();
-            currentTargetLink = link;
-            document.getElementById('modal-password').value = '';
-            document.getElementById('modal-error').classList.add('hidden');
-            document.getElementById('password-modal').classList.remove('hidden');
-            document.body.classList.add('modal-active');
-        }
+      grid.innerHTML = html;
+    }
 
-        function closeModal() {
-            document.getElementById('password-modal').classList.add('hidden');
-            document.body.classList.remove('modal-active');
-        }
+    function requestAccess(email, link) {
+      currentRequiredEmail = email.toLowerCase();
+      currentTargetLink = link;
+      document.getElementById('modal-password').value = '';
+      document.getElementById('modal-error').classList.remove('is-visible');
+      document.getElementById('password-modal').classList.add('is-open');
+      setTimeout(() => document.getElementById('modal-password').focus(), 50);
+    }
 
-        function verifyPassword() {
-            const input = document.getElementById('modal-password').value.toLowerCase().trim();
-            if (input === currentRequiredEmail) {
-                closeModal();
-                window.open(currentTargetLink, '_blank');
-            } else {
-                document.getElementById('modal-error').classList.remove('hidden');
-            }
-        }
+    function closeModal() {
+      document.getElementById('password-modal').classList.remove('is-open');
+    }
 
-        // Initialize
-        renderCohort();
-    </script>
+    function verifyPassword() {
+      const input = document.getElementById('modal-password').value.toLowerCase().trim();
+      if (input === currentRequiredEmail) {
+        closeModal();
+        window.open(currentTargetLink, '_blank');
+      } else {
+        document.getElementById('modal-error').classList.add('is-visible');
+      }
+    }
+
+    renderCohort();
+  </script>
 </body>
 </html>
