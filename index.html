@@ -563,7 +563,11 @@
     }
 
     .award-winner-item {
-      padding: 8px 0;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-align: left;
+      padding: 10px 0;
       border-top: 1px solid var(--border);
     }
 
@@ -572,16 +576,34 @@
       padding-top: 0;
     }
 
+    .award-headshot {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--gold);
+      background: var(--surface-cool);
+      flex-shrink: 0;
+      display: block;
+    }
+
+    .award-winner-info {
+      min-width: 0;
+    }
+
     .award-company {
       font-family: 'Poppins', sans-serif;
       font-weight: 700;
-      font-size: 15.5px;
+      font-size: 15px;
       color: var(--ink);
+      line-height: 1.25;
     }
 
     .award-founders {
-      font-size: 13px;
+      font-size: 12.5px;
       color: var(--ink-soft);
+      line-height: 1.35;
+      margin-top: 2px;
     }
 
     /* Cards Grid (Cohort & People) */
@@ -1292,8 +1314,11 @@
           <h3>Pitch Award</h3>
           <div class="award-prize">$1,000 and Coaching</div>
           <div class="award-winner-item">
-            <div class="award-company">Twipes</div>
-            <div class="award-founders">Alborz Bozorgi and Ellenor McIntosh</div>
+            <img src="https://fastpath.foundersfirstcdc.org/Twipes_AL_Headshot.png" alt="Alborz Bozorgi and Ellenor McIntosh" class="award-headshot" />
+            <div class="award-winner-info">
+              <div class="award-company">Twipes</div>
+              <div class="award-founders">Alborz Bozorgi and Ellenor McIntosh</div>
+            </div>
           </div>
         </div>
 
@@ -1301,20 +1326,32 @@
           <h3>CESIM Award</h3>
           <div class="award-prize">$250 Each (4 Winners)</div>
           <div class="award-winner-item">
-            <div class="award-company">EPINEC</div>
-            <div class="award-founders">Obi Emeka Ibeto</div>
+            <img src="https://fastpath.foundersfirstcdc.org/EPINEC_Obi_Headshot.jpg" alt="Obi Emeka Ibeto" class="award-headshot" />
+            <div class="award-winner-info">
+              <div class="award-company">EPINEC</div>
+              <div class="award-founders">Obi Emeka Ibeto</div>
+            </div>
           </div>
           <div class="award-winner-item">
-            <div class="award-company">Get Social</div>
-            <div class="award-founders">Teja Renee Smith</div>
+            <img src="https://fastpath.foundersfirstcdc.org/GetSocial_Teja_Headshot.jpg" alt="Teja Renee Smith" class="award-headshot" />
+            <div class="award-winner-info">
+              <div class="award-company">Get Social</div>
+              <div class="award-founders">Teja Renee Smith</div>
+            </div>
           </div>
           <div class="award-winner-item">
-            <div class="award-company">TLC Rents</div>
-            <div class="award-founders">Reuben F. Ayoub and Michael Gonzales</div>
+            <img src="https://fastpath.foundersfirstcdc.org/TLC_Reuben_Headshot.jpg" alt="Reuben F. Ayoub and Michael Gonzales" class="award-headshot" />
+            <div class="award-winner-info">
+              <div class="award-company">TLC Rents</div>
+              <div class="award-founders">Reuben F. Ayoub and Michael Gonzales</div>
+            </div>
           </div>
           <div class="award-winner-item">
-            <div class="award-company">Gladys' Cleaning Service</div>
-            <div class="award-founders">Gladys Vonglahn and Kennedy Castro</div>
+            <img src="https://fastpath.foundersfirstcdc.org/GladysCleaning_Gladys_Headshot.jpg" alt="Gladys Vonglahn and Kennedy Castro" class="award-headshot" />
+            <div class="award-winner-info">
+              <div class="award-company">Gladys' Cleaning Service</div>
+              <div class="award-founders">Gladys Vonglahn and Kennedy Castro</div>
+            </div>
           </div>
         </div>
 
@@ -1322,8 +1359,11 @@
           <h3>FUUUSE Award</h3>
           <div class="award-prize">$100</div>
           <div class="award-winner-item">
-            <div class="award-company">Gladys' Cleaning Service</div>
-            <div class="award-founders">Gladys Vonglahn and Kennedy Castro</div>
+            <img src="https://fastpath.foundersfirstcdc.org/GladysCleaning_Gladys_Headshot.jpg" alt="Gladys Vonglahn and Kennedy Castro" class="award-headshot" />
+            <div class="award-winner-info">
+              <div class="award-company">Gladys' Cleaning Service</div>
+              <div class="award-founders">Gladys Vonglahn and Kennedy Castro</div>
+            </div>
           </div>
         </div>
       </div>
