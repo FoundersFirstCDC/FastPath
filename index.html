@@ -8,7 +8,7 @@
     <style>
         .modal-active { overflow: hidden; }
         .expandable-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; }
-        .expanded { max-height: 500px; } /* Adjust if bios are extremely long */
+        .expanded { max-height: 500px; }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800 font-sans antialiased">
@@ -21,13 +21,11 @@
         </div>
     </header>
 
-    <!-- Venue Thank You -->
+    <!-- Program and Event Overview -->
     <section class="max-w-4xl mx-auto py-12 px-4 text-center border-b border-slate-200">
-        <h2 class="text-2xl font-semibold text-blue-900 mb-3">Special Thanks to Our Venue</h2>
-        <h3 class="text-xl font-bold mb-1">Cooley LLP</h3>
-        <p class="text-slate-600 mb-4">10265 Science Center Dr, San Diego, CA 92121 | (858) 550-6000</p>
+        <h2 class="text-2xl font-semibold text-blue-900 mb-3">About the FastPath Program and Pitch Event</h2>
         <p class="text-slate-700 leading-relaxed">
-            Based in the Torrey Pines life sciences hub, Cooley's San Diego office has served the region's technology and life sciences companies since 1992. We extend our deepest gratitude for their hospitality and continued support of the FastPath program and innovative founders.
+            The <a href="https://foundersfirstcdc.org/fastpath" target="_blank" rel="noopener noreferrer" class="text-blue-600 font-medium underline hover:text-blue-800">FastPath Program</a> by Founders First CDC supports growth-stage businesses scaling their operations and revenue. Held on November 19–20, 2026, the San Diego FastPath Pitch Event served as the capstone for the Fall 2026 cohort, featuring 5-minute founder pitches, 3-minute judge question and answer sessions, awards, and graduation.
         </p>
     </section>
 
@@ -35,15 +33,15 @@
     <section class="max-w-6xl mx-auto py-12 px-4 border-b border-slate-200">
         <h2 class="text-3xl font-bold text-center text-blue-900 mb-8">Event Gallery</h2>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <!-- PLACEHOLDER IMAGES: Replace 'src' with actual GitHub paths -->
-            <div class="aspect-square bg-slate-200 rounded-lg shadow flex items-center justify-center text-slate-400">PLACEHOLDER PHOTO 1</div>
-            <div class="aspect-square bg-slate-200 rounded-lg shadow flex items-center justify-center text-slate-400">PLACEHOLDER PHOTO 2</div>
-            <div class="aspect-square bg-slate-200 rounded-lg shadow flex items-center justify-center text-slate-400">PLACEHOLDER PHOTO 3</div>
-            <div class="aspect-square bg-slate-200 rounded-lg shadow flex items-center justify-center text-slate-400">PLACEHOLDER PHOTO 4</div>
-            <div class="aspect-square bg-slate-200 rounded-lg shadow flex items-center justify-center text-slate-400">PLACEHOLDER PHOTO 5</div>
-            <div class="aspect-square bg-slate-200 rounded-lg shadow flex items-center justify-center text-slate-400">PLACEHOLDER PHOTO 6</div>
-            <div class="aspect-square bg-slate-200 rounded-lg shadow flex items-center justify-center text-slate-400">PLACEHOLDER PHOTO 7</div>
-            <div class="aspect-square bg-slate-200 rounded-lg shadow flex items-center justify-center text-slate-400">PLACEHOLDER PHOTO 8</div>
+            <!-- PLACEHOLDER IMAGES: Replace with actual GitHub image tags or paths -->
+            <div class="aspect-square bg-slate-200 rounded-lg shadow flex items-center justify-center text-slate-400 text-sm font-medium">PLACEHOLDER PHOTO 1</div>
+            <div class="aspect-square bg-slate-200 rounded-lg shadow flex items-center justify-center text-slate-400 text-sm font-medium">PLACEHOLDER PHOTO 2</div>
+            <div class="aspect-square bg-slate-200 rounded-lg shadow flex items-center justify-center text-slate-400 text-sm font-medium">PLACEHOLDER PHOTO 3</div>
+            <div class="aspect-square bg-slate-200 rounded-lg shadow flex items-center justify-center text-slate-400 text-sm font-medium">PLACEHOLDER PHOTO 4</div>
+            <div class="aspect-square bg-slate-200 rounded-lg shadow flex items-center justify-center text-slate-400 text-sm font-medium">PLACEHOLDER PHOTO 5</div>
+            <div class="aspect-square bg-slate-200 rounded-lg shadow flex items-center justify-center text-slate-400 text-sm font-medium">PLACEHOLDER PHOTO 6</div>
+            <div class="aspect-square bg-slate-200 rounded-lg shadow flex items-center justify-center text-slate-400 text-sm font-medium">PLACEHOLDER PHOTO 7</div>
+            <div class="aspect-square bg-slate-200 rounded-lg shadow flex items-center justify-center text-slate-400 text-sm font-medium">PLACEHOLDER PHOTO 8</div>
         </div>
     </section>
 
@@ -80,7 +78,7 @@
     <section class="max-w-6xl mx-auto py-12 px-4 border-b border-slate-200">
         <h2 class="text-3xl font-bold text-center text-blue-900 mb-8">Fall 2026 Cohort Participants</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="cohort-grid">
-            <!-- JavaScript will populate this grid -->
+            <!-- JavaScript populates this grid -->
         </div>
     </section>
 
@@ -88,65 +86,116 @@
     <section class="max-w-6xl mx-auto py-12 px-4">
         <h2 class="text-3xl font-bold text-center text-blue-900 mb-8">Speakers, Judges, and Staff</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 text-center">
-            <div class="bg-white p-6 rounded-lg shadow">
-                <!-- PLACEHOLDER: Headshot Image -->
-                <div class="w-24 h-24 bg-slate-200 rounded-full mx-auto mb-4 flex items-center justify-center text-xs text-slate-400">HEADSHOT</div>
-                <h3 class="font-bold text-lg">Adam Riggs-Zeigen</h3>
-                <p class="text-sm text-blue-600">Emcee and Fireside Host</p>
-                <p class="text-sm text-slate-600 mt-2 cursor-pointer text-blue-500" onclick="toggleBio('bio-adam')">+ View Bio</p>
-                <div id="bio-adam" class="expandable-content text-sm text-left mt-2 text-slate-600">[PLACEHOLDER BIO]</div>
+            <div class="bg-white p-6 rounded-lg shadow flex flex-col justify-between">
+                <div>
+                    <div class="w-24 h-24 bg-slate-200 rounded-full mx-auto mb-4 flex items-center justify-center text-xs text-slate-400">HEADSHOT</div>
+                    <h3 class="font-bold text-lg">Adam Riggs-Zeigen</h3>
+                    <p class="text-sm text-blue-600">Emcee and Fireside Host</p>
+                    <p class="text-sm mt-2 cursor-pointer text-blue-500 font-medium" onclick="toggleBio('bio-adam')">+ View Bio</p>
+                    <div id="bio-adam" class="expandable-content text-sm text-left mt-2 text-slate-600">[PLACEHOLDER BIO]</div>
+                </div>
+                <div class="mt-4 pt-3 border-t border-slate-100">
+                    <a href="#PLACEHOLDER_PHOTOS_LINK" target="_blank" class="block w-full text-center bg-slate-100 hover:bg-slate-200 text-slate-700 py-2 rounded text-sm transition">Download Photos</a>
+                </div>
             </div>
-            <div class="bg-white p-6 rounded-lg shadow">
-                <div class="w-24 h-24 bg-slate-200 rounded-full mx-auto mb-4 flex items-center justify-center text-xs text-slate-400">HEADSHOT</div>
-                <h3 class="font-bold text-lg">Dr. Steven Jones</h3>
-                <p class="text-sm text-blue-600">Interim CEO, Founders First CDC</p>
-                <p class="text-sm text-slate-600 mt-2 cursor-pointer text-blue-500" onclick="toggleBio('bio-steven')">+ View Bio</p>
-                <div id="bio-steven" class="expandable-content text-sm text-left mt-2 text-slate-600">[PLACEHOLDER BIO]</div>
+            <div class="bg-white p-6 rounded-lg shadow flex flex-col justify-between">
+                <div>
+                    <div class="w-24 h-24 bg-slate-200 rounded-full mx-auto mb-4 flex items-center justify-center text-xs text-slate-400">HEADSHOT</div>
+                    <h3 class="font-bold text-lg">Dr. Steven Jones</h3>
+                    <p class="text-sm text-blue-600">Interim CEO, Founders First CDC</p>
+                    <p class="text-sm mt-2 cursor-pointer text-blue-500 font-medium" onclick="toggleBio('bio-steven')">+ View Bio</p>
+                    <div id="bio-steven" class="expandable-content text-sm text-left mt-2 text-slate-600">[PLACEHOLDER BIO]</div>
+                </div>
+                <div class="mt-4 pt-3 border-t border-slate-100">
+                    <a href="#PLACEHOLDER_PHOTOS_LINK" target="_blank" class="block w-full text-center bg-slate-100 hover:bg-slate-200 text-slate-700 py-2 rounded text-sm transition">Download Photos</a>
+                </div>
             </div>
-            <div class="bg-white p-6 rounded-lg shadow">
-                <div class="w-24 h-24 bg-slate-200 rounded-full mx-auto mb-4 flex items-center justify-center text-xs text-slate-400">HEADSHOT</div>
-                <h3 class="font-bold text-lg">Felena Hanson</h3>
-                <p class="text-sm text-blue-600">Fireside Speaker (Founder, Hera Hub)</p>
-                <p class="text-sm text-slate-600 mt-2 cursor-pointer text-blue-500" onclick="toggleBio('bio-felena')">+ View Bio</p>
-                <div id="bio-felena" class="expandable-content text-sm text-left mt-2 text-slate-600">[PLACEHOLDER BIO]</div>
+            <div class="bg-white p-6 rounded-lg shadow flex flex-col justify-between">
+                <div>
+                    <div class="w-24 h-24 bg-slate-200 rounded-full mx-auto mb-4 flex items-center justify-center text-xs text-slate-400">HEADSHOT</div>
+                    <h3 class="font-bold text-lg">Felena Hanson</h3>
+                    <p class="text-sm text-blue-600">Fireside Speaker (Founder, Hera Hub)</p>
+                    <p class="text-sm mt-2 cursor-pointer text-blue-500 font-medium" onclick="toggleBio('bio-felena')">+ View Bio</p>
+                    <div id="bio-felena" class="expandable-content text-sm text-left mt-2 text-slate-600">[PLACEHOLDER BIO]</div>
+                </div>
+                <div class="mt-4 pt-3 border-t border-slate-100">
+                    <a href="#PLACEHOLDER_PHOTOS_LINK" target="_blank" class="block w-full text-center bg-slate-100 hover:bg-slate-200 text-slate-700 py-2 rounded text-sm transition">Download Photos</a>
+                </div>
             </div>
-            <div class="bg-white p-6 rounded-lg shadow">
-                <div class="w-24 h-24 bg-slate-200 rounded-full mx-auto mb-4 flex items-center justify-center text-xs text-slate-400">HEADSHOT</div>
-                <h3 class="font-bold text-lg">Oscar Franco</h3>
-                <p class="text-sm text-blue-600">Dinner Expert</p>
-                <p class="text-sm text-slate-600 mt-2 cursor-pointer text-blue-500" onclick="toggleBio('bio-oscar')">+ View Bio</p>
-                <div id="bio-oscar" class="expandable-content text-sm text-left mt-2 text-slate-600">[PLACEHOLDER BIO]</div>
+            <div class="bg-white p-6 rounded-lg shadow flex flex-col justify-between">
+                <div>
+                    <div class="w-24 h-24 bg-slate-200 rounded-full mx-auto mb-4 flex items-center justify-center text-xs text-slate-400">HEADSHOT</div>
+                    <h3 class="font-bold text-lg">Oscar Franco</h3>
+                    <p class="text-sm text-blue-600">Dinner Expert</p>
+                    <p class="text-sm mt-2 cursor-pointer text-blue-500 font-medium" onclick="toggleBio('bio-oscar')">+ View Bio</p>
+                    <div id="bio-oscar" class="expandable-content text-sm text-left mt-2 text-slate-600">[PLACEHOLDER BIO]</div>
+                </div>
+                <div class="mt-4 pt-3 border-t border-slate-100">
+                    <a href="#PLACEHOLDER_PHOTOS_LINK" target="_blank" class="block w-full text-center bg-slate-100 hover:bg-slate-200 text-slate-700 py-2 rounded text-sm transition">Download Photos</a>
+                </div>
             </div>
-            <div class="bg-white p-6 rounded-lg shadow">
-                <div class="w-24 h-24 bg-slate-200 rounded-full mx-auto mb-4 flex items-center justify-center text-xs text-slate-400">HEADSHOT</div>
-                <h3 class="font-bold text-lg">Claudio Burgin</h3>
-                <p class="text-sm text-blue-600">Pitch Judge (U.S. Bank)</p>
-                <p class="text-sm text-slate-600 mt-2 cursor-pointer text-blue-500" onclick="toggleBio('bio-claudio')">+ View Bio</p>
-                <div id="bio-claudio" class="expandable-content text-sm text-left mt-2 text-slate-600">[PLACEHOLDER BIO]</div>
+            <div class="bg-white p-6 rounded-lg shadow flex flex-col justify-between">
+                <div>
+                    <div class="w-24 h-24 bg-slate-200 rounded-full mx-auto mb-4 flex items-center justify-center text-xs text-slate-400">HEADSHOT</div>
+                    <h3 class="font-bold text-lg">Claudio Burgin</h3>
+                    <p class="text-sm text-blue-600">Pitch Judge (U.S. Bank)</p>
+                    <p class="text-sm mt-2 cursor-pointer text-blue-500 font-medium" onclick="toggleBio('bio-claudio')">+ View Bio</p>
+                    <div id="bio-claudio" class="expandable-content text-sm text-left mt-2 text-slate-600">[PLACEHOLDER BIO]</div>
+                </div>
+                <div class="mt-4 pt-3 border-t border-slate-100">
+                    <a href="#PLACEHOLDER_PHOTOS_LINK" target="_blank" class="block w-full text-center bg-slate-100 hover:bg-slate-200 text-slate-700 py-2 rounded text-sm transition">Download Photos</a>
+                </div>
             </div>
-            <div class="bg-white p-6 rounded-lg shadow">
-                <div class="w-24 h-24 bg-slate-200 rounded-full mx-auto mb-4 flex items-center justify-center text-xs text-slate-400">HEADSHOT</div>
-                <h3 class="font-bold text-lg">Jade Cabrera</h3>
-                <p class="text-sm text-blue-600">Pitch Judge (Chase Bank)</p>
-                <p class="text-sm text-slate-600 mt-2 cursor-pointer text-blue-500" onclick="toggleBio('bio-jade')">+ View Bio</p>
-                <div id="bio-jade" class="expandable-content text-sm text-left mt-2 text-slate-600">[PLACEHOLDER BIO]</div>
+            <div class="bg-white p-6 rounded-lg shadow flex flex-col justify-between">
+                <div>
+                    <div class="w-24 h-24 bg-slate-200 rounded-full mx-auto mb-4 flex items-center justify-center text-xs text-slate-400">HEADSHOT</div>
+                    <h3 class="font-bold text-lg">Jade Cabrera</h3>
+                    <p class="text-sm text-blue-600">Pitch Judge (Chase Bank)</p>
+                    <p class="text-sm mt-2 cursor-pointer text-blue-500 font-medium" onclick="toggleBio('bio-jade')">+ View Bio</p>
+                    <div id="bio-jade" class="expandable-content text-sm text-left mt-2 text-slate-600">[PLACEHOLDER BIO]</div>
+                </div>
+                <div class="mt-4 pt-3 border-t border-slate-100">
+                    <a href="#PLACEHOLDER_PHOTOS_LINK" target="_blank" class="block w-full text-center bg-slate-100 hover:bg-slate-200 text-slate-700 py-2 rounded text-sm transition">Download Photos</a>
+                </div>
             </div>
-            <div class="bg-white p-6 rounded-lg shadow">
-                <div class="w-24 h-24 bg-slate-200 rounded-full mx-auto mb-4 flex items-center justify-center text-xs text-slate-400">HEADSHOT</div>
-                <h3 class="font-bold text-lg">Sawm Soltani</h3>
-                <p class="text-sm text-blue-600">Registration and Pitch Practice</p>
-                <p class="text-sm text-slate-600 mt-2 cursor-pointer text-blue-500" onclick="toggleBio('bio-sawm')">+ View Bio</p>
-                <div id="bio-sawm" class="expandable-content text-sm text-left mt-2 text-slate-600">[PLACEHOLDER BIO]</div>
+            <div class="bg-white p-6 rounded-lg shadow flex flex-col justify-between">
+                <div>
+                    <div class="w-24 h-24 bg-slate-200 rounded-full mx-auto mb-4 flex items-center justify-center text-xs text-slate-400">HEADSHOT</div>
+                    <h3 class="font-bold text-lg">Sawm Soltani</h3>
+                    <p class="text-sm text-blue-600">Registration and Pitch Practice</p>
+                    <p class="text-sm mt-2 cursor-pointer text-blue-500 font-medium" onclick="toggleBio('bio-sawm')">+ View Bio</p>
+                    <div id="bio-sawm" class="expandable-content text-sm text-left mt-2 text-slate-600">[PLACEHOLDER BIO]</div>
+                </div>
+                <div class="mt-4 pt-3 border-t border-slate-100">
+                    <a href="#PLACEHOLDER_PHOTOS_LINK" target="_blank" class="block w-full text-center bg-slate-100 hover:bg-slate-200 text-slate-700 py-2 rounded text-sm transition">Download Photos</a>
+                </div>
             </div>
-            <div class="bg-white p-6 rounded-lg shadow">
-                <div class="w-24 h-24 bg-slate-200 rounded-full mx-auto mb-4 flex items-center justify-center text-xs text-slate-400">HEADSHOT</div>
-                <h3 class="font-bold text-lg">David Resetar</h3>
-                <p class="text-sm text-blue-600">Audio Visual and Scoring</p>
-                <p class="text-sm text-slate-600 mt-2 cursor-pointer text-blue-500" onclick="toggleBio('bio-david')">+ View Bio</p>
-                <div id="bio-david" class="expandable-content text-sm text-left mt-2 text-slate-600">[PLACEHOLDER BIO]</div>
+            <div class="bg-white p-6 rounded-lg shadow flex flex-col justify-between">
+                <div>
+                    <div class="w-24 h-24 bg-slate-200 rounded-full mx-auto mb-4 flex items-center justify-center text-xs text-slate-400">HEADSHOT</div>
+                    <h3 class="font-bold text-lg">David Resetar</h3>
+                    <p class="text-sm text-blue-600">Audio Visual and Scoring</p>
+                    <p class="text-sm mt-2 cursor-pointer text-blue-500 font-medium" onclick="toggleBio('bio-david')">+ View Bio</p>
+                    <div id="bio-david" class="expandable-content text-sm text-left mt-2 text-slate-600">[PLACEHOLDER BIO]</div>
+                </div>
+                <div class="mt-4 pt-3 border-t border-slate-100">
+                    <a href="#PLACEHOLDER_PHOTOS_LINK" target="_blank" class="block w-full text-center bg-slate-100 hover:bg-slate-200 text-slate-700 py-2 rounded text-sm transition">Download Photos</a>
+                </div>
             </div>
         </div>
     </section>
+
+    <!-- Venue Thank You -->
+    <footer class="bg-slate-100 border-t border-slate-200 mt-8">
+        <div class="max-w-4xl mx-auto py-12 px-4 text-center">
+            <h2 class="text-2xl font-semibold text-blue-900 mb-3">Special Thanks to Our Venue</h2>
+            <h3 class="text-xl font-bold text-slate-800 mb-1">Cooley LLP</h3>
+            <p class="text-slate-600 mb-4">10265 Science Center Dr, San Diego, CA 92121 | (858) 550-6000</p>
+            <p class="text-slate-700 leading-relaxed">
+                Based in the Torrey Pines life sciences hub, Cooley's San Diego office has served the region's technology and life sciences companies since 1992. We extend our deepest gratitude for their hospitality and continued support of the FastPath program and innovative founders.
+            </p>
+        </div>
+    </footer>
 
     <!-- Password Modal -->
     <div id="password-modal" class="hidden fixed inset-0 bg-slate-900 bg-opacity-50 flex items-center justify-center z-50">
@@ -156,7 +205,7 @@
             </button>
             <h3 class="text-xl font-bold text-blue-900 mb-2">Secure Access</h3>
             <p class="text-sm text-slate-600 mb-4">Please enter the participant's email address to access private documents.</p>
-            <input type="email" id="modal-password" class="w-full border border-slate-300 rounded px-3 py-2 mb-4 focus:outline-none focus:border-blue-500" placeholder="Email address">
+            <input type="email" id="modal-password" onkeydown="if(event.key==='Enter') verifyPassword()" class="w-full border border-slate-300 rounded px-3 py-2 mb-4 focus:outline-none focus:border-blue-500" placeholder="Email address">
             <p id="modal-error" class="text-red-500 text-sm mb-4 hidden">Incorrect email address. Please try again.</p>
             <button onclick="verifyPassword()" class="w-full bg-blue-600 text-white rounded py-2 hover:bg-blue-700 transition">Access Documents</button>
         </div>
@@ -165,16 +214,16 @@
     <!-- Application Script -->
     <script>
         const participants = [
-            { id: "epinec", company: "EPINEC", names: "Obi Emeka Ibeto", email: "obiibeto@epinec.us", summaryLink: "#PLACEHOLDER_SUMMARY_LINK", pitchLink: "#PLACEHOLDER_PITCH_LINK", deckLink: "#PLACEHOLDER_DECK_LINK", feedbackLink: "#PLACEHOLDER_FEEDBACK_LINK", hasPitch: true },
-            { id: "getsocial", company: "Get Social", names: "Teja Renee Smith", email: "teja@getsocialwithteja.com", summaryLink: "#PLACEHOLDER_SUMMARY_LINK", pitchLink: "#PLACEHOLDER_PITCH_LINK", deckLink: "#PLACEHOLDER_DECK_LINK", feedbackLink: "#PLACEHOLDER_FEEDBACK_LINK", hasPitch: true },
-            { id: "gladys", company: "Gladys' Cleaning Service", names: "Gladys Vonglahn and Kennedy Castro", email: "gladyscleaningservicellc@gmail.com", summaryLink: "#PLACEHOLDER_SUMMARY_LINK", pitchLink: "#PLACEHOLDER_PITCH_LINK", deckLink: "#PLACEHOLDER_DECK_LINK", feedbackLink: "#PLACEHOLDER_FEEDBACK_LINK", hasPitch: true },
-            { id: "prosperity", company: "Prosperity Property Services", names: "Stephanie Elise Benison and Michael Benison", email: "sbenison@prosperitypropertyservices.com", summaryLink: "#PLACEHOLDER_SUMMARY_LINK", pitchLink: "#PLACEHOLDER_PITCH_LINK", deckLink: "#PLACEHOLDER_DECK_LINK", feedbackLink: "#PLACEHOLDER_FEEDBACK_LINK", hasPitch: true },
-            { id: "riveo", company: "Riveo Creative", names: "Elin Barton", email: "ebarton@riveocreative.com", summaryLink: "#PLACEHOLDER_SUMMARY_LINK", pitchLink: "#PLACEHOLDER_PITCH_LINK", deckLink: "#PLACEHOLDER_DECK_LINK", feedbackLink: "#PLACEHOLDER_FEEDBACK_LINK", hasPitch: true },
-            { id: "swe", company: "SWE Solutions", names: "Stephanie Diane Wong", email: "swong@swe-solutions.com", summaryLink: "#PLACEHOLDER_SUMMARY_LINK", pitchLink: "#PLACEHOLDER_PITCH_LINK", deckLink: "#PLACEHOLDER_DECK_LINK", feedbackLink: "#PLACEHOLDER_FEEDBACK_LINK", hasPitch: true },
-            { id: "tlc", company: "TLC Rents", names: "Reuben F. Ayoub and Michael Gonzales", email: "reuben@tlcrents.com", summaryLink: "#PLACEHOLDER_SUMMARY_LINK", pitchLink: "#PLACEHOLDER_PITCH_LINK", deckLink: "#PLACEHOLDER_DECK_LINK", feedbackLink: "#PLACEHOLDER_FEEDBACK_LINK", hasPitch: true },
-            { id: "twipes", company: "Twipes", names: "Alborz Bozorgi and Ellenor McIntosh", email: "alborz@twipes.com", summaryLink: "#PLACEHOLDER_SUMMARY_LINK", pitchLink: "#PLACEHOLDER_PITCH_LINK", deckLink: "#PLACEHOLDER_DECK_LINK", feedbackLink: "#PLACEHOLDER_FEEDBACK_LINK", hasPitch: true },
-            { id: "usa", company: "USA Mobile Drug Testing", names: "Joslyn Maree Tatum", email: "joslyn.tatum@usamdt.com", summaryLink: "#PLACEHOLDER_SUMMARY_LINK", pitchLink: "#PLACEHOLDER_PITCH_LINK", deckLink: "#PLACEHOLDER_DECK_LINK", feedbackLink: "#PLACEHOLDER_FEEDBACK_LINK", hasPitch: true },
-            { id: "spatial", company: "SpatialGIS", names: "Kendrick Faison", email: "kendrick@spatialgisservices.com", summaryLink: "#PLACEHOLDER_SUMMARY_LINK", hasPitch: false }
+            { id: "epinec", company: "EPINEC", names: "Obi Emeka Ibeto", email: "obiibeto@epinec.us", summaryLink: "#PLACEHOLDER_SUMMARY_LINK", photosLink: "#PLACEHOLDER_PHOTOS_LINK", pitchLink: "#PLACEHOLDER_PITCH_LINK", deckLink: "#PLACEHOLDER_DECK_LINK", feedbackLink: "#PLACEHOLDER_FEEDBACK_LINK", hasPitch: true },
+            { id: "getsocial", company: "Get Social", names: "Teja Renee Smith", email: "teja@getsocialwithteja.com", summaryLink: "#PLACEHOLDER_SUMMARY_LINK", photosLink: "#PLACEHOLDER_PHOTOS_LINK", pitchLink: "#PLACEHOLDER_PITCH_LINK", deckLink: "#PLACEHOLDER_DECK_LINK", feedbackLink: "#PLACEHOLDER_FEEDBACK_LINK", hasPitch: true },
+            { id: "gladys", company: "Gladys' Cleaning Service", names: "Gladys Vonglahn and Kennedy Castro", email: "gladyscleaningservicellc@gmail.com", summaryLink: "#PLACEHOLDER_SUMMARY_LINK", photosLink: "#PLACEHOLDER_PHOTOS_LINK", pitchLink: "#PLACEHOLDER_PITCH_LINK", deckLink: "#PLACEHOLDER_DECK_LINK", feedbackLink: "#PLACEHOLDER_FEEDBACK_LINK", hasPitch: true },
+            { id: "prosperity", company: "Prosperity Property Services", names: "Stephanie Elise Benison and Michael Benison", email: "sbenison@prosperitypropertyservices.com", summaryLink: "#PLACEHOLDER_SUMMARY_LINK", photosLink: "#PLACEHOLDER_PHOTOS_LINK", pitchLink: "#PLACEHOLDER_PITCH_LINK", deckLink: "#PLACEHOLDER_DECK_LINK", feedbackLink: "#PLACEHOLDER_FEEDBACK_LINK", hasPitch: true },
+            { id: "riveo", company: "Riveo Creative", names: "Elin Barton", email: "ebarton@riveocreative.com", summaryLink: "#PLACEHOLDER_SUMMARY_LINK", photosLink: "#PLACEHOLDER_PHOTOS_LINK", pitchLink: "#PLACEHOLDER_PITCH_LINK", deckLink: "#PLACEHOLDER_DECK_LINK", feedbackLink: "#PLACEHOLDER_FEEDBACK_LINK", hasPitch: true },
+            { id: "swe", company: "SWE Solutions", names: "Stephanie Diane Wong", email: "swong@swe-solutions.com", summaryLink: "#PLACEHOLDER_SUMMARY_LINK", photosLink: "#PLACEHOLDER_PHOTOS_LINK", pitchLink: "#PLACEHOLDER_PITCH_LINK", deckLink: "#PLACEHOLDER_DECK_LINK", feedbackLink: "#PLACEHOLDER_FEEDBACK_LINK", hasPitch: true },
+            { id: "tlc", company: "TLC Rents", names: "Reuben F. Ayoub and Michael Gonzales", email: "reuben@tlcrents.com", summaryLink: "#PLACEHOLDER_SUMMARY_LINK", photosLink: "#PLACEHOLDER_PHOTOS_LINK", pitchLink: "#PLACEHOLDER_PITCH_LINK", deckLink: "#PLACEHOLDER_DECK_LINK", feedbackLink: "#PLACEHOLDER_FEEDBACK_LINK", hasPitch: true },
+            { id: "twipes", company: "Twipes", names: "Alborz Bozorgi and Ellenor McIntosh", email: "alborz@twipes.com", summaryLink: "#PLACEHOLDER_SUMMARY_LINK", photosLink: "#PLACEHOLDER_PHOTOS_LINK", pitchLink: "#PLACEHOLDER_PITCH_LINK", deckLink: "#PLACEHOLDER_DECK_LINK", feedbackLink: "#PLACEHOLDER_FEEDBACK_LINK", hasPitch: true },
+            { id: "usa", company: "USA Mobile Drug Testing", names: "Joslyn Maree Tatum", email: "joslyn.tatum@usamdt.com", summaryLink: "#PLACEHOLDER_SUMMARY_LINK", photosLink: "#PLACEHOLDER_PHOTOS_LINK", pitchLink: "#PLACEHOLDER_PITCH_LINK", deckLink: "#PLACEHOLDER_DECK_LINK", feedbackLink: "#PLACEHOLDER_FEEDBACK_LINK", hasPitch: true },
+            { id: "spatial", company: "SpatialGIS", names: "Kendrick Faison", email: "kendrick@spatialgisservices.com", summaryLink: "#PLACEHOLDER_SUMMARY_LINK", photosLink: "#PLACEHOLDER_PHOTOS_LINK", hasPitch: false }
         ];
 
         let currentTargetLink = '';
@@ -187,6 +236,7 @@
             participants.forEach(p => {
                 let actionButtons = `
                     <a href="${p.summaryLink}" target="_blank" class="block w-full text-center bg-slate-100 hover:bg-slate-200 text-slate-700 py-2 rounded text-sm mb-2 transition">Company Summary</a>
+                    <a href="${p.photosLink}" target="_blank" class="block w-full text-center bg-slate-100 hover:bg-slate-200 text-slate-700 py-2 rounded text-sm mb-2 transition">Download Photos</a>
                 `;
 
                 if (p.hasPitch) {
