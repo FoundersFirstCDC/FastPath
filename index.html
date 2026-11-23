@@ -579,6 +579,7 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 24px;
+      align-items: start;
     }
 
     .cohort-card,
@@ -591,6 +592,13 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .cohort-card:hover,
+    .person-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--navy);
     }
 
     .cohort-card h3,
@@ -603,17 +611,22 @@
     }
 
     .cohort-founders {
-      font-size: 14px;
-      font-weight: 600;
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--gold-warm);
+      margin-bottom: 10px;
+    }
+
+    .cohort-founders span {
       color: var(--ink-soft);
-      margin-bottom: 12px;
+      font-weight: 500;
     }
 
     .cohort-actions {
       display: flex;
       flex-direction: column;
       gap: 8px;
-      margin-top: 18px;
+      margin-top: 16px;
       padding-top: 16px;
       border-top: 1px solid var(--border);
     }
@@ -622,7 +635,24 @@
       width: 100%;
     }
 
-    /* Person Card Specifics (Jay Fulgencio & Speakers/Judges/Staff) */
+    .yb-footer-link {
+      margin-top: 14px;
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: 'Poppins', sans-serif;
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--navy);
+    }
+
+    .yb-footer-link:hover {
+      color: var(--gold-deep);
+    }
+
+    /* Media Row (Headshot & Logo) */
     .yb-media-row {
       display: flex;
       align-items: center;
@@ -643,7 +673,7 @@
       overflow: hidden;
       flex-shrink: 0;
       font-family: 'Poppins', sans-serif;
-      font-size: 10.5px;
+      font-size: 10px;
       font-weight: 700;
       color: var(--ink-soft);
       text-align: center;
@@ -657,7 +687,8 @@
     }
 
     .yb-logo-slot {
-      height: 40px;
+      height: 44px;
+      max-width: 130px;
       padding: 4px 8px;
       border-radius: 6px;
       background: #ffffff;
@@ -666,11 +697,17 @@
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
+      font-family: 'Poppins', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--ink-soft);
     }
 
     .yb-logo-slot img {
-      max-height: 28px;
+      max-height: 32px;
+      max-width: 112px;
       width: auto;
+      object-fit: contain;
       display: block;
     }
 
@@ -700,6 +737,12 @@
       font-size: 12.5px;
       color: var(--ink-soft);
       margin-bottom: 10px;
+    }
+
+    .person-org a {
+      color: var(--navy);
+      font-weight: 700;
+      text-decoration: underline;
     }
 
     .team-contact-links {
@@ -776,6 +819,12 @@
 
     .person-bio-text p:last-child {
       margin-bottom: 0;
+    }
+
+    .person-bio-text a {
+      color: var(--navy);
+      font-weight: 700;
+      text-decoration: underline;
     }
 
     .person-footer-action {
@@ -1104,22 +1153,58 @@
 
       <div class="cards-grid">
 
-        <!-- Adam Riggs-Zeigen -->
+        <!-- Claudio Burgin -->
         <div class="person-card">
           <div>
             <div class="yb-media-row">
-              <div class="yb-headshot-slot">HEADSHOT</div>
+              <div class="yb-headshot-slot">
+                <img src="https://fastpath.foundersfirstcdc.org/USBANK_ClaudioBurgin_Headshot.jpg" alt="Claudio Burgin" />
+              </div>
               <div class="yb-logo-slot">
-                <img src="https://fastpath.foundersfirstcdc.org/ffcdclogo01.jpg" alt="Founders First CDC Logo" />
+                <img src="https://fastpath.foundersfirstcdc.org/USBANK_ClaudioBurgin_Logo.jpg" alt="U.S. Bank Logo" />
               </div>
             </div>
-            <span class="person-role">Host</span>
-            <h3>Adam Riggs-Zeigen</h3>
-            <div class="person-title">Emcee and Fireside Host</div>
-            <div class="person-org">Founders First CDC</div>
+            <span class="person-role">Pitch Judge</span>
+            <h3>Claudio Burgin</h3>
+            <div class="person-title">Assistant Vice President, Business Access Advisor</div>
+            <div class="person-org">U.S. Bank</div>
             <details class="person-bio">
-              <summary>View Bio</summary>
-              <div class="person-bio-text">[PLACEHOLDER BIO]</div>
+              <summary>Read Bio</summary>
+              <div class="person-bio-text">
+                <p>Claudio Burgin serves as Assistant Vice President and Business Access Advisor at U.S. Bank, where he helps small business owners identify financial challenges, build customized growth plans, and connect with capital, financial education, and community resources.</p>
+                <p>With nearly 19 years at U.S. Bank&mdash;including prior roles as Branch Manager AVP and Licensed Co-Manager&mdash;he actively partners with regional organizations to expand access to banking and business credit across San Diego.</p>
+                <p>Claudio holds a Bachelor's degree in International Business from Universidad Aut&oacute;noma de Baja California, is a graduate of the San Diego Regional Chamber of Commerce LEAD program, and serves on the boards of the San Diego County Hispanic Chamber of Commerce and South County EDC.</p>
+              </div>
+            </details>
+          </div>
+          <div class="person-footer-action">
+            <a href="#PLACEHOLDER_PHOTOS_LINK" target="_blank" class="btn btn-outline-navy btn-sm">Download Photos</a>
+          </div>
+        </div>
+
+        <!-- Jade Cabrera -->
+        <div class="person-card">
+          <div>
+            <div class="yb-media-row">
+              <div class="yb-headshot-slot">
+                <img src="https://fastpath.foundersfirstcdc.org/JPMorganChase_JadeCabrera_Headshot.jpg" alt="Jade Cabrera" />
+              </div>
+              <div class="yb-logo-slot">
+                <img src="https://fastpath.foundersfirstcdc.org/JPMorganChase_JadeCabrera_Logo.png" alt="JPMorganChase Logo" />
+              </div>
+            </div>
+            <span class="person-role">Pitch Judge</span>
+            <h3>Jade Cabrera</h3>
+            <div class="person-title">Vice President, Community Manager</div>
+            <div class="person-org">Chase Bank</div>
+            <details class="person-bio">
+              <summary>Read Bio</summary>
+              <div class="person-bio-text">
+                <p>Jade Cabrera serves as Community Manager for Central San Diego at JPMorganChase, where she expands access to economic opportunity through financial education and strategic community partnerships in her hometown.</p>
+                <p>Jade built the foundation of her career in Washington, D.C., where she spent years at the intersection of technology, policy, and public service. Most recently, she served as Manager of Public Policy External Engagement at Amazon Web Services, where she created pathways for founders and entrepreneurs shaping the next generation of technology to engage directly with D.C. policymakers on the future of their industries.</p>
+                <p>Prior to AWS, she spent two years as a public servant in the Federal government, serving at both the White House and the U.S. Department of Commerce's Office of Public Engagement&mdash;connecting communities, industry leaders and coalitions to the decision-making tables that shape national policy.</p>
+                <p>Today, Jade channels that national-scale experience in coalition-building and stakeholder engagement into local impact, deepening JPMorganChase's presence and investment in San Diego's communities.</p>
+              </div>
             </details>
           </div>
           <div class="person-footer-action">
@@ -1131,17 +1216,19 @@
         <div class="person-card">
           <div>
             <div class="yb-media-row">
-              <div class="yb-headshot-slot">HEADSHOT</div>
+              <div class="yb-headshot-slot">
+                <img src="https://fastpath.foundersfirstcdc.org/FFCDC_StevenJones_Headshot.jpg" alt="Dr. Steven Jones" />
+              </div>
               <div class="yb-logo-slot">
                 <img src="https://fastpath.foundersfirstcdc.org/ffcdclogo01.jpg" alt="Founders First CDC Logo" />
               </div>
             </div>
-            <span class="person-role">Leadership</span>
+            <span class="person-role">Pitch Welcome</span>
             <h3>Dr. Steven Jones</h3>
             <div class="person-title">Interim CEO</div>
-            <div class="person-org">Founders First CDC</div>
+            <div class="person-org">Founders First Community Development Corporation (CDC)</div>
             <details class="person-bio">
-              <summary>View Bio</summary>
+              <summary>Read Bio</summary>
               <div class="person-bio-text">[PLACEHOLDER BIO]</div>
             </details>
           </div>
@@ -1154,18 +1241,49 @@
         <div class="person-card">
           <div>
             <div class="yb-media-row">
-              <div class="yb-headshot-slot">HEADSHOT</div>
+              <div class="yb-headshot-slot">
+                <img src="https://fastpath.foundersfirstcdc.org/HeraHub_Felena_Headshot.jpg" alt="Felena Hanson" />
+              </div>
               <div class="yb-logo-slot">
-                <img src="https://fastpath.foundersfirstcdc.org/ffcdclogo01.jpg" alt="Founders First CDC Logo" />
+                <img src="https://fastpath.foundersfirstcdc.org/HeraHub_Felena_Logo.png" alt="Hera Hub Logo" />
               </div>
             </div>
-            <span class="person-role">Speaker</span>
+            <span class="person-role">Fireside Speaker</span>
             <h3>Felena Hanson</h3>
-            <div class="person-title">Fireside Speaker</div>
-            <div class="person-org">Founder, Hera Hub</div>
+            <div class="person-title">Founder</div>
+            <div class="person-org">Hera Hub (<a href="https://herahub.com" target="_blank" rel="noopener noreferrer">herahub.com</a>)</div>
             <details class="person-bio">
-              <summary>View Bio</summary>
+              <summary>Read Bio</summary>
               <div class="person-bio-text">[PLACEHOLDER BIO]</div>
+            </details>
+          </div>
+          <div class="person-footer-action">
+            <a href="#PLACEHOLDER_PHOTOS_LINK" target="_blank" class="btn btn-outline-navy btn-sm">Download Photos</a>
+          </div>
+        </div>
+
+        <!-- Adam Riggs-Zeigen -->
+        <div class="person-card">
+          <div>
+            <div class="yb-media-row">
+              <div class="yb-headshot-slot">
+                <img src="https://fastpath.foundersfirstcdc.org/RZCoaching_Adam_Headshot.jpg" alt="Adam Riggs-Zeigen" />
+              </div>
+              <div class="yb-logo-slot">
+                <img src="https://fastpath.foundersfirstcdc.org/RZCoaching_Adam_Logo.jpg" alt="RZ Coaching Logo" />
+              </div>
+            </div>
+            <span class="person-role">Host and Emcee</span>
+            <h3>Adam Riggs-Zeigen</h3>
+            <div class="person-title">Program Host and Emcee</div>
+            <div class="person-org">RZ Coaching (<a href="https://www.fitdonutlover.com/" target="_blank" rel="noopener noreferrer">fitdonutlover.com</a>) &bull; Founders First</div>
+            <details class="person-bio">
+              <summary>Read Bio</summary>
+              <div class="person-bio-text">
+                <p>Adam Riggs-Zeigen is the Founder of RZ Coaching (<a href="https://www.fitdonutlover.com/" target="_blank" rel="noopener noreferrer">fitdonutlover.com</a>) and Head of Programs and Technology at Founders First, where he has coached more than 70 small business founders to achieve an average 64% increase in revenue and 92% growth in full-time employees.</p>
+                <p>Prior to RZ Coaching, he spent over 15 years as an entrepreneur and product leader, founding Rock My World Media (creators of RockMyRun, used by 22M+ athletes and 2,000+ fitness studios, and Jolt.ai), earning the Tech Coast Angels Quick Pitch Competition win and San Diego's Most Innovative New Product Award.</p>
+                <p>Adam holds an MBA in Digital Business and Entrepreneurship from San Diego State University and a BS in Computer Science and Business Economics from UC Santa Barbara.</p>
+              </div>
             </details>
           </div>
           <div class="person-footer-action">
@@ -1177,63 +1295,19 @@
         <div class="person-card">
           <div>
             <div class="yb-media-row">
-              <div class="yb-headshot-slot">HEADSHOT</div>
+              <div class="yb-headshot-slot">
+                <img src="https://fastpath.foundersfirstcdc.org/FFCP_OscarFranco_Headshot.jpg" alt="Oscar Franco" />
+              </div>
               <div class="yb-logo-slot">
-                <img src="https://fastpath.foundersfirstcdc.org/ffcdclogo01.jpg" alt="Founders First CDC Logo" />
+                <img src="https://fastpath.foundersfirstcdc.org/FFCP_Logo.jpg" alt="Founders First Logo" />
               </div>
             </div>
-            <span class="person-role">Guest Expert</span>
+            <span class="person-role">Dinner Guest</span>
             <h3>Oscar Franco</h3>
-            <div class="person-title">Dinner Guest Speaker</div>
-            <div class="person-org">Alternative Credit and Revenue-Based Financing</div>
+            <div class="person-title">Alternative Credit and Revenue-Based Financing Expert</div>
+            <div class="person-org">FastPath Executive Dinner</div>
             <details class="person-bio">
-              <summary>View Bio</summary>
-              <div class="person-bio-text">[PLACEHOLDER BIO]</div>
-            </details>
-          </div>
-          <div class="person-footer-action">
-            <a href="#PLACEHOLDER_PHOTOS_LINK" target="_blank" class="btn btn-outline-navy btn-sm">Download Photos</a>
-          </div>
-        </div>
-
-        <!-- Claudio Burgin -->
-        <div class="person-card">
-          <div>
-            <div class="yb-media-row">
-              <div class="yb-headshot-slot">HEADSHOT</div>
-              <div class="yb-logo-slot">
-                <img src="https://fastpath.foundersfirstcdc.org/ffcdclogo01.jpg" alt="Founders First CDC Logo" />
-              </div>
-            </div>
-            <span class="person-role">Pitch Judge</span>
-            <h3>Claudio Burgin</h3>
-            <div class="person-title">Pitch Judge</div>
-            <div class="person-org">U.S. Bank</div>
-            <details class="person-bio">
-              <summary>View Bio</summary>
-              <div class="person-bio-text">[PLACEHOLDER BIO]</div>
-            </details>
-          </div>
-          <div class="person-footer-action">
-            <a href="#PLACEHOLDER_PHOTOS_LINK" target="_blank" class="btn btn-outline-navy btn-sm">Download Photos</a>
-          </div>
-        </div>
-
-        <!-- Jade Cabrera -->
-        <div class="person-card">
-          <div>
-            <div class="yb-media-row">
-              <div class="yb-headshot-slot">HEADSHOT</div>
-              <div class="yb-logo-slot">
-                <img src="https://fastpath.foundersfirstcdc.org/ffcdclogo01.jpg" alt="Founders First CDC Logo" />
-              </div>
-            </div>
-            <span class="person-role">Pitch Judge</span>
-            <h3>Jade Cabrera</h3>
-            <div class="person-title">Pitch Judge</div>
-            <div class="person-org">Chase Bank</div>
-            <details class="person-bio">
-              <summary>View Bio</summary>
+              <summary>Read Bio</summary>
               <div class="person-bio-text">[PLACEHOLDER BIO]</div>
             </details>
           </div>
@@ -1246,10 +1320,10 @@
         <div class="person-card">
           <div>
             <div class="yb-media-row">
-              <div class="yb-headshot-slot has-img">
+              <div class="yb-headshot-slot">
                 <img src="https://fastpath.foundersfirstcdc.org/FFCDC_JayFulgencio_Headshot.jpg" alt="Jose Jay Fulgencio, Ph.D." />
               </div>
-              <div class="yb-logo-slot has-img">
+              <div class="yb-logo-slot">
                 <img src="https://fastpath.foundersfirstcdc.org/ffcdclogo01.jpg" alt="Founders First CDC Logo" />
               </div>
             </div>
@@ -1270,7 +1344,7 @@
                 <p><strong>Business and Consulting:</strong> Founder and President of Learngenix, an e-learning platform and authorized reseller for MindEdge and Cypher Learning. Consults U.S. and international companies and entrepreneurs.</p>
                 <p><strong>Academia and Governance:</strong> Teaches at Roosevelt University using Open Educational Resources (OER). Serves as an Elected Member of the Illinois Education Association (IEA) Higher Educational Council, Treasurer of IEA Region 67, and a member of the Roosevelt Adjunct Faculty Association.</p>
                 <p><strong>Education and Credentials:</strong> Holds a Ph.D. and M.S. from Oklahoma State University and a B.A. from Northeastern Illinois University. Certified Financial Education Instructor (NFEC), Certified Practitioner of the Entrepreneurial Mindset Profile (Eckerd College), Master Online Leader and Administrator (UIS), Digital Teaching and Learning Certified Expert (Blackboard Academy), and Moodle Certified Educator.</p>
-                <p><strong>Honors and Publications:</strong> Named a Negocios Now &ldquo;40 Under 40&rdquo; honoree and a USASBE Teaching and Learning Scholar. Author of personal finance and startup eBooks (with SALT) and writer for Millennial Magazine, Mic, and H&amp;R Block Blog Talk.</p>
+                <p><strong>Honors and Publications:</strong> Named a Negocios Now &ldquo;40 Under 40&rdquo; honoree and a USASBE Teaching and Learning Scholar. Author of personal finance and startup eBooks (with SALT) and writer for Millennial Magazine, Mic, and H and R Block Blog Talk.</p>
               </div>
             </details>
           </div>
@@ -1279,22 +1353,35 @@
           </div>
         </div>
 
-        <!-- Sawm Soltani -->
+        <!-- Sawm Soltani, PMP -->
         <div class="person-card">
           <div>
             <div class="yb-media-row">
-              <div class="yb-headshot-slot">HEADSHOT</div>
+              <div class="yb-headshot-slot">
+                <img src="https://fastpath.foundersfirstcdc.org/FFCP_SawmSoltani_Headshot.jpg" alt="Sawm Soltani, PMP" />
+              </div>
               <div class="yb-logo-slot">
-                <img src="https://fastpath.foundersfirstcdc.org/ffcdclogo01.jpg" alt="Founders First CDC Logo" />
+                <img src="https://fastpath.foundersfirstcdc.org/FFCP_Logo.jpg" alt="Founders First Logo" />
               </div>
             </div>
             <span class="person-role">Program Team</span>
-            <h3>Sawm Soltani</h3>
-            <div class="person-title">Registration and Pitch Practice</div>
-            <div class="person-org">Founders First CDC</div>
+            <h3>Sawm Soltani, PMP</h3>
+            <div class="person-title">Senior Program Manager, Member Performance Analytics</div>
+            <div class="person-org">Founders First &bull; San Diego, CA</div>
+            <div class="team-contact-links">
+              <a href="mailto:ssoltani@f1stcp.com">ssoltani@f1stcp.com</a>
+              <a href="tel:8582644107">(858) 264-4107</a>
+              <a href="https://www.linkedin.com/in/sawm/" target="_blank" rel="noopener noreferrer">linkedin.com/in/sawm</a>
+            </div>
             <details class="person-bio">
-              <summary>View Bio</summary>
-              <div class="person-bio-text">[PLACEHOLDER BIO]</div>
+              <summary>Read Bio</summary>
+              <div class="person-bio-text">
+                <p>Sawm Soltani is a San Diego&ndash;based Senior Program Manager of Member Performance Analytics at Founders First. He is a certified Project Management Professional (PMP) with more than six years of experience directing infrastructure initiatives, guiding cross-functional teams, and utilizing data-driven insights to capture strategic opportunities on time and within budget. Bringing over five years of dedicated experience in impact reporting, data collection, analysis, and narrative synthesis, he has helped organizations raise millions of dollars through data-backed storytelling, alongside an extensive background in small business advisory, pitch deck consulting, and real estate.</p>
+                <p><strong>Program Management and Performance Analytics:</strong> Serves as Senior Program Manager (Member Performance Analytics), having progressively advanced within the organization since 2018 across roles including Program Coordinator, Senior Program Coordinator, and Program Manager. Manages multiple business growth accelerator programs annually, providing small business owners with scaling tools, curriculum coursework, syllabi, brochures, surveys, and multi-channel content across newsletters and social media. Advises founders directly through pitch deck consulting and investor panel preparation, while serving as a relationship manager connecting non-qualifying clients to alternative financing options.</p>
+                <p><strong>Business Consulting and Real Estate:</strong> Has consulted hundreds of diverse entrepreneurs on pitch deck development to secure growth capital. Formerly practiced as a licensed real estate agent in San Diego County across brokerages including Coldwell Banker Residential Brokerage, Compass, and Keller Williams Realty, Inc., helping clients find homes and build wealth. Earlier business development experience includes serving as a Sales Development Representative for S and N Auto Imports, where he managed web marketing campaigns and virtual ads that generated a 30% increase in sales.</p>
+                <p><strong>Education and Credentials:</strong> Holds a B.S. in Business Administration and Management (General) from San Diego State University (2014&ndash;2018), Project Management Professional certification (PMP# 3184545), Google Data Analytics Professional Certificate (Issued May 2024), Google Analytics Individual Qualification (Credential ID: 234011506), and an inactive California Real Estate License (DRE# 02096337).</p>
+                <p><strong>Community Leadership and Languages:</strong> Volunteered as a youth basketball coach with the Rancho Penasquitos Basketball League, leading his team to a top-seed regular season finish. Communicates in English and possesses limited working proficiency in Persian.</p>
+              </div>
             </details>
           </div>
           <div class="person-footer-action">
@@ -1306,17 +1393,24 @@
         <div class="person-card">
           <div>
             <div class="yb-media-row">
-              <div class="yb-headshot-slot">HEADSHOT</div>
+              <div class="yb-headshot-slot">
+                <img src="https://fastpath.foundersfirstcdc.org/FFCP_DavidResetar_Headshot.jpg" alt="David Resetar" />
+              </div>
               <div class="yb-logo-slot">
-                <img src="https://fastpath.foundersfirstcdc.org/ffcdclogo01.jpg" alt="Founders First CDC Logo" />
+                <img src="https://fastpath.foundersfirstcdc.org/FFCP_Logo.jpg" alt="Founders First Logo" />
               </div>
             </div>
-            <span class="person-role">Event Operations</span>
+            <span class="person-role">Event Coordinator</span>
             <h3>David Resetar</h3>
-            <div class="person-title">Audio Visual and Scoring</div>
-            <div class="person-org">Founders First CDC</div>
+            <div class="person-title">Program Coordinator &ndash; TX</div>
+            <div class="person-org">Founders First</div>
+            <div class="team-contact-links">
+              <a href="mailto:dresetar@f1stcp.com">dresetar@f1stcp.com</a>
+              <a href="tel:5044086299">Mobile: (504) 408-6299</a>
+              <a href="tel:8583283054">Office: (858) 328-3054</a>
+            </div>
             <details class="person-bio">
-              <summary>View Bio</summary>
+              <summary>Read Bio</summary>
               <div class="person-bio-text">[PLACEHOLDER BIO]</div>
             </details>
           </div>
@@ -1358,16 +1452,183 @@
   <!-- Application Script -->
   <script>
     const participants = [
-      { id: "epinec", company: "EPINEC", names: "Obi Emeka Ibeto", email: "obiibeto@epinec.us", summaryLink: "#PLACEHOLDER_SUMMARY_LINK", photosLink: "#PLACEHOLDER_PHOTOS_LINK", pitchLink: "#PLACEHOLDER_PITCH_LINK", deckLink: "#PLACEHOLDER_DECK_LINK", feedbackLink: "#PLACEHOLDER_FEEDBACK_LINK", hasPitch: true },
-      { id: "getsocial", company: "Get Social", names: "Teja Renee Smith", email: "teja@getsocialwithteja.com", summaryLink: "#PLACEHOLDER_SUMMARY_LINK", photosLink: "#PLACEHOLDER_PHOTOS_LINK", pitchLink: "#PLACEHOLDER_PITCH_LINK", deckLink: "#PLACEHOLDER_DECK_LINK", feedbackLink: "#PLACEHOLDER_FEEDBACK_LINK", hasPitch: true },
-      { id: "gladys", company: "Gladys' Cleaning Service", names: "Gladys Vonglahn and Kennedy Castro", email: "gladyscleaningservicellc@gmail.com", summaryLink: "#PLACEHOLDER_SUMMARY_LINK", photosLink: "#PLACEHOLDER_PHOTOS_LINK", pitchLink: "#PLACEHOLDER_PITCH_LINK", deckLink: "#PLACEHOLDER_DECK_LINK", feedbackLink: "#PLACEHOLDER_FEEDBACK_LINK", hasPitch: true },
-      { id: "prosperity", company: "Prosperity Property Services", names: "Stephanie Elise Benison and Michael Benison", email: "sbenison@prosperitypropertyservices.com", summaryLink: "#PLACEHOLDER_SUMMARY_LINK", photosLink: "#PLACEHOLDER_PHOTOS_LINK", pitchLink: "#PLACEHOLDER_PITCH_LINK", deckLink: "#PLACEHOLDER_DECK_LINK", feedbackLink: "#PLACEHOLDER_FEEDBACK_LINK", hasPitch: true },
-      { id: "riveo", company: "Riveo Creative", names: "Elin Barton", email: "ebarton@riveocreative.com", summaryLink: "#PLACEHOLDER_SUMMARY_LINK", photosLink: "#PLACEHOLDER_PHOTOS_LINK", pitchLink: "#PLACEHOLDER_PITCH_LINK", deckLink: "#PLACEHOLDER_DECK_LINK", feedbackLink: "#PLACEHOLDER_FEEDBACK_LINK", hasPitch: true },
-      { id: "swe", company: "SWE Solutions", names: "Stephanie Diane Wong", email: "swong@swe-solutions.com", summaryLink: "#PLACEHOLDER_SUMMARY_LINK", photosLink: "#PLACEHOLDER_PHOTOS_LINK", pitchLink: "#PLACEHOLDER_PITCH_LINK", deckLink: "#PLACEHOLDER_DECK_LINK", feedbackLink: "#PLACEHOLDER_FEEDBACK_LINK", hasPitch: true },
-      { id: "tlc", company: "TLC Rents", names: "Reuben F. Ayoub and Michael Gonzales", email: "reuben@tlcrents.com", summaryLink: "#PLACEHOLDER_SUMMARY_LINK", photosLink: "#PLACEHOLDER_PHOTOS_LINK", pitchLink: "#PLACEHOLDER_PITCH_LINK", deckLink: "#PLACEHOLDER_DECK_LINK", feedbackLink: "#PLACEHOLDER_FEEDBACK_LINK", hasPitch: true },
-      { id: "twipes", company: "Twipes", names: "Alborz Bozorgi and Ellenor McIntosh", email: "alborz@twipes.com", summaryLink: "#PLACEHOLDER_SUMMARY_LINK", photosLink: "#PLACEHOLDER_PHOTOS_LINK", pitchLink: "#PLACEHOLDER_PITCH_LINK", deckLink: "#PLACEHOLDER_DECK_LINK", feedbackLink: "#PLACEHOLDER_FEEDBACK_LINK", hasPitch: true },
-      { id: "usa", company: "USA Mobile Drug Testing", names: "Joslyn Maree Tatum", email: "joslyn.tatum@usamdt.com", summaryLink: "#PLACEHOLDER_SUMMARY_LINK", photosLink: "#PLACEHOLDER_PHOTOS_LINK", pitchLink: "#PLACEHOLDER_PITCH_LINK", deckLink: "#PLACEHOLDER_DECK_LINK", feedbackLink: "#PLACEHOLDER_FEEDBACK_LINK", hasPitch: true },
-      { id: "spatial", company: "SpatialGIS", names: "Kendrick Faison", email: "kendrick@spatialgisservices.com", summaryLink: "#PLACEHOLDER_SUMMARY_LINK", photosLink: "#PLACEHOLDER_PHOTOS_LINK", hasPitch: false }
+      {
+        id: "epinec",
+        company: "EPINEC",
+        names: "Obi Emeka Ibeto",
+        location: "Belmont, MA",
+        email: "obiibeto@epinec.us",
+        headshot: "https://fastpath.foundersfirstcdc.org/EPINEC_Obi_Headshot.jpg",
+        logo: "https://fastpath.foundersfirstcdc.org/EPINEC_Obi_Logo.png",
+        bio: "EPINEC LLC is a minority-owned federal IT and cybersecurity contractor based in Massachusetts. It helps federal agencies and regulated organizations protect the systems their missions depend on. EPINEC holds an active Blanket Purchase Agreement with the U.S. Navy at NAWCAD Lakehurst and is MBE-certified by the Commonwealth of Massachusetts and the City of Boston. As a reseller and technical partner for leading data protection platforms, including AvePoint, EPINEC delivers secure cloud, backup, and compliance solutions. With operations in the United States, Nigeria, and the United Kingdom, EPINEC brings practical, mission-ready cybersecurity to clients wherever they operate. CAGE code: 9RQ80.",
+        websiteUrl: "https://epinec.us",
+        websiteLabel: "epinec.us",
+        summaryLink: "https://fastpath.foundersfirstcdc.org/summaries/EPINEC_ShieldForce_Obi_CompanySummaryOverview.pdf",
+        photosLink: "#PLACEHOLDER_PHOTOS_LINK",
+        pitchLink: "#PLACEHOLDER_PITCH_LINK",
+        deckLink: "#PLACEHOLDER_DECK_LINK",
+        feedbackLink: "#PLACEHOLDER_FEEDBACK_LINK",
+        hasPitch: true
+      },
+      {
+        id: "getsocial",
+        company: "Get Social",
+        names: "Teja Renee Smith",
+        location: "Los Angeles, CA",
+        email: "teja@getsocialwithteja.com",
+        headshot: "https://fastpath.foundersfirstcdc.org/GetSocial_Teja_Headshot.jpg",
+        logo: "https://fastpath.foundersfirstcdc.org/GetSocial_Teja_Logo.png",
+        bio: "Get Social is a Los Angeles-based social media and digital strategy agency helping nonprofits, advocacy organizations, and mission-driven brands turn their work into powerful digital stories. Founded by Teja Smith, the agency specializes in social media strategy, content development, digital campaigns, paid media, community engagement, and creative storytelling. Get Social has supported organizations and campaigns working across civic engagement, social justice, climate, education, and community impact. By combining strategy, culture, creativity, and a deep understanding of digital audiences, the agency helps organizations communicate complex issues in ways that are accessible, engaging, culturally relevant, and built to inspire action.",
+        websiteUrl: "https://getsocialwithteja.com",
+        websiteLabel: "getsocialwithteja.com",
+        summaryLink: "https://fastpath.foundersfirstcdc.org/summaries/GetSocial_Teja_CompanySummaryOverview.pdf",
+        photosLink: "#PLACEHOLDER_PHOTOS_LINK",
+        pitchLink: "#PLACEHOLDER_PITCH_LINK",
+        deckLink: "#PLACEHOLDER_DECK_LINK",
+        feedbackLink: "#PLACEHOLDER_FEEDBACK_LINK",
+        hasPitch: true
+      },
+      {
+        id: "gladys",
+        company: "Gladys' Cleaning Service",
+        names: "Gladys Vonglahn and Kennedy Castro",
+        location: "Union, NJ",
+        email: "gladyscleaningservicellc@gmail.com",
+        headshot: "https://fastpath.foundersfirstcdc.org/GladysCleaning_Gladys_Headshot.jpg",
+        logo: "https://fastpath.foundersfirstcdc.org/GladysCleaning_Gladys_Logo.png",
+        bio: "Gladys’ Cleaning Service LLC is a family-owned, minority- and woman-owned company with over 20 years of experience delivering professional cleaning solutions across New Jersey, New York, and Pennsylvania. We specialize in post-construction final cleaning, commercial janitorial, facility maintenance, and specialty cleaning services. Serving private, corporate, and government sectors, we provide both union and non-union workforce solutions. Our certified, insured, and bonded company is committed to safety, quality, reliability, and customer satisfaction. With proven experience in airports, healthcare facilities, laboratories, and commercial developments, we help clients meet project deadlines, maintain compliance, and deliver exceptional results through trusted, long-term partnerships.",
+        websiteUrl: "https://gladyscleaningservice.com",
+        websiteLabel: "gladyscleaningservice.com",
+        summaryLink: "https://fastpath.foundersfirstcdc.org/summaries/GladysCleaning_Gladys_CompanySummaryOverview.pdf",
+        photosLink: "#PLACEHOLDER_PHOTOS_LINK",
+        pitchLink: "#PLACEHOLDER_PITCH_LINK",
+        deckLink: "#PLACEHOLDER_DECK_LINK",
+        feedbackLink: "#PLACEHOLDER_FEEDBACK_LINK",
+        hasPitch: true
+      },
+      {
+        id: "prosperity",
+        company: "Prosperity Property Services",
+        names: "Stephanie Elise Benison and Michael Benison",
+        location: "Calumet Park / Riverdale, IL",
+        email: "sbenison@prosperitypropertyservices.com",
+        headshot: "https://fastpath.foundersfirstcdc.org/PPS_StephanieBenison_Headshot.jpeg",
+        logo: "https://fastpath.foundersfirstcdc.org/PPS_StephanieBenison_Logo.png",
+        bio: "Prosperity Property Services Inc. is a certified woman-owned property preservation and union carpentry company (WBE, WOSB, DBE, BEP, Section 3) based in Calumet Park, Illinois. Founded in 2017 by CEO Stephanie Benison to serve bank-owned properties, PPS expanded into commercial union carpentry in 2022 and today provides rough and finish carpentry for general contractors on commercial, institutional, and public projects throughout the Chicago region, led in the field by Chief Operating Officer Michael Benison. Rooted in the South Suburbs it serves, PPS creates pathways into the trades through mentorship, internships, and apprenticeships that lead to lasting union careers.",
+        websiteUrl: "https://prosperitypropertyservices.com",
+        websiteLabel: "prosperitypropertyservices.com",
+        summaryLink: "https://fastpath.foundersfirstcdc.org/summaries/ProsperityPropertyServices_StephanieB_CompanySummaryOverview.pdf",
+        photosLink: "#PLACEHOLDER_PHOTOS_LINK",
+        pitchLink: "#PLACEHOLDER_PITCH_LINK",
+        deckLink: "#PLACEHOLDER_DECK_LINK",
+        feedbackLink: "#PLACEHOLDER_FEEDBACK_LINK",
+        hasPitch: true
+      },
+      {
+        id: "riveo",
+        company: "Riveo Creative",
+        names: "Elin Barton",
+        location: "Vestal, NY",
+        email: "ebarton@riveocreative.com",
+        headshot: "https://fastpath.foundersfirstcdc.org/Riveo_Elin_Headshot.jpeg",
+        logo: "https://fastpath.foundersfirstcdc.org/Riveo_Elin_Logo.jpg",
+        bio: "Riveo Creative is a full-service marketing and video production agency that amplifies the voices of mission-driven organizations through video, brand strategy, design, and social media. Riveo has partnered with clients including Goldman Sachs, ICIC, and New York State. Its storytelling gets results: it helped SUNY Cortland, a state university, raise 20% beyond its 3-year campaign goal in just 3 months. Riveo holds a Platinum EcoVadis sustainability rating, placing it in the top 1% of companies assessed worldwide, and is a certified WBE and SBA Woman-Owned Small Business. Learn more at riveocreative.com.",
+        websiteUrl: "https://riveocreative.com",
+        websiteLabel: "riveocreative.com",
+        summaryLink: "https://fastpath.foundersfirstcdc.org/summaries/Riveo_Elin_CompanySummaryOverview.pdf",
+        photosLink: "#PLACEHOLDER_PHOTOS_LINK",
+        pitchLink: "#PLACEHOLDER_PITCH_LINK",
+        deckLink: "#PLACEHOLDER_DECK_LINK",
+        feedbackLink: "#PLACEHOLDER_FEEDBACK_LINK",
+        hasPitch: true
+      },
+      {
+        id: "swe",
+        company: "SWE Solutions",
+        names: "Stephanie Diane Wong",
+        location: "Naperville, IL",
+        email: "swong@swe-solutions.com",
+        headshot: "https://fastpath.foundersfirstcdc.org/SWE_StephanieWong_Headshot.jpg",
+        logo: "https://fastpath.foundersfirstcdc.org/SWE_StephanieWong_Logo.png",
+        bio: "SWE Solutions is a civil engineering design and construction management firm focused on delivering innovative, technology-driven solutions for infrastructure and development projects. We specialize in civil site design, project planning, construction oversight, and advanced drone surveying services that provide accurate, efficient, and cost-effective data collection. By combining engineering expertise with cutting-edge aerial mapping, photogrammetry, and reality-capture technologies, we help clients make informed decisions throughout every stage of a project. Our commitment to innovation, quality, and client success enables us to streamline workflows, improve project outcomes, and support the development of resilient, sustainable communities across the public and private sectors.",
+        websiteUrl: "https://swe-solutions.com",
+        websiteLabel: "swe-solutions.com",
+        summaryLink: "https://fastpath.foundersfirstcdc.org/summaries/SWE_StephanieW_CompanySummaryOverview.pdf",
+        photosLink: "#PLACEHOLDER_PHOTOS_LINK",
+        pitchLink: "#PLACEHOLDER_PITCH_LINK",
+        deckLink: "#PLACEHOLDER_DECK_LINK",
+        feedbackLink: "#PLACEHOLDER_FEEDBACK_LINK",
+        hasPitch: true
+      },
+      {
+        id: "tlc",
+        company: "TLC Rents",
+        names: "Reuben F. Ayoub and Michael Gonzales",
+        location: "Atlanta, GA",
+        email: "reuben@tlcrents.com",
+        headshot: "https://fastpath.foundersfirstcdc.org/TLC_Reuben_Headshot.jpg",
+        logo: "https://fastpath.foundersfirstcdc.org/TLC_Reuben_Logo.png",
+        bio: "TLC Rents is Atlanta’s full-service event rental company and trusted partner for thoughtfully designed, flawlessly executed events. For more than three decades, we have equipped event professionals with an extensive collection of tents, furniture, linens, tabletop, staging, lounge pieces, and décor spanning timeless styles and current trends. Our inventory depth enables us to support corporate events and large-scale installations with confidence. When a vision calls for something original, our experienced craftsmen manage custom projects from concept and design through fabrication and installation. By combining creative collaboration, responsive service, and operational expertise, TLC Rents transforms complex ideas into distinctive event environments.",
+        websiteUrl: "https://tlcrents.com",
+        websiteLabel: "tlcrents.com",
+        summaryLink: "https://fastpath.foundersfirstcdc.org/summaries/TLC_Reuben_CompanySummaryOverview.pdf",
+        photosLink: "#PLACEHOLDER_PHOTOS_LINK",
+        pitchLink: "#PLACEHOLDER_PITCH_LINK",
+        deckLink: "#PLACEHOLDER_DECK_LINK",
+        feedbackLink: "#PLACEHOLDER_FEEDBACK_LINK",
+        hasPitch: true
+      },
+      {
+        id: "twipes",
+        company: "Twipes",
+        names: "Alborz Bozorgi and Ellenor McIntosh",
+        location: "Buffalo, NY",
+        email: "alborz@twipes.com",
+        headshot: "https://fastpath.foundersfirstcdc.org/Twipes_AL_Headshot.png",
+        logo: "https://fastpath.foundersfirstcdc.org/Twipes_AL_Logo.png",
+        bio: "Twipes are the world's first truly flushable and biodegradable wet wipes. They break down in water in 3 hours and biodegrade in landfill in just 7 days. They’re free from plastics, parabens, and alcohol, and are dermatologist-tested to be as safe on skin as they are on the planet. Find out more at www.twipes.com!",
+        websiteUrl: "https://twipes.com",
+        websiteLabel: "twipes.com",
+        summaryLink: "#PLACEHOLDER_SUMMARY_LINK",
+        photosLink: "#PLACEHOLDER_PHOTOS_LINK",
+        pitchLink: "#PLACEHOLDER_PITCH_LINK",
+        deckLink: "#PLACEHOLDER_DECK_LINK",
+        feedbackLink: "#PLACEHOLDER_FEEDBACK_LINK",
+        hasPitch: true
+      },
+      {
+        id: "usa",
+        company: "USA Mobile Drug Testing",
+        names: "Joslyn Maree Tatum",
+        location: "Plano, TX",
+        email: "joslyn.tatum@usamdt.com",
+        headshot: "https://fastpath.foundersfirstcdc.org/USAMDT_Joslyn_Headshot.jpg",
+        logo: "https://fastpath.foundersfirstcdc.org/USAMDT_Joslyn_Logo.png",
+        bio: "USA Mobile Drug Testing brings workplace drug and alcohol testing and occupational health services directly to your worksite, 24 hours a day, 7 days a week. Instead of sending employees to a clinic, our certified collectors come to you, day or night, so your people stay on the job and your program stays compliant.",
+        websiteUrl: "https://usamdt.com/dallas",
+        websiteLabel: "usamdt.com/dallas",
+        summaryLink: "https://fastpath.foundersfirstcdc.org/summaries/USAMDT_Joslyn_CompanySummaryOverview.pdf",
+        photosLink: "#PLACEHOLDER_PHOTOS_LINK",
+        pitchLink: "#PLACEHOLDER_PITCH_LINK",
+        deckLink: "#PLACEHOLDER_DECK_LINK",
+        feedbackLink: "#PLACEHOLDER_FEEDBACK_LINK",
+        hasPitch: true
+      },
+      {
+        id: "spatial",
+        company: "SpatialGIS, L.L.C.",
+        names: "Kendrick O. Faison (President/CEO)",
+        location: "NC / MD / MO",
+        email: "kendrick@spatialgisservices.com",
+        headshot: "",
+        logo: "",
+        bio: "Geospatial intelligence, cloud services, remote sensing, Salesforce integration, UAV mapping, and IT support for defense and government agencies.",
+        websiteUrl: "https://spatialgisservices.com",
+        websiteLabel: "spatialgisservices.com",
+        summaryLink: "#PLACEHOLDER_SUMMARY_LINK",
+        photosLink: "#PLACEHOLDER_PHOTOS_LINK",
+        hasPitch: false
+      }
     ];
 
     let currentTargetLink = '';
@@ -1378,9 +1639,17 @@
       let html = '';
 
       participants.forEach(p => {
+        const headshotHtml = p.headshot
+          ? `<img src="${p.headshot}" alt="${p.names}" />`
+          : `HEADSHOT`;
+
+        const logoHtml = p.logo
+          ? `<img src="${p.logo}" alt="${p.company} Logo" />`
+          : `LOGO`;
+
         let actionButtons = `
-          <a href="${p.summaryLink}" target="_blank" class="btn btn-outline-navy btn-sm">Company Summary</a>
-          <a href="${p.photosLink}" target="_blank" class="btn btn-outline-navy btn-sm">Download Photos</a>
+          <a href="${p.summaryLink}" target="_blank" rel="noopener noreferrer" class="btn btn-outline-navy btn-sm">Company Summary</a>
+          <a href="${p.photosLink}" target="_blank" rel="noopener noreferrer" class="btn btn-outline-navy btn-sm">Download Photos</a>
         `;
 
         if (p.hasPitch) {
@@ -1394,15 +1663,25 @@
         html += `
           <div class="cohort-card">
             <div>
+              <div class="yb-media-row">
+                <div class="yb-headshot-slot">${headshotHtml}</div>
+                <div class="yb-logo-slot">${logoHtml}</div>
+              </div>
               <h3>${p.company}</h3>
-              <div class="cohort-founders">${p.names}</div>
+              <div class="cohort-founders">${p.names} <span>&bull; ${p.location}</span></div>
               <details class="person-bio">
-                <summary>View Bio</summary>
-                <div class="person-bio-text">[PLACEHOLDER BIO]</div>
+                <summary>Read Bio</summary>
+                <div class="person-bio-text"><p>${p.bio}</p></div>
               </details>
             </div>
-            <div class="cohort-actions">
-              ${actionButtons}
+            <div>
+              <div class="cohort-actions">
+                ${actionButtons}
+              </div>
+              <a href="${p.websiteUrl}" target="_blank" rel="noopener noreferrer" class="yb-footer-link">
+                <span>${p.websiteLabel}</span>
+                <span>&#8594;</span>
+              </a>
             </div>
           </div>
         `;
@@ -1428,7 +1707,7 @@
       const input = document.getElementById('modal-password').value.toLowerCase().trim();
       if (input === currentRequiredEmail) {
         closeModal();
-        window.open(currentTargetLink, '_blank');
+        window.open(currentTargetLink, '_blank', 'noopener,noreferrer');
       } else {
         document.getElementById('modal-error').classList.add('is-visible');
       }
