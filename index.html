@@ -529,7 +529,85 @@
       margin-top: 8px;
     }
 
-    /* Photo Collage Grid & Overlay */
+    /* Section Toolbar (Filter Tabs with Edge Fade + Action Button) */
+    .section-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 24px;
+      padding: 10px 14px;
+      background: var(--surface-cool);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+    }
+
+    .filter-tabs-scroll {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+
+    .filter-tabs-scroll::-webkit-scrollbar {
+      display: none;
+    }
+
+    .filter-tabs-scroll[data-edge="right"] {
+      mask-image: linear-gradient(270deg, transparent, #000 28px);
+      -webkit-mask-image: linear-gradient(270deg, transparent, #000 28px);
+    }
+
+    .filter-tabs-scroll[data-edge="left"] {
+      mask-image: linear-gradient(90deg, transparent, #000 28px);
+      -webkit-mask-image: linear-gradient(90deg, transparent, #000 28px);
+    }
+
+    .filter-tabs-scroll[data-edge="both"] {
+      mask-image: linear-gradient(90deg, transparent, #000 28px, #000 calc(100% - 28px), transparent);
+      -webkit-mask-image: linear-gradient(90deg, transparent, #000 28px, #000 calc(100% - 28px), transparent);
+    }
+
+    .filter-pill {
+      flex: 0 0 auto;
+      min-height: 38px;
+      padding: 0 14px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: #ffffff;
+      color: var(--navy);
+      font-family: 'Poppins', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+      position: relative;
+    }
+
+    .filter-pill:hover {
+      border-color: var(--navy);
+    }
+
+    .filter-pill.is-active {
+      background: var(--navy);
+      border-color: var(--navy);
+      color: #ffffff;
+    }
+
+    .toolbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    /* Photo Collage Grid & Shuffle Riffle */
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -546,6 +624,23 @@
       align-items: center;
       justify-content: center;
       overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+
+    .gallery-item:hover {
+      border-color: var(--navy);
+      transform: translateY(-2px);
+    }
+
+    .gallery-grid.is-shuffling .gallery-item {
+      animation: galleryRiffle 0.55s ease-in-out;
+    }
+
+    @keyframes galleryRiffle {
+      0%   { opacity: 1; transform: scale(1); }
+      45%  { opacity: 0.25; transform: scale(0.96) rotate(-1deg); }
+      100% { opacity: 1; transform: scale(1); }
     }
 
     .gallery-item img {
@@ -560,34 +655,61 @@
       transform: scale(1.04);
     }
 
+    .gallery-caption-bar {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 24px 12px 10px;
+      background: linear-gradient(180deg, transparent 0%, rgba(4, 24, 69, 0.86) 100%);
+      color: #ffffff;
+      font-family: 'Poppins', sans-serif;
+      font-size: 11.5px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      pointer-events: none;
+    }
+
     .gallery-download-overlay {
       position: absolute;
       inset: 0;
-      background: rgba(4, 24, 69, 0.6);
+      background: rgba(4, 24, 69, 0.62);
       display: flex;
       align-items: center;
       justify-content: center;
+      gap: 10px;
       opacity: 0;
       transition: opacity 0.2s ease;
     }
 
-    .gallery-item:hover .gallery-download-overlay {
+    .gallery-item:hover .gallery-download-overlay,
+    .gallery-item:focus-within .gallery-download-overlay {
       opacity: 1;
     }
 
-    .gallery-download-btn {
+    .gallery-overlay-btn {
       background: var(--gold);
       color: var(--navy);
       font-family: 'Poppins', sans-serif;
-      font-size: 12px;
+      font-size: 11.5px;
       font-weight: 800;
-      padding: 8px 18px;
+      padding: 8px 14px;
       border-radius: 999px;
+      border: none;
+      cursor: pointer;
       text-decoration: none;
       transition: transform 0.2s ease, background 0.2s ease;
     }
 
-    .gallery-download-btn:hover {
+    .gallery-overlay-btn.is-secondary {
+      background: #ffffff;
+      color: var(--navy);
+    }
+
+    .gallery-overlay-btn:hover {
       background: #ffffff;
       transform: scale(1.05);
     }
@@ -672,84 +794,6 @@
       margin-top: 2px;
     }
 
-    /* Cohort Controls Bar (Filter Tabs with Edge Fade + Shuffle Deck Button) */
-    .cohort-toolbar {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      margin-bottom: 24px;
-      padding: 10px 14px;
-      background: var(--surface-cool);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-    }
-
-    .filter-tabs-scroll {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      overflow-x: auto;
-      scrollbar-width: none;
-      -webkit-overflow-scrolling: touch;
-      flex: 1 1 auto;
-      min-width: 0;
-    }
-
-    .filter-tabs-scroll::-webkit-scrollbar {
-      display: none;
-    }
-
-    .filter-tabs-scroll[data-edge="right"] {
-      mask-image: linear-gradient(270deg, transparent, #000 28px);
-      -webkit-mask-image: linear-gradient(270deg, transparent, #000 28px);
-    }
-
-    .filter-tabs-scroll[data-edge="left"] {
-      mask-image: linear-gradient(90deg, transparent, #000 28px);
-      -webkit-mask-image: linear-gradient(90deg, transparent, #000 28px);
-    }
-
-    .filter-tabs-scroll[data-edge="both"] {
-      mask-image: linear-gradient(90deg, transparent, #000 28px, #000 calc(100% - 28px), transparent);
-      -webkit-mask-image: linear-gradient(90deg, transparent, #000 28px, #000 calc(100% - 28px), transparent);
-    }
-
-    .filter-pill {
-      flex: 0 0 auto;
-      min-height: 38px;
-      padding: 0 14px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      background: #ffffff;
-      color: var(--navy);
-      font-family: 'Poppins', sans-serif;
-      font-size: 12px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      white-space: nowrap;
-      position: relative;
-    }
-
-    .filter-pill:hover {
-      border-color: var(--navy);
-    }
-
-    .filter-pill.is-active {
-      background: var(--navy);
-      border-color: var(--navy);
-      color: #ffffff;
-    }
-
-    .cohort-toolbar-actions {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      flex-shrink: 0;
-    }
-
     /* Cards Grid (Cohort & People) */
     .cards-grid {
       display: grid;
@@ -777,57 +821,6 @@
     .person-card:hover {
       transform: translateY(-2px);
       border-color: var(--navy);
-    }
-
-    /* Card Back Overlay for Riffle Shuffle Animation */
-    .deck-back-cover {
-      position: absolute;
-      inset: 0;
-      z-index: 6;
-      border-radius: var(--radius);
-      background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 100%);
-      border: 2px solid var(--gold);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.18s ease;
-    }
-
-    .deck-back-cover img {
-      width: 64px;
-      height: 64px;
-      border-radius: 50%;
-      background: #ffffff;
-      padding: 6px;
-      border: 2px solid var(--gold);
-    }
-
-    .deck-back-cover span {
-      font-family: 'Poppins', sans-serif;
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: 1.2px;
-      text-transform: uppercase;
-      color: var(--gold);
-    }
-
-    .cards-grid.is-shuffling .deck-back-cover {
-      opacity: 1;
-    }
-
-    .cards-grid.is-shuffling .cohort-card {
-      animation: riffle 0.68s ease-in-out;
-    }
-
-    @keyframes riffle {
-      0%   { transform: none; }
-      30%  { transform: translateY(-12px) rotate(-2.5deg); }
-      65%  { transform: translateY(5px) rotate(2deg); }
-      100% { transform: none; }
     }
 
     .cohort-card h3,
@@ -865,6 +858,22 @@
       padding: 0 8px;
       font-size: 11.25px;
       min-height: 38px;
+    }
+
+    .cohort-actions-compact {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+    }
+
+    .cohort-actions-compact .btn {
+      min-height: 34px;
+      padding: 0 8px;
+      font-size: 11px;
+    }
+
+    .cohort-actions-compact .btn-full {
+      grid-column: 1 / -1;
     }
 
     .yb-footer-link {
@@ -1401,6 +1410,39 @@
       display: block;
     }
 
+    /* Full-Resolution Photo Lightbox Modal */
+    .lightbox-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(4, 18, 52, 0.94);
+      z-index: 2150;
+      display: none;
+      flex-direction: column;
+      color: #ffffff;
+    }
+
+    .lightbox-backdrop.is-open {
+      display: flex;
+    }
+
+    .lightbox-stage {
+      flex: 1 1 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      overflow: hidden;
+    }
+
+    .lightbox-stage img {
+      max-width: 100%;
+      max-height: 76vh;
+      border-radius: 10px;
+      border: 2px solid rgba(234, 170, 1, 0.5);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6);
+      object-fit: contain;
+    }
+
     /* Swipeable Pitch Reel Modal */
     .pitch-reel-backdrop {
       position: fixed;
@@ -1652,6 +1694,7 @@
 
     @media (prefers-reduced-motion: reduce) {
       .cohort-card,
+      .gallery-item,
       .modal-box,
       .fp-toast {
         transition: none !important;
@@ -1667,9 +1710,10 @@
 
       header.site-header,
       .mobile-subnav,
-      .cohort-toolbar,
-      .deck-back-cover,
+      .section-toolbar,
+      .gallery-download-overlay,
       .modal-backdrop,
+      .lightbox-backdrop,
       .pitch-reel-backdrop,
       .fp-toast {
         display: none !important;
@@ -1767,50 +1811,26 @@
     </div>
   </section>
 
-  <!-- Photo Collage -->
+  <!-- Photo Collage with Group Toggle, All Photos Toggle & Shuffle -->
   <section id="gallery" class="page-section">
     <div class="container">
       <div class="section-header">
         <div class="section-eyebrow">Event Highlights</div>
         <h2 class="section-title">Photo Gallery</h2>
       </div>
-      <div class="gallery-grid">
-        <div class="gallery-item">
-          <img src="fireside-group.jpg" alt="Fireside Chat Group" loading="lazy" />
-          <div class="gallery-download-overlay">
-            <a href="fireside-group.jpg" download class="gallery-download-btn">&#128427; Download High-Res</a>
-          </div>
+
+      <div class="section-toolbar">
+        <div class="filter-tabs-scroll" id="gallery-filter-tabs" data-edge="none" role="tablist" aria-label="Filter Event Photos">
+          <button type="button" class="filter-pill is-active" data-gallery-mode="group" onclick="setGalleryMode('group')">Group Photos (6)</button>
+          <button type="button" class="filter-pill" data-gallery-mode="all" onclick="setGalleryMode('all')">All Event Photos (18)</button>
         </div>
-        <div class="gallery-item">
-          <img src="fireside-group01.jpg" alt="Fireside Chat Group 1" loading="lazy" />
-          <div class="gallery-download-overlay">
-            <a href="fireside-group01.jpg" download class="gallery-download-btn">&#128427; Download High-Res</a>
-          </div>
+        <div class="toolbar-actions">
+          <button type="button" class="btn btn-outline-navy btn-sm" onclick="shuffleGalleryPhotos()">&#8635; Shuffle Photos</button>
         </div>
-        <div class="gallery-item">
-          <img src="fireside-group02.jpg" alt="Fireside Chat Group 2" loading="lazy" />
-          <div class="gallery-download-overlay">
-            <a href="fireside-group02.jpg" download class="gallery-download-btn">&#128427; Download High-Res</a>
-          </div>
-        </div>
-        <div class="gallery-item">
-          <img src="pitch-group01.jpg" alt="Pitch Event Group" loading="lazy" />
-          <div class="gallery-download-overlay">
-            <a href="pitch-group01.jpg" download class="gallery-download-btn">&#128427; Download High-Res</a>
-          </div>
-        </div>
-        <div class="gallery-item">
-          <img src="pitch-ffcdc01.jpg" alt="Founders First CDC Team" loading="lazy" />
-          <div class="gallery-download-overlay">
-            <a href="pitch-ffcdc01.jpg" download class="gallery-download-btn">&#128427; Download High-Res</a>
-          </div>
-        </div>
-        <div class="gallery-item">
-          <img src="pitch-ffcdc02.jpg" alt="Founders First CDC Team Alt" loading="lazy" />
-          <div class="gallery-download-overlay">
-            <a href="pitch-ffcdc02.jpg" download class="gallery-download-btn">&#128427; Download High-Res</a>
-          </div>
-        </div>
+      </div>
+
+      <div class="gallery-grid" id="gallery-grid">
+        <!-- Populated dynamically by JavaScript -->
       </div>
     </div>
   </section>
@@ -1891,15 +1911,12 @@
         <h2 class="section-title">Fall 2026 Cohort Participants</h2>
       </div>
 
-      <!-- Filter Tabs with Mobile Edge Fade & Shuffle Deck Button -->
-      <div class="cohort-toolbar">
+      <!-- Filter Tabs with Mobile Edge Fade -->
+      <div class="section-toolbar">
         <div class="filter-tabs-scroll" id="cohort-filter-tabs" data-edge="none" role="tablist" aria-label="Filter Cohort Companies">
           <button type="button" class="filter-pill is-active" data-filter="all" onclick="setCohortFilter('all')">All Companies (10)</button>
           <button type="button" class="filter-pill" data-filter="winners" onclick="setCohortFilter('winners')">Award Winners (5)</button>
           <button type="button" class="filter-pill" data-filter="pitched" onclick="setCohortFilter('pitched')">Pitch Presenters (9)</button>
-        </div>
-        <div class="cohort-toolbar-actions">
-          <button type="button" class="btn btn-outline-navy btn-sm" onclick="shuffleCohortDeck()">&#8635; Shuffle Cards</button>
         </div>
       </div>
 
@@ -2213,6 +2230,28 @@
     </div>
   </div>
 
+  <!-- Full-Resolution Photo Lightbox Modal -->
+  <div id="photo-lightbox" class="lightbox-backdrop" role="dialog" aria-modal="true" aria-labelledby="lightbox-caption">
+    <div class="reel-topbar">
+      <div class="reel-brand">
+        <img src="https://fastpath.foundersfirstcdc.org/ffcdclogo01.jpg" alt="Founders First CDC" />
+        <span id="lightbox-caption">Fireside Chat Group</span>
+      </div>
+      <div class="reel-controls">
+        <button type="button" id="lb-prev-btn" class="reel-btn" onclick="prevLightboxPhoto()" title="Previous Photo (Left Arrow)">&#8592; Prev</button>
+        <button type="button" id="lb-next-btn" class="reel-btn" onclick="nextLightboxPhoto()" title="Next Photo (Right Arrow)">Next &#8594;</button>
+        <a id="lb-download-btn" href="fireside-group.jpg" download class="reel-btn" style="background: var(--gold); border-color: var(--gold); color: var(--navy);">&#128427; Download High-Res</a>
+        <button type="button" class="reel-btn" onclick="closeLightbox()" title="Close (Escape)">Close &times;</button>
+      </div>
+    </div>
+    <div class="lightbox-stage" onclick="if(event.target === this) closeLightbox()">
+      <img id="lightbox-img" src="" alt="" />
+    </div>
+    <div class="reel-nav-hint" id="lightbox-counter">
+      Photo 1 of 6 &bull; Use Left and Right arrow keys to browse &bull; Press Escape to close
+    </div>
+  </div>
+
   <!-- Swipeable Pitch Reel Modal -->
   <div id="pitch-reel-modal" class="pitch-reel-backdrop" role="dialog" aria-modal="true" aria-labelledby="reel-company-title">
     <div class="reel-topbar">
@@ -2255,6 +2294,27 @@
 
   <!-- Application Script -->
   <script>
+    const eventPhotos = [
+      { url: "fireside-group.jpg", title: "Fireside Chat Group", isGroup: true },
+      { url: "fireside-group01.jpg", title: "Fireside Chat Group 1", isGroup: true },
+      { url: "fireside-group02.jpg", title: "Fireside Chat Group 2", isGroup: true },
+      { url: "pitch-group01.jpg", title: "Fall 2026 Cohort Group", isGroup: true },
+      { url: "pitch-ffcdc01.jpg", title: "Founders First CDC Team", isGroup: true },
+      { url: "pitch-ffcdc02.jpg", title: "Founders First CDC Team 2", isGroup: true },
+      { url: "pitch-obi01.jpg", title: "EPINEC — Obi Emeka Ibeto", isGroup: false },
+      { url: "pitch-teja01.jpg", title: "Get Social — Teja Renee Smith", isGroup: false },
+      { url: "pitch-gladys01.jpg", title: "Gladys' Cleaning Service — Pitch", isGroup: false },
+      { url: "practice-gladys.jpg", title: "Gladys' Cleaning Service — Practice", isGroup: false },
+      { url: "pitch-stephaniebenison01.jpg", title: "Prosperity Property Services — Stephanie Benison", isGroup: false },
+      { url: "pitch-elin01.jpg", title: "Riveo Creative — Elin Barton", isGroup: false },
+      { url: "pitch-stephaniewong01.jpg", title: "SWE Solutions — Stephanie Wong", isGroup: false },
+      { url: "pitch-reuben01.jpg", title: "TLC Rents — Reuben F. Ayoub", isGroup: false },
+      { url: "pitch-alborz.jpg", title: "Twipes — Alborz Bozorgi", isGroup: false },
+      { url: "pitch-alborz02.jpg", title: "Twipes — Alborz Bozorgi (2)", isGroup: false },
+      { url: "pitch-joslyn01.jpg", title: "USA Mobile Drug Testing — Joslyn Tatum", isGroup: false },
+      { url: "pitch-david01.jpg", title: "Event Coordination — David Resetar", isGroup: false }
+    ];
+
     const participants = [
       {
         id: "epinec",
@@ -2642,7 +2702,13 @@
       }
     ];
 
-    let displayedParticipants = [...participants];
+    // Gallery State
+    let galleryMode = 'group';
+    let shuffledPhotoPool = [...eventPhotos];
+    let currentDisplayedPhotos = [];
+    let currentLightboxIndex = 0;
+
+    // Cohort & Modal State
     let currentFilter = 'all';
     let currentTargetLink = '';
     let currentTargetAction = 'link';
@@ -2665,8 +2731,7 @@
       }, 2400);
     }
 
-    function updateTabEdgeFade() {
-      const el = document.getElementById('cohort-filter-tabs');
+    function updateEdgeFadeFor(el) {
       if (!el) return;
       const maxScroll = el.scrollWidth - el.clientWidth;
       if (maxScroll <= 4) {
@@ -2680,39 +2745,121 @@
       }
     }
 
+    function updateAllEdgeFades() {
+      updateEdgeFadeFor(document.getElementById('gallery-filter-tabs'));
+      updateEdgeFadeFor(document.getElementById('cohort-filter-tabs'));
+    }
+
+    /* Gallery Rendering, Mode Switch & Shuffle */
+    function setGalleryMode(mode) {
+      galleryMode = mode;
+      document.querySelectorAll('[data-gallery-mode]').forEach(btn => {
+        btn.classList.toggle('is-active', btn.dataset.galleryMode === mode);
+      });
+      renderGallery();
+    }
+
+    function shuffleGalleryPhotos() {
+      const grid = document.getElementById('gallery-grid');
+      grid.classList.add('is-shuffling');
+      setTimeout(() => {
+        for (let i = shuffledPhotoPool.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [shuffledPhotoPool[i], shuffledPhotoPool[j]] = [shuffledPhotoPool[j], shuffledPhotoPool[i]];
+        }
+        galleryMode = 'shuffled';
+        document.querySelectorAll('[data-gallery-mode]').forEach(btn => {
+          btn.classList.remove('is-active');
+        });
+        renderGallery();
+        requestAnimationFrame(() => {
+          setTimeout(() => {
+            grid.classList.remove('is-shuffling');
+          }, 220);
+        });
+        showToast('Showing 6 shuffled event photos');
+      }, 240);
+    }
+
+    function renderGallery() {
+      const grid = document.getElementById('gallery-grid');
+      if (galleryMode === 'group') {
+        currentDisplayedPhotos = eventPhotos.filter(p => p.isGroup);
+      } else if (galleryMode === 'all') {
+        currentDisplayedPhotos = [...eventPhotos];
+      } else {
+        currentDisplayedPhotos = shuffledPhotoPool.slice(0, 6);
+      }
+
+      grid.innerHTML = currentDisplayedPhotos.map((photo, idx) => `
+        <div class="gallery-item" onclick="openLightbox(${idx})">
+          <img src="${photo.url}" alt="${photo.title}" loading="lazy" />
+          <div class="gallery-caption-bar">
+            <span>${photo.title}</span>
+          </div>
+          <div class="gallery-download-overlay">
+            <button type="button" class="gallery-overlay-btn is-secondary" onclick="event.stopPropagation(); openLightbox(${idx})">View</button>
+            <a href="${photo.url}" download class="gallery-overlay-btn" onclick="event.stopPropagation()">&#128427; Download</a>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    /* Full-Resolution Photo Lightbox Logic */
+    function openLightbox(index) {
+      currentLightboxIndex = index;
+      document.getElementById('photo-lightbox').classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+      renderLightboxPhoto();
+    }
+
+    function closeLightbox() {
+      document.getElementById('photo-lightbox').classList.remove('is-open');
+      document.body.style.overflow = '';
+    }
+
+    function prevLightboxPhoto() {
+      if (currentLightboxIndex > 0) {
+        currentLightboxIndex--;
+        renderLightboxPhoto();
+      }
+    }
+
+    function nextLightboxPhoto() {
+      if (currentLightboxIndex < currentDisplayedPhotos.length - 1) {
+        currentLightboxIndex++;
+        renderLightboxPhoto();
+      }
+    }
+
+    function renderLightboxPhoto() {
+      const photo = currentDisplayedPhotos[currentLightboxIndex];
+      if (!photo) return;
+      document.getElementById('lightbox-img').src = photo.url;
+      document.getElementById('lightbox-img').alt = photo.title;
+      document.getElementById('lightbox-caption').textContent = photo.title;
+      document.getElementById('lb-download-btn').href = photo.url;
+      document.getElementById('lb-prev-btn').disabled = currentLightboxIndex === 0;
+      document.getElementById('lb-next-btn').disabled = currentLightboxIndex === currentDisplayedPhotos.length - 1;
+      document.getElementById('lightbox-counter').textContent = `Photo ${currentLightboxIndex + 1} of ${currentDisplayedPhotos.length} • Use Left and Right arrow keys to browse • Press Escape to close`;
+    }
+
+    /* Cohort Filtering & Rendering */
     function setCohortFilter(filterKey) {
       currentFilter = filterKey;
-      document.querySelectorAll('.filter-pill').forEach(btn => {
+      document.querySelectorAll('.filter-pill[data-filter]').forEach(btn => {
         btn.classList.toggle('is-active', btn.dataset.filter === filterKey);
       });
       renderCohort();
     }
 
-    function shuffleCohortDeck() {
-      const grid = document.getElementById('cohort-grid');
-      grid.classList.add('is-shuffling');
-      setTimeout(() => {
-        for (let i = displayedParticipants.length - 1; i > 0; i--) {
-          const j = Math.floor(Math.random() * (i + 1));
-          [displayedParticipants[i], displayedParticipants[j]] = [displayedParticipants[j], displayedParticipants[i]];
-        }
-        renderCohort();
-        requestAnimationFrame(() => {
-          setTimeout(() => {
-            grid.classList.remove('is-shuffling');
-          }, 260);
-        });
-        showToast('Cohort cards shuffled');
-      }, 360);
-    }
-
     function renderCohort() {
       const grid = document.getElementById('cohort-grid');
-      let list = displayedParticipants;
+      let list = participants;
       if (currentFilter === 'winners') {
-        list = displayedParticipants.filter(p => p.isWinner);
+        list = participants.filter(p => p.isWinner);
       } else if (currentFilter === 'pitched') {
-        list = displayedParticipants.filter(p => p.hasPitch);
+        list = participants.filter(p => p.hasPitch);
       }
 
       let html = '';
@@ -2751,7 +2898,7 @@
             actionButtons += `<a href="${c.url}" target="_blank" rel="noopener noreferrer" class="btn btn-outline-navy btn-sm btn-full-width" download>&#127891; Download ${c.name}</a>`;
           });
         }
-        
+
         if (p.photos && p.photos.length > 0) {
           p.photos.forEach(ph => {
             actionButtons += `<a href="${ph.url}" target="_blank" rel="noopener noreferrer" class="btn btn-outline-navy btn-sm" download>&#128248; ${ph.name}</a>`;
@@ -2760,11 +2907,6 @@
 
         html += `
           <div class="cohort-card" id="cohort-card-${p.id}">
-            <div class="deck-back-cover" aria-hidden="true">
-              <img src="https://fastpath.foundersfirstcdc.org/ffcdclogo01.jpg" alt="" />
-              <span>Founders First CDC</span>
-            </div>
-
             <div>
               <div class="yb-media-row">
                 <div class="yb-headshot-slot">${headshotHtml}</div>
@@ -3082,8 +3224,8 @@
       `;
     }
 
-    // Touch Swipe & Keyboard Navigation for Pitch Reel
-    (function bindReelControls() {
+    // Touch Swipe & Keyboard Navigation for Pitch Reel & Photo Lightbox
+    (function bindModalControls() {
       const area = document.getElementById('reel-swipe-area');
       let touchStartY = 0;
 
@@ -3106,10 +3248,20 @@
       document.addEventListener('keydown', e => {
         const reelOpen = document.getElementById('pitch-reel-modal').classList.contains('is-open');
         const modalOpen = document.getElementById('password-modal').classList.contains('is-open');
+        const lightboxOpen = document.getElementById('photo-lightbox').classList.contains('is-open');
 
         if (e.key === 'Escape') {
           if (modalOpen) closeModal();
+          else if (lightboxOpen) closeLightbox();
           else if (reelOpen) closePitchReel();
+        } else if (lightboxOpen) {
+          if (e.key === 'ArrowLeft') {
+            e.preventDefault();
+            prevLightboxPhoto();
+          } else if (e.key === 'ArrowRight') {
+            e.preventDefault();
+            nextLightboxPhoto();
+          }
         } else if (reelOpen && !modalOpen) {
           if (e.key === 'ArrowUp') {
             e.preventDefault();
@@ -3136,11 +3288,13 @@
     })();
 
     // Initialize Page
+    renderGallery();
     renderCohort();
     renderUSMap();
-    updateTabEdgeFade();
-    window.addEventListener('resize', updateTabEdgeFade);
-    document.getElementById('cohort-filter-tabs').addEventListener('scroll', updateTabEdgeFade, { passive: true });
+    updateAllEdgeFades();
+    window.addEventListener('resize', updateAllEdgeFades);
+    document.getElementById('gallery-filter-tabs').addEventListener('scroll', () => updateEdgeFadeFor(document.getElementById('gallery-filter-tabs')), { passive: true });
+    document.getElementById('cohort-filter-tabs').addEventListener('scroll', () => updateEdgeFadeFor(document.getElementById('cohort-filter-tabs')), { passive: true });
   </script>
 </body>
 </html>
