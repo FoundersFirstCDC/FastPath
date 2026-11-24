@@ -326,7 +326,8 @@
 
     .btn:focus-visible,
     .filter-pill:focus-visible,
-    .reel-btn:focus-visible {
+    .reel-btn:focus-visible,
+    .cohort-drawer-toggle:focus-visible {
       outline: 3px solid var(--gold);
       outline-offset: 2px;
     }
@@ -808,7 +809,7 @@
       background: #ffffff;
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 24px;
+      padding: 22px;
       box-shadow: var(--shadow);
       display: flex;
       flex-direction: column;
@@ -837,7 +838,7 @@
       font-size: 13.5px;
       font-weight: 700;
       color: var(--gold-warm);
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
     .cohort-founders span {
@@ -845,13 +846,132 @@
       font-weight: 500;
     }
 
-    /* Digital Badges Shelf on Cohort Cards */
-    .badge-shelf {
+    /* Compact Icon-Driven Reveal Drawer for Participant Resources */
+    details.cohort-drawer {
       margin-top: 14px;
-      padding: 10px 12px;
+    }
+
+    summary.cohort-drawer-toggle {
+      list-style: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 8px 12px;
       background: var(--surface-cool);
-      border: 1px solid var(--border);
+      border: 1.5px solid var(--border);
       border-radius: 8px;
+      transition: all 0.2s ease;
+      user-select: none;
+    }
+
+    summary.cohort-drawer-toggle::-webkit-details-marker {
+      display: none;
+    }
+
+    summary.cohort-drawer-toggle:hover {
+      border-color: var(--navy);
+      background: #edf1fa;
+    }
+
+    details.cohort-drawer[open] summary.cohort-drawer-toggle {
+      border-color: var(--navy);
+      background: var(--navy);
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    .drawer-preview-strip {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      min-width: 0;
+    }
+
+    .drawer-mini-badges {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      flex-shrink: 0;
+    }
+
+    .drawer-mini-badges img {
+      width: 26px;
+      height: 26px;
+      object-fit: contain;
+      display: block;
+      background: #ffffff;
+      border-radius: 50%;
+      padding: 1px;
+      border: 1px solid rgba(6, 36, 100, 0.14);
+    }
+
+    .drawer-divider {
+      width: 1px;
+      height: 18px;
+      background: var(--border);
+      flex-shrink: 0;
+    }
+
+    details.cohort-drawer[open] .drawer-divider {
+      background: rgba(255, 255, 255, 0.22);
+    }
+
+    .drawer-asset-icons {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--navy);
+    }
+
+    details.cohort-drawer[open] .drawer-asset-icons {
+      color: #ffffff;
+    }
+
+    .drawer-asset-icons svg {
+      width: 16px;
+      height: 16px;
+      display: block;
+      flex-shrink: 0;
+    }
+
+    .drawer-chevron-btn {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: var(--navy);
+      color: #ffffff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+    }
+
+    summary.cohort-drawer-toggle:hover .drawer-chevron-btn {
+      background: var(--gold);
+      color: var(--navy);
+    }
+
+    details.cohort-drawer[open] .drawer-chevron-btn {
+      background: var(--gold);
+      color: var(--navy);
+      transform: rotate(180deg);
+    }
+
+    .cohort-drawer-panel {
+      padding: 12px;
+      background: var(--surface-cool);
+      border: 1.5px solid var(--navy);
+      border-top: none;
+      border-bottom-left-radius: 8px;
+      border-bottom-right-radius: 8px;
+    }
+
+    /* Digital Badges Shelf inside Drawer */
+    .badge-shelf {
+      margin-bottom: 10px;
     }
 
     .badge-shelf-header {
@@ -859,12 +979,12 @@
       align-items: center;
       justify-content: space-between;
       gap: 6px;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
 
     .badge-shelf-title {
       font-family: 'Poppins', sans-serif;
-      font-size: 10.5px;
+      font-size: 10px;
       font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 0.5px;
@@ -872,7 +992,7 @@
     }
 
     .badge-shelf-hint {
-      font-size: 10.5px;
+      font-size: 10px;
       font-weight: 600;
       color: var(--ink-soft);
     }
@@ -880,20 +1000,20 @@
     .badge-list {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
+      gap: 6px;
     }
 
     .badge-item {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 7px;
       background: #ffffff;
       border: 1px solid var(--border);
       border-radius: 6px;
-      padding: 5px 10px 5px 6px;
+      padding: 5px 8px 5px 5px;
       transition: all 0.2s ease;
       flex: 1 1 auto;
-      min-width: 120px;
+      min-width: 112px;
     }
 
     .badge-item:hover {
@@ -903,8 +1023,8 @@
     }
 
     .badge-thumb {
-      width: 38px;
-      height: 38px;
+      width: 34px;
+      height: 34px;
       object-fit: contain;
       flex-shrink: 0;
       display: block;
@@ -918,14 +1038,14 @@
 
     .badge-name {
       font-family: 'Poppins', sans-serif;
-      font-size: 11px;
+      font-size: 10.5px;
       font-weight: 800;
       color: var(--navy);
       line-height: 1.15;
     }
 
     .badge-dl-tag {
-      font-size: 10px;
+      font-size: 9.5px;
       font-weight: 600;
       color: var(--gold-deep);
       margin-top: 1px;
@@ -934,17 +1054,14 @@
     .cohort-actions {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 8px;
-      margin-top: 14px;
-      padding-top: 14px;
-      border-top: 1px solid var(--border);
+      gap: 7px;
     }
 
     .cohort-actions .btn {
       width: 100%;
       padding: 0 8px;
-      font-size: 11.25px;
-      min-height: 38px;
+      font-size: 11px;
+      min-height: 36px;
     }
 
     .cohort-actions-compact {
@@ -964,14 +1081,14 @@
     }
 
     .yb-footer-link {
-      margin-top: 14px;
-      padding-top: 12px;
+      margin-top: 12px;
+      padding-top: 10px;
       border-top: 1px solid var(--border);
       display: flex;
       align-items: center;
       justify-content: space-between;
       font-family: 'Poppins', sans-serif;
-      font-size: 13px;
+      font-size: 12.5px;
       font-weight: 800;
       color: var(--navy);
       position: relative;
@@ -993,12 +1110,12 @@
       align-items: center;
       justify-content: space-between;
       gap: 12px;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
     }
 
     .yb-headshot-slot {
-      width: 76px;
-      height: 76px;
+      width: 72px;
+      height: 72px;
       border-radius: 50%;
       background: var(--surface-cool);
       border: 2px solid var(--border);
@@ -1023,8 +1140,8 @@
     }
 
     .yb-logo-slot {
-      height: 44px;
-      max-width: 130px;
+      height: 42px;
+      max-width: 128px;
       padding: 4px 8px;
       border-radius: 6px;
       background: #ffffff;
@@ -1040,8 +1157,8 @@
     }
 
     .yb-logo-slot img {
-      max-height: 32px;
-      max-width: 112px;
+      max-height: 30px;
+      max-width: 110px;
       width: auto;
       object-fit: contain;
       display: block;
@@ -1059,7 +1176,7 @@
       letter-spacing: 0.5px;
       padding: 3px 9px;
       border-radius: 5px;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
 
     .person-role.is-winner {
@@ -1103,7 +1220,7 @@
 
     /* Expandable Bio (<details> with + / − Mark) */
     details.person-bio {
-      margin-top: 8px;
+      margin-top: 6px;
     }
 
     details.person-bio summary {
@@ -1786,6 +1903,7 @@
       .cohort-card,
       .gallery-item,
       .badge-item,
+      .drawer-chevron-btn,
       .modal-box,
       .fp-toast {
         transition: none !important;
@@ -1804,6 +1922,7 @@
       .section-toolbar,
       .gallery-download-overlay,
       .badge-shelf-hint,
+      .drawer-chevron-btn,
       .modal-backdrop,
       .lightbox-backdrop,
       .pitch-reel-backdrop,
@@ -2402,6 +2521,12 @@
       url: "2026FallFastPath_Pitch-1stPlace.png"
     };
 
+    const ICON_VIDEO = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>`;
+    const ICON_DOCS = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>`;
+    const ICON_CERT = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="6"></circle><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"></path></svg>`;
+    const ICON_PHOTO = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>`;
+    const ICON_CHEVRON = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>`;
+
     const eventPhotos = [
       { url: "fireside-group.jpg", title: "Fireside Chat Group", isGroup: true },
       { url: "fireside-group01.jpg", title: "Fireside Chat Group 1", isGroup: true },
@@ -2835,6 +2960,7 @@
     let currentRequiredPasscode = '';
     let activeMapCompanyId = 'epinec';
     const unlockedPasscodes = new Set();
+    const openDrawers = new Set();
 
     // Pitch Reel State (only companies with video clips)
     const videoCompanies = participants.filter(p => p.hasVideo);
@@ -2988,6 +3114,14 @@
       renderCohort();
     }
 
+    function handleDrawerToggle(companyId, isOpen) {
+      if (isOpen) {
+        openDrawers.add(companyId);
+      } else {
+        openDrawers.delete(companyId);
+      }
+    }
+
     function renderCohort() {
       const grid = document.getElementById('cohort-grid');
       let list = participants;
@@ -3011,7 +3145,25 @@
 
         const isUnlocked = unlockedPasscodes.has(p.passcode.toLowerCase());
         const lockIcon = isUnlocked ? '&#128275;' : '&#128274;';
+        const isDrawerOpen = openDrawers.has(p.id) ? ' open' : '';
 
+        // Compact icon strip inside the drawer toggle bar (zero extra words)
+        const miniBadgesHtml = (p.badges || [])
+          .map(b => `<img src="${b.url}" alt="${b.label} Badge" title="${b.label} Badge" />`)
+          .join('');
+
+        let stripIcons = `<span title="Summary, Deck & Judge Scores">${ICON_DOCS}</span>`;
+        if (p.hasVideo) {
+          stripIcons = `<span title="Pitch Video">${ICON_VIDEO}</span>` + stripIcons;
+        }
+        if (p.certificates && p.certificates.length > 0) {
+          stripIcons += `<span title="Certificates">${ICON_CERT}</span>`;
+        }
+        if (p.photos && p.photos.length > 0) {
+          stripIcons += `<span title="Event Photos">${ICON_PHOTO}</span>`;
+        }
+
+        // Expanded Drawer Contents
         let badgesHtml = '';
         if (p.badges && p.badges.length > 0) {
           const badgeItems = p.badges.map(b => `
@@ -3027,8 +3179,8 @@
           badgesHtml = `
             <div class="badge-shelf">
               <div class="badge-shelf-header">
-                <span class="badge-shelf-title">Digital Badges</span>
-                <span class="badge-shelf-hint">For email signature &amp; LinkedIn</span>
+                <span class="badge-shelf-title">Badges</span>
+                <span class="badge-shelf-hint">Signature &amp; LinkedIn</span>
               </div>
               <div class="badge-list">
                 ${badgeItems}
@@ -3085,10 +3237,23 @@
             </div>
 
             <div>
-              ${badgesHtml}
-              <div class="cohort-actions">
-                ${actionButtons}
-              </div>
+              <details class="cohort-drawer" ontoggle="handleDrawerToggle('${p.id}', this.open)"${isDrawerOpen}>
+                <summary class="cohort-drawer-toggle" aria-label="Show badges, pitch materials, certificates, and photos" title="Click to view badges, pitch video, deck, certificates, and photos">
+                  <span class="drawer-preview-strip">
+                    <span class="drawer-mini-badges">${miniBadgesHtml}</span>
+                    <span class="drawer-divider"></span>
+                    <span class="drawer-asset-icons">${stripIcons}</span>
+                  </span>
+                  <span class="drawer-chevron-btn">${ICON_CHEVRON}</span>
+                </summary>
+                <div class="cohort-drawer-panel">
+                  ${badgesHtml}
+                  <div class="cohort-actions">
+                    ${actionButtons}
+                  </div>
+                </div>
+              </details>
+
               <a href="${p.websiteUrl}" target="_blank" rel="noopener noreferrer" class="yb-footer-link">
                 <span>${p.websiteLabel}</span>
                 <span>&#8594;</span>
