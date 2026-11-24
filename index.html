@@ -1630,12 +1630,19 @@
     }
 
     .lightbox-stage img {
+      width: auto;
+      height: auto;
       max-width: 100%;
       max-height: 76vh;
       border-radius: 10px;
       border: 2px solid rgba(234, 170, 1, 0.5);
       box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6);
       object-fit: contain;
+    }
+
+    .lightbox-stage img.is-aspect-fallback {
+      aspect-ratio: 4 / 3;
+      object-fit: fill;
     }
 
     /* Swipeable Pitch Reel Modal */
@@ -2556,7 +2563,7 @@
       { url: "fireside-group01.jpg", title: "Fireside Chat Group 1", isGroup: true },
       { url: "fireside-group02.jpg", title: "Fireside Chat Group 2", isGroup: true },
       { url: "pitch-group01.jpg", title: "Fall 2026 Cohort Group", isGroup: true },
-      { url: "pitch_group-nojudges.jpeg", title: "Fall 2026 Cohort Group 2", isGroup: true },
+      { url: "pitch_group-nojudges.jpeg", title: "Fall 2026 Cohort Group 2", isGroup: true, aspectFix: 0.78 },
       { url: "dinner-fallfastpath01.jpg", title: "FastPath Cohort Dinner 1", isGroup: true },
       { url: "dinner-fallfastpath02.jpg", title: "FastPath Cohort Dinner 2", isGroup: true },
       { url: "pitch-ffcdc01.jpg", title: "Founders First CDC Team", isGroup: true },
@@ -2573,6 +2580,37 @@
       { url: "pitch-alborz02.jpg", title: "Twipes — Alborz Bozorgi (2)", isGroup: false },
       { url: "pitch-joslyn01.jpg", title: "USA Mobile Drug Testing — Joslyn Tatum", isGroup: false }
     ];
+
+    /* Normalize horizontally stretched photos via offscreen canvas so gallery, lightbox, and downloads render with true proportions */
+    const correctedPhotoCache = new Map();
+
+    function ensureCorrectedPhoto(photo) {
+      if (!photo || !photo.aspectFix) return Promise.resolve(photo ? photo.url : '');
+      if (correctedPhotoCache.has(photo.url)) {
+        return Promise.resolve(correctedPhotoCache.get(photo.url));
+      }
+      return new Promise(resolve => {
+        const loader = new Image();
+        loader.onload = () => {
+          try {
+            const targetW = Math.round(loader.naturalWidth * photo.aspectFix);
+            const targetH = loader.naturalHeight;
+            const canvas = document.createElement('canvas');
+            canvas.width = targetW;
+            canvas.height = targetH;
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(loader, 0, 0, targetW, targetH);
+            const fixedUrl = canvas.toDataURL('image/jpeg', 0.94);
+            correctedPhotoCache.set(photo.url, fixedUrl);
+            resolve(fixedUrl);
+          } catch (e) {
+            resolve(photo.url);
+          }
+        };
+        loader.onerror = () => resolve(photo.url);
+        loader.src = photo.url;
+      });
+    }
 
     const participants = [
       {
@@ -3066,18 +3104,35 @@
       const photos = getActiveGalleryPhotos();
       currentDisplayedPhotos = photos;
 
-      grid.innerHTML = photos.map((photo, idx) => `
-        <div class="gallery-item" onclick="openGalleryLightbox(${idx})">
-          <img src="${photo.url}" alt="${photo.title}" loading="lazy" />
-          <div class="gallery-caption-bar">
-            <span>${photo.title}</span>
+      grid.innerHTML = photos.map((photo, idx) => {
+        const displayUrl = correctedPhotoCache.get(photo.url) || photo.url;
+        const dlName = photo.url.replace(/\.[^.]+$/, '.jpg');
+        return `
+          <div class="gallery-item" onclick="openGalleryLightbox(${idx})">
+            <img src="${displayUrl}" data-orig-url="${photo.url}" alt="${photo.title}" loading="lazy" />
+            <div class="gallery-caption-bar">
+              <span>${photo.title}</span>
+            </div>
+            <div class="gallery-download-overlay">
+              <button type="button" class="gallery-overlay-btn is-secondary" onclick="event.stopPropagation(); openGalleryLightbox(${idx})">View</button>
+              <a href="${displayUrl}" download="${dlName}" class="gallery-overlay-btn" onclick="event.stopPropagation()">&#128427; Download</a>
+            </div>
           </div>
-          <div class="gallery-download-overlay">
-            <button type="button" class="gallery-overlay-btn is-secondary" onclick="event.stopPropagation(); openGalleryLightbox(${idx})">View</button>
-            <a href="${photo.url}" download class="gallery-overlay-btn" onclick="event.stopPropagation()">&#128427; Download</a>
-          </div>
-        </div>
-      `).join('');
+        `;
+      }).join('');
+
+      photos.forEach((photo, idx) => {
+        if (photo.aspectFix && !correctedPhotoCache.has(photo.url)) {
+          ensureCorrectedPhoto(photo).then(fixedUrl => {
+            const item = grid.children[idx];
+            if (!item) return;
+            const imgEl = item.querySelector('img');
+            const dlEl = item.querySelector('a[download]');
+            if (imgEl && imgEl.dataset.origUrl === photo.url) imgEl.src = fixedUrl;
+            if (dlEl) dlEl.href = fixedUrl;
+          });
+        }
+      });
     }
 
     /* Full-Resolution Photo Lightbox Logic */
@@ -3119,16 +3174,47 @@
     function renderLightboxPhoto() {
       const photo = currentDisplayedPhotos[currentLightboxIndex];
       if (!photo) return;
-      document.getElementById('lightbox-img').src = photo.url;
-      document.getElementById('lightbox-img').alt = photo.title;
+      const imgEl = document.getElementById('lightbox-img');
+      const dlBtn = document.getElementById('lb-download-btn');
+      const dlName = photo.url.replace(/\.[^.]+$/, '.jpg');
+
       document.getElementById('lightbox-caption').textContent = photo.title;
       document.getElementById('lb-newtab-btn').href = photo.url;
-      document.getElementById('lb-download-btn').href = photo.url;
+      dlBtn.setAttribute('download', dlName);
       document.getElementById('lb-prev-btn').disabled = currentLightboxIndex === 0;
       document.getElementById('lb-next-btn').disabled = currentLightboxIndex === currentDisplayedPhotos.length - 1;
       document.getElementById('lightbox-counter').textContent = currentDisplayedPhotos.length > 1
         ? `Photo ${currentLightboxIndex + 1} of ${currentDisplayedPhotos.length} • Use Left and Right arrow keys to browse • Press Escape to close`
         : `${photo.title} • Click Open in New Tab or Download High-Res above • Press Escape to close`;
+
+      if (photo.aspectFix) {
+        const cached = correctedPhotoCache.get(photo.url);
+        if (cached) {
+          imgEl.classList.remove('is-aspect-fallback');
+          imgEl.src = cached;
+          imgEl.alt = photo.title;
+          dlBtn.href = cached;
+        } else {
+          imgEl.classList.add('is-aspect-fallback');
+          imgEl.src = photo.url;
+          imgEl.alt = photo.title;
+          dlBtn.href = photo.url;
+          ensureCorrectedPhoto(photo).then(fixedUrl => {
+            if (currentDisplayedPhotos[currentLightboxIndex] === photo) {
+              if (fixedUrl !== photo.url) {
+                imgEl.classList.remove('is-aspect-fallback');
+              }
+              imgEl.src = fixedUrl;
+              dlBtn.href = fixedUrl;
+            }
+          });
+        }
+      } else {
+        imgEl.classList.remove('is-aspect-fallback');
+        imgEl.src = photo.url;
+        imgEl.alt = photo.title;
+        dlBtn.href = photo.url;
+      }
     }
 
     /* Cohort Filtering & Rendering */
