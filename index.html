@@ -2471,7 +2471,7 @@
     <div class="modal-box">
       <button type="button" onclick="closeModal()" class="modal-close" aria-label="Close modal">&times;</button>
       <h3 id="modal-title">Secure Access</h3>
-      <p>Enter the participant's email address or company domain password to open private pitch materials and judge feedback.</p>
+      <p>Enter the participant's email address or company domain password to open private company summaries, pitch materials, and judge feedback.</p>
       <input type="text" id="modal-password" onkeydown="if(event.key==='Enter') verifyPassword()" class="modal-input" placeholder="Participant email or password" />
       <div id="modal-error" class="modal-error">Incorrect password. Please try again.</div>
       <button type="button" onclick="verifyPassword()" class="btn btn-navy" style="width: 100%;">Access Documents</button>
@@ -3227,7 +3227,7 @@
         }
 
         let actionButtons = `
-          <a href="${p.summaryLink}" target="_blank" rel="noopener noreferrer" class="btn btn-outline-navy btn-sm btn-full-width">Company Summary</a>
+          <button type="button" onclick="requestAccess('${p.passcode}', '${p.summaryLink}')" class="btn btn-outline-navy btn-sm btn-full-width">${lockIcon} Company Summary</button>
         `;
 
         if (p.hasVideo) {
@@ -3465,6 +3465,9 @@
         unlockedPasscodes.add(currentRequiredPasscode);
         closeModal();
         renderCohort();
+        if (document.getElementById('pitch-reel-modal').classList.contains('is-open')) {
+          renderReelSlide();
+        }
         if (currentTargetAction === 'reel') {
           openPitchReel(currentTargetCompanyId);
         } else {
@@ -3565,6 +3568,7 @@
       document.getElementById('reel-bio').textContent = p.bio;
 
       const isUnlocked = unlockedPasscodes.has(p.passcode.toLowerCase());
+      const lockIcon = isUnlocked ? '&#128275;' : '&#128274;';
       const stage = document.getElementById('reel-video-stage');
 
       if (!isUnlocked) {
@@ -3584,9 +3588,9 @@
       }
 
       document.getElementById('reel-doc-links').innerHTML = `
-        <a href="${p.summaryLink}" target="_blank" rel="noopener noreferrer" class="btn btn-outline-white btn-sm">Summary</a>
-        <button type="button" onclick="requestAccess('${p.passcode}', '${p.deckLink}')" class="btn btn-outline-white btn-sm">Pitch Deck</button>
-        <button type="button" onclick="requestAccess('${p.passcode}', '${p.feedbackLink}')" class="btn btn-gold btn-sm btn-full">Judge Scores and Feedback</button>
+        <button type="button" onclick="requestAccess('${p.passcode}', '${p.summaryLink}')" class="btn btn-outline-white btn-sm">${lockIcon} Summary</button>
+        <button type="button" onclick="requestAccess('${p.passcode}', '${p.deckLink}')" class="btn btn-outline-white btn-sm">${lockIcon} Pitch Deck</button>
+        <button type="button" onclick="requestAccess('${p.passcode}', '${p.feedbackLink}')" class="btn btn-gold btn-sm btn-full">${lockIcon} Judge Scores and Feedback</button>
       `;
     }
 
