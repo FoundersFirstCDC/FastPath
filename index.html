@@ -85,9 +85,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet" />
 
-  <!-- D3 and TopoJSON for Continental US Cohort Map -->
+  <!-- D3, TopoJSON, and Vimeo Player API -->
   <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
+  <script src="https://player.vimeo.com/api/player.js"></script>
 
   <style>
     :root {
@@ -2195,9 +2196,9 @@
     <div class="modal-box">
       <button type="button" onclick="closeModal()" class="modal-close" aria-label="Close modal">&times;</button>
       <h3 id="modal-title">Secure Access</h3>
-      <p>Enter the participant's email address to open private pitch materials and judge feedback.</p>
-      <input type="email" id="modal-password" onkeydown="if(event.key==='Enter') verifyPassword()" class="modal-input" placeholder="Participant email address" />
-      <div id="modal-error" class="modal-error">Incorrect email address. Please try again.</div>
+      <p>Enter the participant's email address or company domain password to open private pitch materials and judge feedback.</p>
+      <input type="text" id="modal-password" onkeydown="if(event.key==='Enter') verifyPassword()" class="modal-input" placeholder="Participant email or password" />
+      <div id="modal-error" class="modal-error">Incorrect password. Please try again.</div>
       <button type="button" onclick="verifyPassword()" class="btn btn-navy" style="width: 100%;">Access Documents</button>
     </div>
   </div>
@@ -2220,11 +2221,11 @@
     <div class="reel-stage-wrap" id="reel-swipe-area">
       <div class="reel-card">
         <div class="reel-video-box" id="reel-video-stage">
-          <!-- Populated dynamically: Video/Embed if unlocked, or Email Unlock Gate -->
+          <!-- Populated dynamically: Video/Embed if unlocked, or Password Unlock Gate -->
         </div>
         <div class="reel-sidebar">
           <div>
-            <div class="reel-counter" id="reel-counter">Pitch 1 of 9</div>
+            <div class="reel-counter" id="reel-counter">Pitch 1 of 8</div>
             <div class="reel-company" id="reel-company-title">EPINEC / ShieldForce</div>
             <div class="reel-founder" id="reel-founder">Obi Emeka Ibeto &bull; Belmont, MA</div>
           </div>
@@ -2250,7 +2251,7 @@
         company: "EPINEC / ShieldForce",
         names: "Obi Emeka Ibeto",
         location: "Belmont, MA",
-        email: "obiibeto@epinec.us",
+        passcode: "obiibeto@epinec.us",
         awardBadge: "CESIM Award Winner",
         isWinner: true,
         headshot: "https://fastpath.foundersfirstcdc.org/EPINEC_Obi_Headshot.jpg",
@@ -2260,17 +2261,18 @@
         websiteLabel: "epinec.us",
         summaryLink: "https://fastpath.foundersfirstcdc.org/summaries/EPINEC_ShieldForce_Obi_CompanySummaryOverview.pdf",
         photosLink: "#PLACEHOLDER_PHOTOS_LINK",
-        pitchLink: "#PLACEHOLDER_PITCH_LINK",
+        pitchLink: "https://player.vimeo.com/video/1249523493?autopause=0&player_id=0&app_id=58479",
         deckLink: "#PLACEHOLDER_DECK_LINK",
         feedbackLink: "#PLACEHOLDER_FEEDBACK_LINK",
-        hasPitch: true
+        hasPitch: true,
+        hasVideo: true
       },
       {
         id: "getsocial",
         company: "Get Social",
         names: "Teja Renee Smith",
         location: "Los Angeles, CA",
-        email: "teja@getsocialwithteja.com",
+        passcode: "teja@getsocialwithteja.com",
         awardBadge: "CESIM Award Winner",
         isWinner: true,
         headshot: "https://fastpath.foundersfirstcdc.org/GetSocial_Teja_Headshot.jpg",
@@ -2280,17 +2282,18 @@
         websiteLabel: "getsocialwithteja.com",
         summaryLink: "https://fastpath.foundersfirstcdc.org/summaries/GetSocial_Teja_CompanySummaryOverview.pdf",
         photosLink: "#PLACEHOLDER_PHOTOS_LINK",
-        pitchLink: "#PLACEHOLDER_PITCH_LINK",
+        pitchLink: "https://player.vimeo.com/video/1249523492?autopause=0&player_id=0&app_id=58479",
         deckLink: "#PLACEHOLDER_DECK_LINK",
         feedbackLink: "#PLACEHOLDER_FEEDBACK_LINK",
-        hasPitch: true
+        hasPitch: true,
+        hasVideo: true
       },
       {
         id: "gladys",
         company: "Gladys' Cleaning Service",
         names: "Gladys Vonglahn and Kennedy Castro",
         location: "Union, NJ",
-        email: "gladyscleaningservicellc@gmail.com",
+        passcode: "gladyscleaningservice.com",
         awardBadge: "CESIM and FUUUSE Winner",
         isWinner: true,
         headshot: "https://fastpath.foundersfirstcdc.org/GladysCleaning_Gladys_Headshot.jpg",
@@ -2300,17 +2303,18 @@
         websiteLabel: "gladyscleaningservice.com",
         summaryLink: "https://fastpath.foundersfirstcdc.org/summaries/GladysCleaning_Gladys_CompanySummaryOverview.pdf",
         photosLink: "#PLACEHOLDER_PHOTOS_LINK",
-        pitchLink: "#PLACEHOLDER_PITCH_LINK",
+        pitchLink: "https://player.vimeo.com/video/1249523485?autopause=0&player_id=0&app_id=58479",
         deckLink: "#PLACEHOLDER_DECK_LINK",
         feedbackLink: "#PLACEHOLDER_FEEDBACK_LINK",
-        hasPitch: true
+        hasPitch: true,
+        hasVideo: true
       },
       {
         id: "prosperity",
         company: "Prosperity Property Services",
         names: "Stephanie Elise Benison and Michael Benison",
         location: "Calumet Park / Riverdale, IL",
-        email: "sbenison@prosperitypropertyservices.com",
+        passcode: "prosperitypropertyservices.com",
         awardBadge: "Fall 2026 Cohort",
         isWinner: false,
         headshot: "https://fastpath.foundersfirstcdc.org/PPS_StephanieBenison_Headshot.jpeg",
@@ -2320,17 +2324,18 @@
         websiteLabel: "prosperitypropertyservices.com",
         summaryLink: "https://fastpath.foundersfirstcdc.org/summaries/ProsperityPropertyServices_StephanieB_CompanySummaryOverview.pdf",
         photosLink: "#PLACEHOLDER_PHOTOS_LINK",
-        pitchLink: "#PLACEHOLDER_PITCH_LINK",
+        pitchLink: "https://player.vimeo.com/video/1249523484?autopause=0&player_id=0&app_id=58479",
         deckLink: "#PLACEHOLDER_DECK_LINK",
         feedbackLink: "#PLACEHOLDER_FEEDBACK_LINK",
-        hasPitch: true
+        hasPitch: true,
+        hasVideo: true
       },
       {
         id: "riveo",
         company: "Riveo Creative",
         names: "Elin Barton",
         location: "Vestal, NY",
-        email: "ebarton@riveocreative.com",
+        passcode: "ebarton@riveocreative.com",
         awardBadge: "Fall 2026 Cohort",
         isWinner: false,
         headshot: "https://fastpath.foundersfirstcdc.org/Riveo_Elin_Headshot.jpeg",
@@ -2340,17 +2345,18 @@
         websiteLabel: "riveocreative.com",
         summaryLink: "https://fastpath.foundersfirstcdc.org/summaries/Riveo_Elin_CompanySummaryOverview.pdf",
         photosLink: "#PLACEHOLDER_PHOTOS_LINK",
-        pitchLink: "#PLACEHOLDER_PITCH_LINK",
+        pitchLink: "https://player.vimeo.com/video/1249523519?autopause=0&player_id=0&app_id=58479",
         deckLink: "#PLACEHOLDER_DECK_LINK",
         feedbackLink: "#PLACEHOLDER_FEEDBACK_LINK",
-        hasPitch: true
+        hasPitch: true,
+        hasVideo: true
       },
       {
         id: "swe",
         company: "SWE Solutions",
         names: "Stephanie Diane Wong",
         location: "Naperville, IL",
-        email: "swong@swe-solutions.com",
+        passcode: "swong@swe-solutions.com",
         awardBadge: "Fall 2026 Cohort",
         isWinner: false,
         headshot: "https://fastpath.foundersfirstcdc.org/SWE_StephanieWong_Headshot.jpg",
@@ -2360,17 +2366,17 @@
         websiteLabel: "swe-solutions.com",
         summaryLink: "https://fastpath.foundersfirstcdc.org/summaries/SWE_StephanieW_CompanySummaryOverview.pdf",
         photosLink: "#PLACEHOLDER_PHOTOS_LINK",
-        pitchLink: "#PLACEHOLDER_PITCH_LINK",
         deckLink: "#PLACEHOLDER_DECK_LINK",
         feedbackLink: "#PLACEHOLDER_FEEDBACK_LINK",
-        hasPitch: true
+        hasPitch: true,
+        hasVideo: false
       },
       {
         id: "tlc",
         company: "TLC Rents",
         names: "Reuben F. Ayoub and Michael Gonzales",
         location: "Atlanta, GA",
-        email: "reuben@tlcrents.com",
+        passcode: "reuben@tlcrents.com",
         awardBadge: "CESIM Award Winner",
         isWinner: true,
         headshot: "https://fastpath.foundersfirstcdc.org/TLC_Reuben_Headshot.jpg",
@@ -2380,17 +2386,18 @@
         websiteLabel: "tlcrents.com",
         summaryLink: "https://fastpath.foundersfirstcdc.org/summaries/TLC_Reuben_CompanySummaryOverview.pdf",
         photosLink: "#PLACEHOLDER_PHOTOS_LINK",
-        pitchLink: "#PLACEHOLDER_PITCH_LINK",
+        pitchLink: "https://player.vimeo.com/video/1249523602?autopause=0&player_id=0&app_id=58479",
         deckLink: "#PLACEHOLDER_DECK_LINK",
         feedbackLink: "#PLACEHOLDER_FEEDBACK_LINK",
-        hasPitch: true
+        hasPitch: true,
+        hasVideo: true
       },
       {
         id: "twipes",
         company: "Twipes",
         names: "Alborz Bozorgi and Ellenor McIntosh",
         location: "Buffalo, NY",
-        email: "alborz@twipes.com",
+        passcode: "alborz@twipes.com",
         awardBadge: "Pitch Award Winner",
         isWinner: true,
         headshot: "https://fastpath.foundersfirstcdc.org/Twipes_AL_Headshot.png",
@@ -2400,17 +2407,18 @@
         websiteLabel: "twipes.com",
         summaryLink: "#PLACEHOLDER_SUMMARY_LINK",
         photosLink: "#PLACEHOLDER_PHOTOS_LINK",
-        pitchLink: "#PLACEHOLDER_PITCH_LINK",
+        pitchLink: "https://player.vimeo.com/video/1249523605?autopause=0&player_id=0&app_id=58479",
         deckLink: "#PLACEHOLDER_DECK_LINK",
         feedbackLink: "#PLACEHOLDER_FEEDBACK_LINK",
-        hasPitch: true
+        hasPitch: true,
+        hasVideo: true
       },
       {
         id: "usa",
         company: "USA Mobile Drug Testing",
         names: "Joslyn Maree Tatum",
         location: "Plano, TX",
-        email: "joslyn.tatum@usamdt.com",
+        passcode: "joslyn.tatum@usamdt.com",
         awardBadge: "Fall 2026 Cohort",
         isWinner: false,
         headshot: "https://fastpath.foundersfirstcdc.org/USAMDT_Joslyn_Headshot.jpg",
@@ -2420,17 +2428,18 @@
         websiteLabel: "usamdt.com/dallas",
         summaryLink: "https://fastpath.foundersfirstcdc.org/summaries/USAMDT_Joslyn_CompanySummaryOverview.pdf",
         photosLink: "#PLACEHOLDER_PHOTOS_LINK",
-        pitchLink: "#PLACEHOLDER_PITCH_LINK",
+        pitchLink: "https://player.vimeo.com/video/1249523601?autopause=0&player_id=0&app_id=58479",
         deckLink: "#PLACEHOLDER_DECK_LINK",
         feedbackLink: "#PLACEHOLDER_FEEDBACK_LINK",
-        hasPitch: true
+        hasPitch: true,
+        hasVideo: true
       },
       {
         id: "spatial",
         company: "SpatialGIS, L.L.C.",
         names: "Kendrick O. Faison (President/CEO)",
         location: "NC / MD / MO",
-        email: "kendrick@spatialgisservices.com",
+        passcode: "kendrick@spatialgisservices.com",
         awardBadge: "Fall 2026 Graduate",
         isWinner: false,
         headshot: "",
@@ -2440,7 +2449,8 @@
         websiteLabel: "spatialgisservices.com",
         summaryLink: "#PLACEHOLDER_SUMMARY_LINK",
         photosLink: "#PLACEHOLDER_PHOTOS_LINK",
-        hasPitch: false
+        hasPitch: false,
+        hasVideo: false
       }
     ];
 
@@ -2575,12 +2585,12 @@
     let currentTargetLink = '';
     let currentTargetAction = 'link';
     let currentTargetCompanyId = '';
-    let currentRequiredEmail = '';
+    let currentRequiredPasscode = '';
     let activeMapCompanyId = 'epinec';
-    const unlockedEmails = new Set();
+    const unlockedPasscodes = new Set();
 
-    // Pitch Reel State
-    const pitchCompanies = participants.filter(p => p.hasPitch);
+    // Pitch Reel State (only companies with video clips)
+    const videoCompanies = participants.filter(p => p.hasVideo);
     let currentReelIndex = 0;
 
     function showToast(message) {
@@ -2654,7 +2664,7 @@
           ? `<img src="${p.logo}" alt="${p.company} Logo" />`
           : `LOGO`;
 
-        const isUnlocked = unlockedEmails.has(p.email.toLowerCase());
+        const isUnlocked = unlockedPasscodes.has(p.passcode.toLowerCase());
         const lockIcon = isUnlocked ? '&#128275;' : '&#128274;';
 
         let actionButtons = `
@@ -2662,11 +2672,16 @@
           <a href="${p.photosLink}" target="_blank" rel="noopener noreferrer" class="btn btn-outline-navy btn-sm">Download Photos</a>
         `;
 
-        if (p.hasPitch) {
+        if (p.hasVideo) {
           actionButtons += `
             <button type="button" onclick="requestPitchReel('${p.id}')" class="btn btn-soft-navy btn-sm">${lockIcon} Watch Pitch</button>
-            <button type="button" onclick="requestAccess('${p.email}', '${p.deckLink}')" class="btn btn-soft-navy btn-sm">${lockIcon} Final Pitch Deck</button>
-            <button type="button" onclick="requestAccess('${p.email}', '${p.feedbackLink}')" class="btn btn-navy btn-sm">${lockIcon} Judge Scores and Feedback</button>
+          `;
+        }
+
+        if (p.hasPitch) {
+          actionButtons += `
+            <button type="button" onclick="requestAccess('${p.passcode}', '${p.deckLink}')" class="btn btn-soft-navy btn-sm">${lockIcon} Final Pitch Deck</button>
+            <button type="button" onclick="requestAccess('${p.passcode}', '${p.feedbackLink}')" class="btn btn-navy btn-sm">${lockIcon} Judge Scores and Feedback</button>
           `;
         }
 
@@ -2827,13 +2842,13 @@
     }
 
     /* Secure Access Modal Logic */
-    function requestAccess(email, link) {
-      const normalized = email.toLowerCase();
-      if (unlockedEmails.has(normalized)) {
+    function requestAccess(passcode, link) {
+      const normalized = passcode.toLowerCase();
+      if (unlockedPasscodes.has(normalized)) {
         window.open(link, '_blank', 'noopener,noreferrer');
         return;
       }
-      currentRequiredEmail = normalized;
+      currentRequiredPasscode = normalized;
       currentTargetLink = link;
       currentTargetAction = 'link';
       document.getElementById('modal-password').value = '';
@@ -2843,14 +2858,14 @@
     }
 
     function requestPitchReel(companyId) {
-      const company = pitchCompanies.find(p => p.id === companyId);
+      const company = videoCompanies.find(p => p.id === companyId);
       if (!company) return;
-      const normalized = company.email.toLowerCase();
-      if (unlockedEmails.has(normalized)) {
+      const normalized = company.passcode.toLowerCase();
+      if (unlockedPasscodes.has(normalized)) {
         openPitchReel(companyId);
         return;
       }
-      currentRequiredEmail = normalized;
+      currentRequiredPasscode = normalized;
       currentTargetCompanyId = companyId;
       currentTargetAction = 'reel';
       document.getElementById('modal-password').value = '';
@@ -2865,8 +2880,8 @@
 
     function verifyPassword() {
       const input = document.getElementById('modal-password').value.toLowerCase().trim();
-      if (input === currentRequiredEmail) {
-        unlockedEmails.add(currentRequiredEmail);
+      if (input === currentRequiredPasscode) {
+        unlockedPasscodes.add(currentRequiredPasscode);
         closeModal();
         renderCohort();
         if (currentTargetAction === 'reel') {
@@ -2881,7 +2896,7 @@
 
     /* Swipeable Pitch Reel Modal Logic */
     function openPitchReel(companyId) {
-      const idx = pitchCompanies.findIndex(p => p.id === companyId);
+      const idx = videoCompanies.findIndex(p => p.id === companyId);
       currentReelIndex = idx !== -1 ? idx : 0;
       document.getElementById('pitch-reel-modal').classList.add('is-open');
       document.body.style.overflow = 'hidden';
@@ -2903,7 +2918,7 @@
     }
 
     function nextReelPitch() {
-      if (currentReelIndex < pitchCompanies.length - 1) {
+      if (currentReelIndex < videoCompanies.length - 1) {
         currentReelIndex++;
         renderReelSlide();
       }
@@ -2924,7 +2939,7 @@
     }
 
     function copyReelLink() {
-      const company = pitchCompanies[currentReelIndex];
+      const company = videoCompanies[currentReelIndex];
       if (!company) return;
       const uri = new URL(window.location.origin + window.location.pathname);
       uri.searchParams.set('pitch_show', 'true');
@@ -2941,13 +2956,13 @@
     }
 
     function unlockReelInline(companyId) {
-      const company = pitchCompanies.find(p => p.id === companyId);
+      const company = videoCompanies.find(p => p.id === companyId);
       if (!company) return;
-      const inputEl = document.getElementById('reel-inline-email');
+      const inputEl = document.getElementById('reel-inline-passcode');
       const errEl = document.getElementById('reel-inline-error');
       const val = (inputEl ? inputEl.value : '').toLowerCase().trim();
-      if (val === company.email.toLowerCase()) {
-        unlockedEmails.add(val);
+      if (val === company.passcode.toLowerCase()) {
+        unlockedPasscodes.add(val);
         renderCohort();
         renderReelSlide();
       } else if (errEl) {
@@ -2956,49 +2971,41 @@
     }
 
     function renderReelSlide() {
-      const p = pitchCompanies[currentReelIndex];
+      const p = videoCompanies[currentReelIndex];
       if (!p) return;
 
       updateReelUrl(p.id);
 
       document.getElementById('reel-prev-btn').disabled = currentReelIndex === 0;
-      document.getElementById('reel-next-btn').disabled = currentReelIndex === pitchCompanies.length - 1;
-      document.getElementById('reel-counter').textContent = `Pitch ${currentReelIndex + 1} of ${pitchCompanies.length} • ${p.awardBadge}`;
+      document.getElementById('reel-next-btn').disabled = currentReelIndex === videoCompanies.length - 1;
+      document.getElementById('reel-counter').textContent = `Pitch ${currentReelIndex + 1} of ${videoCompanies.length} • ${p.awardBadge}`;
       document.getElementById('reel-company-title').textContent = p.company;
       document.getElementById('reel-founder').textContent = `${p.names} • ${p.location}`;
       document.getElementById('reel-bio').textContent = p.bio;
 
-      const isUnlocked = unlockedEmails.has(p.email.toLowerCase());
+      const isUnlocked = unlockedPasscodes.has(p.passcode.toLowerCase());
       const stage = document.getElementById('reel-video-stage');
 
       if (!isUnlocked) {
         stage.innerHTML = `
           <div class="reel-lock-gate">
             <h4>&#128274; Private Pitch Recording</h4>
-            <p>Enter ${p.company}'s participant email address to unlock this pitch video.</p>
-            <input type="email" id="reel-inline-email" class="modal-input" onkeydown="if(event.key==='Enter') unlockReelInline('${p.id}')" placeholder="Participant email address" />
-            <div id="reel-inline-error" style="display:none; color:#fca5a5; font-size:12px; font-weight:700; margin-bottom:10px;">Incorrect email address. Please try again.</div>
+            <p>Enter ${p.company}'s participant password to unlock this pitch video.</p>
+            <input type="text" id="reel-inline-passcode" class="modal-input" onkeydown="if(event.key==='Enter') unlockReelInline('${p.id}')" placeholder="Participant email or password" />
+            <div id="reel-inline-error" style="display:none; color:#fca5a5; font-size:12px; font-weight:700; margin-bottom:10px;">Incorrect password. Please try again.</div>
             <button type="button" class="btn btn-gold btn-sm" style="width:100%;" onclick="unlockReelInline('${p.id}')">Unlock Pitch</button>
-          </div>
-        `;
-      } else if (p.pitchLink === '#PLACEHOLDER_PITCH_LINK') {
-        stage.innerHTML = `
-          <div class="reel-lock-gate">
-            <h4>${p.company} Pitch Video</h4>
-            <p>Access verified. Replace <code>#PLACEHOLDER_PITCH_LINK</code> with your Vimeo embed URL or video file path to play here.</p>
-            <span class="btn btn-outline-white btn-sm" style="cursor:default;">Ready for Video Upload</span>
           </div>
         `;
       } else if (/\.(mp4|webm|ogg)(\?.*)?$/i.test(p.pitchLink)) {
         stage.innerHTML = `<video src="${p.pitchLink}" controls playsinline></video>`;
       } else {
-        stage.innerHTML = `<iframe src="${p.pitchLink}" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="${p.company} Pitch Video"></iframe>`;
+        stage.innerHTML = `<iframe src="${p.pitchLink}" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen title="${p.company} Pitch Video"></iframe>`;
       }
 
       document.getElementById('reel-doc-links').innerHTML = `
         <a href="${p.summaryLink}" target="_blank" rel="noopener noreferrer" class="btn btn-outline-white btn-sm">Summary</a>
-        <button type="button" onclick="requestAccess('${p.email}', '${p.deckLink}')" class="btn btn-outline-white btn-sm">Pitch Deck</button>
-        <button type="button" onclick="requestAccess('${p.email}', '${p.feedbackLink}')" class="btn btn-gold btn-sm btn-full">Judge Scores and Feedback</button>
+        <button type="button" onclick="requestAccess('${p.passcode}', '${p.deckLink}')" class="btn btn-outline-white btn-sm">Pitch Deck</button>
+        <button type="button" onclick="requestAccess('${p.passcode}', '${p.feedbackLink}')" class="btn btn-gold btn-sm btn-full">Judge Scores and Feedback</button>
       `;
     }
 
@@ -3048,7 +3055,7 @@
         const params = new URLSearchParams(window.location.search);
         if (params.get('pitch_show') === 'true') {
           const cid = params.get('company');
-          if (cid && pitchCompanies.some(p => p.id === cid)) {
+          if (cid && videoCompanies.some(p => p.id === cid)) {
             openPitchReel(cid);
           }
         }
