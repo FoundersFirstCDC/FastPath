@@ -769,6 +769,7 @@
       height: 48px;
       border-radius: 50%;
       object-fit: cover;
+      object-position: center 15%;
       border: 2px solid var(--gold);
       background: var(--surface-cool);
       flex-shrink: 0;
@@ -931,6 +932,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: center 15%;
       display: block;
     }
 
@@ -1465,6 +1467,7 @@
       padding: 14px 20px;
       border-bottom: 1px solid rgba(255, 255, 255, 0.14);
       gap: 12px;
+      flex-wrap: wrap;
     }
 
     .reel-brand {
@@ -1487,6 +1490,7 @@
     .reel-controls {
       display: flex;
       align-items: center;
+      flex-wrap: wrap;
       gap: 8px;
     }
 
@@ -2196,7 +2200,7 @@
             </div>
           </div>
           <div class="person-footer-action">
-            <a href="pitch-david01.jpg" target="_blank" class="btn btn-outline-navy btn-sm" download>&#128248; View Pitch Photo</a>
+            <button type="button" onclick="openSinglePhoto('pitch-david01.jpg', 'Event Coordination — David Resetar')" class="btn btn-outline-navy btn-sm">&#128248; View Pitch Photo</button>
           </div>
         </div>
 
@@ -2240,6 +2244,7 @@
       <div class="reel-controls">
         <button type="button" id="lb-prev-btn" class="reel-btn" onclick="prevLightboxPhoto()" title="Previous Photo (Left Arrow)">&#8592; Prev</button>
         <button type="button" id="lb-next-btn" class="reel-btn" onclick="nextLightboxPhoto()" title="Next Photo (Right Arrow)">Next &#8594;</button>
+        <a id="lb-newtab-btn" href="fireside-group.jpg" target="_blank" rel="noopener noreferrer" class="reel-btn">&#8599; Open in New Tab</a>
         <a id="lb-download-btn" href="fireside-group.jpg" download class="reel-btn" style="background: var(--gold); border-color: var(--gold); color: var(--navy);">&#128427; Download High-Res</a>
         <button type="button" class="reel-btn" onclick="closeLightbox()" title="Close (Escape)">Close &times;</button>
       </div>
@@ -2408,6 +2413,7 @@
         awardBadge: "Fall 2026 Cohort",
         isWinner: false,
         headshot: "https://fastpath.foundersfirstcdc.org/PPS_StephanieBenison_Headshot.jpeg",
+        headshotStyle: "object-position: 50% 0%; transform: scale(1.38); transform-origin: 50% 5%;",
         logo: "https://fastpath.foundersfirstcdc.org/PPS_StephanieBenison_Logo.png",
         bio: "Prosperity Property Services Inc. is a certified woman-owned property preservation and union carpentry company (WBE, WOSB, DBE, BEP, Section 3) based in Calumet Park, Illinois. Founded in 2017 by CEO Stephanie Benison to serve bank-owned properties, PPS expanded into commercial union carpentry in 2022 and today provides rough and finish carpentry for general contractors on commercial, institutional, and public projects throughout the Chicago region, led in the field by Chief Operating Officer Michael Benison. Rooted in the South Suburbs it serves, PPS creates pathways into the trades through mentorship, internships, and apprenticeships that lead to lasting union careers.",
         websiteUrl: "https://prosperitypropertyservices.com",
@@ -2565,8 +2571,8 @@
         passcode: "kendrick@spatialgisservices.com",
         awardBadge: "Fall 2026 Graduate",
         isWinner: false,
-        headshot: "",
-        logo: "",
+        headshot: "spatialgis-kendrick_faison-headshot.jpg",
+        logo: "spatialgis-kendrick_faison-logo.png",
         bio: "Geospatial intelligence, cloud services, remote sensing, Salesforce integration, UAV mapping, and IT support for defense and government agencies.",
         websiteUrl: "https://spatialgisservices.com",
         websiteLabel: "spatialgisservices.com",
@@ -2781,24 +2787,28 @@
       }, 240);
     }
 
+    function getActiveGalleryPhotos() {
+      if (galleryMode === 'group') {
+        return eventPhotos.filter(p => p.isGroup);
+      } else if (galleryMode === 'all') {
+        return [...eventPhotos];
+      }
+      return shuffledPhotoPool.slice(0, 6);
+    }
+
     function renderGallery() {
       const grid = document.getElementById('gallery-grid');
-      if (galleryMode === 'group') {
-        currentDisplayedPhotos = eventPhotos.filter(p => p.isGroup);
-      } else if (galleryMode === 'all') {
-        currentDisplayedPhotos = [...eventPhotos];
-      } else {
-        currentDisplayedPhotos = shuffledPhotoPool.slice(0, 6);
-      }
+      const photos = getActiveGalleryPhotos();
+      currentDisplayedPhotos = photos;
 
-      grid.innerHTML = currentDisplayedPhotos.map((photo, idx) => `
-        <div class="gallery-item" onclick="openLightbox(${idx})">
+      grid.innerHTML = photos.map((photo, idx) => `
+        <div class="gallery-item" onclick="openGalleryLightbox(${idx})">
           <img src="${photo.url}" alt="${photo.title}" loading="lazy" />
           <div class="gallery-caption-bar">
             <span>${photo.title}</span>
           </div>
           <div class="gallery-download-overlay">
-            <button type="button" class="gallery-overlay-btn is-secondary" onclick="event.stopPropagation(); openLightbox(${idx})">View</button>
+            <button type="button" class="gallery-overlay-btn is-secondary" onclick="event.stopPropagation(); openGalleryLightbox(${idx})">View</button>
             <a href="${photo.url}" download class="gallery-overlay-btn" onclick="event.stopPropagation()">&#128427; Download</a>
           </div>
         </div>
@@ -2806,8 +2816,17 @@
     }
 
     /* Full-Resolution Photo Lightbox Logic */
-    function openLightbox(index) {
+    function openGalleryLightbox(index) {
+      currentDisplayedPhotos = getActiveGalleryPhotos();
       currentLightboxIndex = index;
+      document.getElementById('photo-lightbox').classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+      renderLightboxPhoto();
+    }
+
+    function openSinglePhoto(url, title) {
+      currentDisplayedPhotos = [{ url, title }];
+      currentLightboxIndex = 0;
       document.getElementById('photo-lightbox').classList.add('is-open');
       document.body.style.overflow = 'hidden';
       renderLightboxPhoto();
@@ -2838,10 +2857,13 @@
       document.getElementById('lightbox-img').src = photo.url;
       document.getElementById('lightbox-img').alt = photo.title;
       document.getElementById('lightbox-caption').textContent = photo.title;
+      document.getElementById('lb-newtab-btn').href = photo.url;
       document.getElementById('lb-download-btn').href = photo.url;
       document.getElementById('lb-prev-btn').disabled = currentLightboxIndex === 0;
       document.getElementById('lb-next-btn').disabled = currentLightboxIndex === currentDisplayedPhotos.length - 1;
-      document.getElementById('lightbox-counter').textContent = `Photo ${currentLightboxIndex + 1} of ${currentDisplayedPhotos.length} • Use Left and Right arrow keys to browse • Press Escape to close`;
+      document.getElementById('lightbox-counter').textContent = currentDisplayedPhotos.length > 1
+        ? `Photo ${currentLightboxIndex + 1} of ${currentDisplayedPhotos.length} • Use Left and Right arrow keys to browse • Press Escape to close`
+        : `${photo.title} • Click Open in New Tab or Download High-Res above • Press Escape to close`;
     }
 
     /* Cohort Filtering & Rendering */
@@ -2865,8 +2887,9 @@
       let html = '';
 
       list.forEach(p => {
+        const headshotStyleAttr = p.headshotStyle ? ` style="${p.headshotStyle}"` : '';
         const headshotHtml = p.headshot
-          ? `<img src="${p.headshot}" alt="${p.names}" />`
+          ? `<img src="${p.headshot}" alt="${p.names}"${headshotStyleAttr} />`
           : `HEADSHOT`;
 
         const logoHtml = p.logo
@@ -2900,8 +2923,10 @@
         }
 
         if (p.photos && p.photos.length > 0) {
+          const spanClass = p.photos.length === 1 ? ' btn-full-width' : '';
           p.photos.forEach(ph => {
-            actionButtons += `<a href="${ph.url}" target="_blank" rel="noopener noreferrer" class="btn btn-outline-navy btn-sm" download>&#128248; ${ph.name}</a>`;
+            const safeTitle = `${p.company} — ${ph.name}`.replace(/'/g, "\\'");
+            actionButtons += `<button type="button" onclick="openSinglePhoto('${ph.url}', '${safeTitle}')" class="btn btn-outline-navy btn-sm${spanClass}">&#128248; View ${ph.name}</button>`;
           });
         }
 
