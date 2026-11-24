@@ -1292,16 +1292,6 @@
       text-decoration: underline;
     }
 
-    .person-footer-action {
-      margin-top: 16px;
-      padding-top: 14px;
-      border-top: 1px solid var(--border);
-    }
-
-    .person-footer-action .btn {
-      width: 100%;
-    }
-
     /* Continental US Map Section (Full-Width Card with Spotlight Below) */
     .map-container-single {
       max-width: 960px;
@@ -2032,8 +2022,8 @@
 
       <div class="section-toolbar">
         <div class="filter-tabs-scroll" id="gallery-filter-tabs" data-edge="none" role="tablist" aria-label="Filter Event Photos">
-          <button type="button" class="filter-pill is-active" data-gallery-mode="group" onclick="setGalleryMode('group')">Group Photos (8)</button>
-          <button type="button" class="filter-pill" data-gallery-mode="all" onclick="setGalleryMode('all')">All Event Photos (19)</button>
+          <button type="button" class="filter-pill is-active" data-gallery-mode="group" onclick="setGalleryMode('group')">Group Photos (9)</button>
+          <button type="button" class="filter-pill" data-gallery-mode="all" onclick="setGalleryMode('all')">All Event Photos (20)</button>
         </div>
         <div class="toolbar-actions">
           <button type="button" class="btn btn-outline-navy btn-sm" onclick="shuffleGalleryPhotos()">&#8635; Shuffle Photos</button>
@@ -2464,7 +2454,7 @@
   </footer>
 
   <!-- Password Modal -->
-  <div id="password-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div id="password-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modal-title" onclick="if(event.target === this) closeModal()">
     <div class="modal-box">
       <button type="button" onclick="closeModal()" class="modal-close" aria-label="Close modal">&times;</button>
       <h3 id="modal-title">Secure Access</h3>
@@ -2494,7 +2484,7 @@
       <img id="lightbox-img" src="" alt="" />
     </div>
     <div class="reel-nav-hint" id="lightbox-counter">
-      Photo 1 of 8 &bull; Use Left and Right arrow keys to browse &bull; Press Escape to close
+      Photo 1 of 9 &bull; Use Left and Right arrow keys to browse &bull; Press Escape to close
     </div>
   </div>
 
@@ -2566,6 +2556,7 @@
       { url: "fireside-group01.jpg", title: "Fireside Chat Group 1", isGroup: true },
       { url: "fireside-group02.jpg", title: "Fireside Chat Group 2", isGroup: true },
       { url: "pitch-group01.jpg", title: "Fall 2026 Cohort Group", isGroup: true },
+      { url: "pitch_group-nojudges.jpeg", title: "Fall 2026 Cohort Group 2", isGroup: true },
       { url: "dinner-fallfastpath01.jpg", title: "FastPath Cohort Dinner 1", isGroup: true },
       { url: "dinner-fallfastpath02.jpg", title: "FastPath Cohort Dinner 2", isGroup: true },
       { url: "pitch-ffcdc01.jpg", title: "Founders First CDC Team", isGroup: true },
@@ -3057,7 +3048,7 @@
             grid.classList.remove('is-shuffling');
           }, 220);
         });
-        showToast('Showing 6 shuffled event photos');
+        showToast('Showing 9 shuffled event photos');
       }, 240);
     }
 
@@ -3067,7 +3058,7 @@
       } else if (galleryMode === 'all') {
         return [...eventPhotos];
       }
-      return shuffledPhotoPool.slice(0, 6);
+      return shuffledPhotoPool.slice(0, 9);
     }
 
     function renderGallery() {
@@ -3420,11 +3411,19 @@
       }
     }
 
+    function openSecuredDocument(link) {
+      if (!link || link.startsWith('#PLACEHOLDER')) {
+        showToast('This document is being finalized and will be available shortly.');
+        return;
+      }
+      window.open(link, '_blank', 'noopener,noreferrer');
+    }
+
     /* Secure Access Modal Logic */
     function requestAccess(passcode, link) {
       const normalized = passcode.toLowerCase();
       if (unlockedPasscodes.has(normalized)) {
-        window.open(link, '_blank', 'noopener,noreferrer');
+        openSecuredDocument(link);
         return;
       }
       currentRequiredPasscode = normalized;
@@ -3469,7 +3468,7 @@
         if (currentTargetAction === 'reel') {
           openPitchReel(currentTargetCompanyId);
         } else {
-          window.open(currentTargetLink, '_blank', 'noopener,noreferrer');
+          openSecuredDocument(currentTargetLink);
         }
       } else {
         document.getElementById('modal-error').classList.add('is-visible');
