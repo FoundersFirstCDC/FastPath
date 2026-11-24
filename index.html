@@ -334,7 +334,11 @@
     .btn-sm {
       min-height: 38px;
       padding: 0 14px;
-      font-size: 12px;
+      font-size: 11.5px;
+    }
+
+    .btn-full-width {
+      grid-column: 1 / -1;
     }
 
     .btn-gold {
@@ -525,35 +529,67 @@
       margin-top: 8px;
     }
 
-    /* Photo Collage Grid */
+    /* Photo Collage Grid & Overlay */
     .gallery-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 16px;
     }
 
-    .gallery-slot {
-      aspect-ratio: 1 / 1;
+    .gallery-item {
+      position: relative;
+      aspect-ratio: 4 / 3;
       background: var(--surface-cool);
-      border: 2px dashed var(--border);
+      border: 1px solid var(--border);
       border-radius: var(--radius);
       display: flex;
       align-items: center;
       justify-content: center;
-      text-align: center;
-      padding: 12px;
-      font-family: 'Poppins', sans-serif;
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--ink-soft);
       overflow: hidden;
     }
 
-    .gallery-slot img {
+    .gallery-item img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.04);
+    }
+
+    .gallery-download-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(4, 24, 69, 0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+
+    .gallery-item:hover .gallery-download-overlay {
+      opacity: 1;
+    }
+
+    .gallery-download-btn {
+      background: var(--gold);
+      color: var(--navy);
+      font-family: 'Poppins', sans-serif;
+      font-size: 12px;
+      font-weight: 800;
+      padding: 8px 18px;
+      border-radius: 999px;
+      text-decoration: none;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .gallery-download-btn:hover {
+      background: #ffffff;
+      transform: scale(1.05);
     }
 
     /* Award Winners Grid */
@@ -816,8 +852,8 @@
     }
 
     .cohort-actions {
-      display: flex;
-      flex-direction: column;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
       gap: 8px;
       margin-top: 16px;
       padding-top: 16px;
@@ -826,22 +862,9 @@
 
     .cohort-actions .btn {
       width: 100%;
-    }
-
-    .cohort-actions-compact {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 6px;
-    }
-
-    .cohort-actions-compact .btn {
-      min-height: 34px;
       padding: 0 8px;
-      font-size: 11px;
-    }
-
-    .cohort-actions-compact .btn-full {
-      grid-column: 1 / -1;
+      font-size: 11.25px;
+      min-height: 38px;
     }
 
     .yb-footer-link {
@@ -1752,15 +1775,42 @@
         <h2 class="section-title">Photo Gallery</h2>
       </div>
       <div class="gallery-grid">
-        <!-- PLACEHOLDER PHOTOS: Replace each div content with <img src="YOUR_GITHUB_IMAGE_URL" alt="Event Photo" /> -->
-        <div class="gallery-slot">PLACEHOLDER PHOTO 1</div>
-        <div class="gallery-slot">PLACEHOLDER PHOTO 2</div>
-        <div class="gallery-slot">PLACEHOLDER PHOTO 3</div>
-        <div class="gallery-slot">PLACEHOLDER PHOTO 4</div>
-        <div class="gallery-slot">PLACEHOLDER PHOTO 5</div>
-        <div class="gallery-slot">PLACEHOLDER PHOTO 6</div>
-        <div class="gallery-slot">PLACEHOLDER PHOTO 7</div>
-        <div class="gallery-slot">PLACEHOLDER PHOTO 8</div>
+        <div class="gallery-item">
+          <img src="fireside-group.jpg" alt="Fireside Chat Group" loading="lazy" />
+          <div class="gallery-download-overlay">
+            <a href="fireside-group.jpg" download class="gallery-download-btn">&#128427; Download High-Res</a>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="fireside-group01.jpg" alt="Fireside Chat Group 1" loading="lazy" />
+          <div class="gallery-download-overlay">
+            <a href="fireside-group01.jpg" download class="gallery-download-btn">&#128427; Download High-Res</a>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="fireside-group02.jpg" alt="Fireside Chat Group 2" loading="lazy" />
+          <div class="gallery-download-overlay">
+            <a href="fireside-group02.jpg" download class="gallery-download-btn">&#128427; Download High-Res</a>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="pitch-group01.jpg" alt="Pitch Event Group" loading="lazy" />
+          <div class="gallery-download-overlay">
+            <a href="pitch-group01.jpg" download class="gallery-download-btn">&#128427; Download High-Res</a>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="pitch-ffcdc01.jpg" alt="Founders First CDC Team" loading="lazy" />
+          <div class="gallery-download-overlay">
+            <a href="pitch-ffcdc01.jpg" download class="gallery-download-btn">&#128427; Download High-Res</a>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="pitch-ffcdc02.jpg" alt="Founders First CDC Team Alt" loading="lazy" />
+          <div class="gallery-download-overlay">
+            <a href="pitch-ffcdc02.jpg" download class="gallery-download-btn">&#128427; Download High-Res</a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -1931,9 +1981,6 @@
               </div>
             </details>
           </div>
-          <div class="person-footer-action">
-            <a href="#PLACEHOLDER_PHOTOS_LINK" target="_blank" class="btn btn-outline-navy btn-sm">Download Photos</a>
-          </div>
         </div>
 
         <!-- Jade Cabrera -->
@@ -1961,9 +2008,6 @@
               </div>
             </details>
           </div>
-          <div class="person-footer-action">
-            <a href="#PLACEHOLDER_PHOTOS_LINK" target="_blank" class="btn btn-outline-navy btn-sm">Download Photos</a>
-          </div>
         </div>
 
         <!-- Dr. Steven Jones -->
@@ -1981,13 +2025,6 @@
             <h3>Dr. Steven Jones</h3>
             <div class="person-title">Interim CEO</div>
             <div class="person-org">Founders First Community Development Corporation (CDC)</div>
-            <details class="person-bio">
-              <summary>Read Bio</summary>
-              <div class="person-bio-text">[PLACEHOLDER BIO]</div>
-            </details>
-          </div>
-          <div class="person-footer-action">
-            <a href="#PLACEHOLDER_PHOTOS_LINK" target="_blank" class="btn btn-outline-navy btn-sm">Download Photos</a>
           </div>
         </div>
 
@@ -2006,13 +2043,6 @@
             <h3>Felena Hanson</h3>
             <div class="person-title">Founder</div>
             <div class="person-org">Hera Hub (<a href="https://herahub.com" target="_blank" rel="noopener noreferrer">herahub.com</a>)</div>
-            <details class="person-bio">
-              <summary>Read Bio</summary>
-              <div class="person-bio-text">[PLACEHOLDER BIO]</div>
-            </details>
-          </div>
-          <div class="person-footer-action">
-            <a href="#PLACEHOLDER_PHOTOS_LINK" target="_blank" class="btn btn-outline-navy btn-sm">Download Photos</a>
           </div>
         </div>
 
@@ -2040,9 +2070,6 @@
               </div>
             </details>
           </div>
-          <div class="person-footer-action">
-            <a href="#PLACEHOLDER_PHOTOS_LINK" target="_blank" class="btn btn-outline-navy btn-sm">Download Photos</a>
-          </div>
         </div>
 
         <!-- Oscar Franco -->
@@ -2060,13 +2087,6 @@
             <h3>Oscar Franco</h3>
             <div class="person-title">Alternative Credit and Revenue-Based Financing Expert</div>
             <div class="person-org">FastPath Executive Dinner</div>
-            <details class="person-bio">
-              <summary>Read Bio</summary>
-              <div class="person-bio-text">[PLACEHOLDER BIO]</div>
-            </details>
-          </div>
-          <div class="person-footer-action">
-            <a href="#PLACEHOLDER_PHOTOS_LINK" target="_blank" class="btn btn-outline-navy btn-sm">Download Photos</a>
           </div>
         </div>
 
@@ -2102,9 +2122,6 @@
               </div>
             </details>
           </div>
-          <div class="person-footer-action">
-            <a href="#PLACEHOLDER_PHOTOS_LINK" target="_blank" class="btn btn-outline-navy btn-sm">Download Photos</a>
-          </div>
         </div>
 
         <!-- Sawm Soltani, PMP -->
@@ -2138,9 +2155,6 @@
               </div>
             </details>
           </div>
-          <div class="person-footer-action">
-            <a href="#PLACEHOLDER_PHOTOS_LINK" target="_blank" class="btn btn-outline-navy btn-sm">Download Photos</a>
-          </div>
         </div>
 
         <!-- David Resetar -->
@@ -2163,13 +2177,9 @@
               <a href="tel:5044086299">Mobile: (504) 408-6299</a>
               <a href="tel:8583283054">Office: (858) 328-3054</a>
             </div>
-            <details class="person-bio">
-              <summary>Read Bio</summary>
-              <div class="person-bio-text">[PLACEHOLDER BIO]</div>
-            </details>
           </div>
           <div class="person-footer-action">
-            <a href="#PLACEHOLDER_PHOTOS_LINK" target="_blank" class="btn btn-outline-navy btn-sm">Download Photos</a>
+            <a href="pitch-david01.jpg" target="_blank" class="btn btn-outline-navy btn-sm" download>&#128248; View Pitch Photo</a>
           </div>
         </div>
 
@@ -2191,7 +2201,7 @@
     </div>
   </footer>
 
-  <!-- Password Modal (3D Deal-In) -->
+  <!-- Password Modal -->
   <div id="password-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modal-title">
     <div class="modal-box">
       <button type="button" onclick="closeModal()" class="modal-close" aria-label="Close modal">&times;</button>
@@ -2260,12 +2270,18 @@
         websiteUrl: "https://epinec.us",
         websiteLabel: "epinec.us",
         summaryLink: "https://fastpath.foundersfirstcdc.org/summaries/EPINEC_ShieldForce_Obi_CompanySummaryOverview.pdf",
-        photosLink: "#PLACEHOLDER_PHOTOS_LINK",
         pitchLink: "https://player.vimeo.com/video/1249523493?autopause=0&player_id=0&app_id=58479",
-        deckLink: "#PLACEHOLDER_DECK_LINK",
+        deckLink: "EPINEC_ShieldForce_Obi_PitchDeck%20final.pdf",
         feedbackLink: "#PLACEHOLDER_FEEDBACK_LINK",
         hasPitch: true,
-        hasVideo: true
+        hasVideo: true,
+        certificates: [
+          { name: "Graduation Certificate", url: "CertificateCompletion_EPINEC_Obi.pdf" },
+          { name: "CESIM Award", url: "certificate_CESIM_EPINEC_ObiIbeto.pdf" }
+        ],
+        photos: [
+          { name: "Pitch Photo", url: "pitch-obi01.jpg" }
+        ]
       },
       {
         id: "getsocial",
@@ -2281,12 +2297,18 @@
         websiteUrl: "https://getsocialwithteja.com",
         websiteLabel: "getsocialwithteja.com",
         summaryLink: "https://fastpath.foundersfirstcdc.org/summaries/GetSocial_Teja_CompanySummaryOverview.pdf",
-        photosLink: "#PLACEHOLDER_PHOTOS_LINK",
         pitchLink: "https://player.vimeo.com/video/1249523492?autopause=0&player_id=0&app_id=58479",
-        deckLink: "#PLACEHOLDER_DECK_LINK",
+        deckLink: "GetSocial_Teja_PitchDeck%20final.pdf",
         feedbackLink: "#PLACEHOLDER_FEEDBACK_LINK",
         hasPitch: true,
-        hasVideo: true
+        hasVideo: true,
+        certificates: [
+          { name: "Graduation Certificate", url: "CertificateCompletion_GetSocial_Teja.pdf" },
+          { name: "CESIM Award", url: "certificate_CESIM_GetSocial_Teja.pdf" }
+        ],
+        photos: [
+          { name: "Pitch Photo", url: "pitch-teja01.jpg" }
+        ]
       },
       {
         id: "gladys",
@@ -2302,12 +2324,20 @@
         websiteUrl: "https://gladyscleaningservice.com",
         websiteLabel: "gladyscleaningservice.com",
         summaryLink: "https://fastpath.foundersfirstcdc.org/summaries/GladysCleaning_Gladys_CompanySummaryOverview.pdf",
-        photosLink: "#PLACEHOLDER_PHOTOS_LINK",
         pitchLink: "https://player.vimeo.com/video/1249523485?autopause=0&player_id=0&app_id=58479",
-        deckLink: "#PLACEHOLDER_DECK_LINK",
+        deckLink: "GladysCleaning_Gladys_PitchDeck%20final.pdf",
         feedbackLink: "#PLACEHOLDER_FEEDBACK_LINK",
         hasPitch: true,
-        hasVideo: true
+        hasVideo: true,
+        certificates: [
+          { name: "Graduation Certificate", url: "CertificateCompletion_Gladys.pdf" },
+          { name: "CESIM Award", url: "certificate_CESIM_Gladys_GladysVonglahn.pdf" },
+          { name: "Top Performer Award", url: "CertTopPerformer_GladysCleaning_Gladys.pdf" }
+        ],
+        photos: [
+          { name: "Pitch Photo", url: "pitch-gladys01.jpg" },
+          { name: "Practice Photo", url: "practice-gladys.jpg" }
+        ]
       },
       {
         id: "prosperity",
@@ -2323,12 +2353,17 @@
         websiteUrl: "https://prosperitypropertyservices.com",
         websiteLabel: "prosperitypropertyservices.com",
         summaryLink: "https://fastpath.foundersfirstcdc.org/summaries/ProsperityPropertyServices_StephanieB_CompanySummaryOverview.pdf",
-        photosLink: "#PLACEHOLDER_PHOTOS_LINK",
         pitchLink: "https://player.vimeo.com/video/1249523484?autopause=0&player_id=0&app_id=58479",
-        deckLink: "#PLACEHOLDER_DECK_LINK",
+        deckLink: "ProsperityPropertyServices__PitchDeck%20final.pdf",
         feedbackLink: "#PLACEHOLDER_FEEDBACK_LINK",
         hasPitch: true,
-        hasVideo: true
+        hasVideo: true,
+        certificates: [
+          { name: "Graduation Certificate", url: "CertificateCompletion_PPS_StephanieBenison.pdf" }
+        ],
+        photos: [
+          { name: "Pitch Photo", url: "pitch-stephaniebenison01.jpg" }
+        ]
       },
       {
         id: "riveo",
@@ -2344,12 +2379,17 @@
         websiteUrl: "https://riveocreative.com",
         websiteLabel: "riveocreative.com",
         summaryLink: "https://fastpath.foundersfirstcdc.org/summaries/Riveo_Elin_CompanySummaryOverview.pdf",
-        photosLink: "#PLACEHOLDER_PHOTOS_LINK",
         pitchLink: "https://player.vimeo.com/video/1249523519?autopause=0&player_id=0&app_id=58479",
-        deckLink: "#PLACEHOLDER_DECK_LINK",
+        deckLink: "Riveo_Elin_PitchDeck%20final.pdf",
         feedbackLink: "#PLACEHOLDER_FEEDBACK_LINK",
         hasPitch: true,
-        hasVideo: true
+        hasVideo: true,
+        certificates: [
+          { name: "Graduation Certificate", url: "CertificateCompletion_Riveo_Elin.pdf" }
+        ],
+        photos: [
+          { name: "Pitch Photo", url: "pitch-elin01.jpg" }
+        ]
       },
       {
         id: "swe",
@@ -2365,11 +2405,16 @@
         websiteUrl: "https://swe-solutions.com",
         websiteLabel: "swe-solutions.com",
         summaryLink: "https://fastpath.foundersfirstcdc.org/summaries/SWE_StephanieW_CompanySummaryOverview.pdf",
-        photosLink: "#PLACEHOLDER_PHOTOS_LINK",
-        deckLink: "#PLACEHOLDER_DECK_LINK",
+        deckLink: "SWE_StephanieW_PitchDeck%20final.pdf",
         feedbackLink: "#PLACEHOLDER_FEEDBACK_LINK",
         hasPitch: true,
-        hasVideo: false
+        hasVideo: false,
+        certificates: [
+          { name: "Graduation Certificate", url: "CertificateCompletion_SWE_StephanieWong.pdf" }
+        ],
+        photos: [
+          { name: "Pitch Photo", url: "pitch-stephaniewong01.jpg" }
+        ]
       },
       {
         id: "tlc",
@@ -2385,12 +2430,18 @@
         websiteUrl: "https://tlcrents.com",
         websiteLabel: "tlcrents.com",
         summaryLink: "https://fastpath.foundersfirstcdc.org/summaries/TLC_Reuben_CompanySummaryOverview.pdf",
-        photosLink: "#PLACEHOLDER_PHOTOS_LINK",
         pitchLink: "https://player.vimeo.com/video/1249523602?autopause=0&player_id=0&app_id=58479",
-        deckLink: "#PLACEHOLDER_DECK_LINK",
+        deckLink: "TLC_Reuben_PitchDeck%20final.pdf",
         feedbackLink: "#PLACEHOLDER_FEEDBACK_LINK",
         hasPitch: true,
-        hasVideo: true
+        hasVideo: true,
+        certificates: [
+          { name: "Graduation Certificate", url: "CertificateCompletion_TLC_ReubenAyoub.pdf" },
+          { name: "CESIM Award", url: "certificate_CESIM_TLC_Reuben.pdf" }
+        ],
+        photos: [
+          { name: "Pitch Photo", url: "pitch-reuben01.jpg" }
+        ]
       },
       {
         id: "twipes",
@@ -2406,12 +2457,19 @@
         websiteUrl: "https://twipes.com",
         websiteLabel: "twipes.com",
         summaryLink: "#PLACEHOLDER_SUMMARY_LINK",
-        photosLink: "#PLACEHOLDER_PHOTOS_LINK",
         pitchLink: "https://player.vimeo.com/video/1249523605?autopause=0&player_id=0&app_id=58479",
-        deckLink: "#PLACEHOLDER_DECK_LINK",
+        deckLink: "Twipes_PitchDeck%20final.pdf",
         feedbackLink: "#PLACEHOLDER_FEEDBACK_LINK",
         hasPitch: true,
-        hasVideo: true
+        hasVideo: true,
+        certificates: [
+          { name: "Graduation Certificate", url: "CertificateCompletion_Twipes_AL.pdf" },
+          { name: "Pitch Winner", url: "Cert1st%20Place_Twipes_AL.pdf" }
+        ],
+        photos: [
+          { name: "Pitch Photo 1", url: "pitch-alborz.jpg" },
+          { name: "Pitch Photo 2", url: "pitch-alborz02.jpg" }
+        ]
       },
       {
         id: "usa",
@@ -2427,12 +2485,17 @@
         websiteUrl: "https://usamdt.com/dallas",
         websiteLabel: "usamdt.com/dallas",
         summaryLink: "https://fastpath.foundersfirstcdc.org/summaries/USAMDT_Joslyn_CompanySummaryOverview.pdf",
-        photosLink: "#PLACEHOLDER_PHOTOS_LINK",
         pitchLink: "https://player.vimeo.com/video/1249523601?autopause=0&player_id=0&app_id=58479",
-        deckLink: "#PLACEHOLDER_DECK_LINK",
+        deckLink: "USAMDT_Joslyn_PitchDeck%20final.pdf",
         feedbackLink: "#PLACEHOLDER_FEEDBACK_LINK",
         hasPitch: true,
-        hasVideo: true
+        hasVideo: true,
+        certificates: [
+          { name: "Graduation Certificate", url: "CertificateCompletion_USAMDT_Joslyn.pdf" }
+        ],
+        photos: [
+          { name: "Pitch Photo", url: "pitch-joslyn01.jpg" }
+        ]
       },
       {
         id: "spatial",
@@ -2448,7 +2511,6 @@
         websiteUrl: "https://spatialgisservices.com",
         websiteLabel: "spatialgisservices.com",
         summaryLink: "#PLACEHOLDER_SUMMARY_LINK",
-        photosLink: "#PLACEHOLDER_PHOTOS_LINK",
         hasPitch: false,
         hasVideo: false
       }
@@ -2668,13 +2730,12 @@
         const lockIcon = isUnlocked ? '&#128275;' : '&#128274;';
 
         let actionButtons = `
-          <a href="${p.summaryLink}" target="_blank" rel="noopener noreferrer" class="btn btn-outline-navy btn-sm">Company Summary</a>
-          <a href="${p.photosLink}" target="_blank" rel="noopener noreferrer" class="btn btn-outline-navy btn-sm">Download Photos</a>
+          <a href="${p.summaryLink}" target="_blank" rel="noopener noreferrer" class="btn btn-outline-navy btn-sm btn-full-width">Company Summary</a>
         `;
 
         if (p.hasVideo) {
           actionButtons += `
-            <button type="button" onclick="requestPitchReel('${p.id}')" class="btn btn-soft-navy btn-sm">${lockIcon} Watch Pitch</button>
+            <button type="button" onclick="requestPitchReel('${p.id}')" class="btn btn-soft-navy btn-sm btn-full-width">${lockIcon} Watch Pitch Video</button>
           `;
         }
 
@@ -2683,6 +2744,18 @@
             <button type="button" onclick="requestAccess('${p.passcode}', '${p.deckLink}')" class="btn btn-soft-navy btn-sm">${lockIcon} Final Pitch Deck</button>
             <button type="button" onclick="requestAccess('${p.passcode}', '${p.feedbackLink}')" class="btn btn-navy btn-sm">${lockIcon} Judge Scores and Feedback</button>
           `;
+        }
+
+        if (p.certificates && p.certificates.length > 0) {
+          p.certificates.forEach(c => {
+            actionButtons += `<a href="${c.url}" target="_blank" rel="noopener noreferrer" class="btn btn-outline-navy btn-sm btn-full-width" download>&#127891; Download ${c.name}</a>`;
+          });
+        }
+        
+        if (p.photos && p.photos.length > 0) {
+          p.photos.forEach(ph => {
+            actionButtons += `<a href="${ph.url}" target="_blank" rel="noopener noreferrer" class="btn btn-outline-navy btn-sm" download>&#128248; ${ph.name}</a>`;
+          });
         }
 
         html += `
