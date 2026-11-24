@@ -845,12 +845,98 @@
       font-weight: 500;
     }
 
+    /* Digital Badges Shelf on Cohort Cards */
+    .badge-shelf {
+      margin-top: 14px;
+      padding: 10px 12px;
+      background: var(--surface-cool);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+    }
+
+    .badge-shelf-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
+      margin-bottom: 8px;
+    }
+
+    .badge-shelf-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 10.5px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--navy);
+    }
+
+    .badge-shelf-hint {
+      font-size: 10.5px;
+      font-weight: 600;
+      color: var(--ink-soft);
+    }
+
+    .badge-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .badge-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 5px 10px 5px 6px;
+      transition: all 0.2s ease;
+      flex: 1 1 auto;
+      min-width: 120px;
+    }
+
+    .badge-item:hover {
+      border-color: var(--navy);
+      background: #f8fafe;
+      transform: translateY(-1px);
+    }
+
+    .badge-thumb {
+      width: 38px;
+      height: 38px;
+      object-fit: contain;
+      flex-shrink: 0;
+      display: block;
+    }
+
+    .badge-meta {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    .badge-name {
+      font-family: 'Poppins', sans-serif;
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--navy);
+      line-height: 1.15;
+    }
+
+    .badge-dl-tag {
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--gold-deep);
+      margin-top: 1px;
+    }
+
     .cohort-actions {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 8px;
-      margin-top: 16px;
-      padding-top: 16px;
+      margin-top: 14px;
+      padding-top: 14px;
       border-top: 1px solid var(--border);
     }
 
@@ -1699,6 +1785,7 @@
     @media (prefers-reduced-motion: reduce) {
       .cohort-card,
       .gallery-item,
+      .badge-item,
       .modal-box,
       .fp-toast {
         transition: none !important;
@@ -1716,6 +1803,7 @@
       .mobile-subnav,
       .section-toolbar,
       .gallery-download-overlay,
+      .badge-shelf-hint,
       .modal-backdrop,
       .lightbox-backdrop,
       .pitch-reel-backdrop,
@@ -2299,6 +2387,21 @@
 
   <!-- Application Script -->
   <script>
+    const BADGE_GRADUATE = {
+      label: "Graduate",
+      url: "2026FallFastPath_Graduate.png"
+    };
+
+    const BADGE_WINNER = {
+      label: "Winner",
+      url: "2026FallFastPath_Pitch-Participant.png"
+    };
+
+    const BADGE_FIRST_PLACE = {
+      label: "1st Place",
+      url: "2026FallFastPath_Pitch-1stPlace.png"
+    };
+
     const eventPhotos = [
       { url: "fireside-group.jpg", title: "Fireside Chat Group", isGroup: true },
       { url: "fireside-group01.jpg", title: "Fireside Chat Group 1", isGroup: true },
@@ -2340,6 +2443,7 @@
         feedbackLink: "FastPathJudging_EPINEC.pdf",
         hasPitch: true,
         hasVideo: true,
+        badges: [BADGE_GRADUATE, BADGE_WINNER],
         certificates: [
           { name: "Graduation Certificate", url: "CertificateCompletion_EPINEC_Obi.pdf" },
           { name: "CESIM Award", url: "certificate_CESIM_EPINEC_ObiIbeto.pdf" }
@@ -2367,6 +2471,7 @@
         feedbackLink: "FastPathJudging_GetSocial.pdf",
         hasPitch: true,
         hasVideo: true,
+        badges: [BADGE_GRADUATE, BADGE_WINNER],
         certificates: [
           { name: "Graduation Certificate", url: "CertificateCompletion_GetSocial_Teja.pdf" },
           { name: "CESIM Award", url: "certificate_CESIM_GetSocial_Teja.pdf" }
@@ -2394,6 +2499,7 @@
         feedbackLink: "FastPathJudging_Gladys.pdf",
         hasPitch: true,
         hasVideo: true,
+        badges: [BADGE_GRADUATE, BADGE_WINNER],
         certificates: [
           { name: "Graduation Certificate", url: "CertificateCompletion_Gladys.pdf" },
           { name: "CESIM Award", url: "certificate_CESIM_Gladys_GladysVonglahn.pdf" },
@@ -2424,6 +2530,7 @@
         feedbackLink: "FastPathJudging_ProsperityProperty.pdf",
         hasPitch: true,
         hasVideo: true,
+        badges: [BADGE_GRADUATE],
         certificates: [
           { name: "Graduation Certificate", url: "CertificateCompletion_PPS_StephanieBenison.pdf" }
         ],
@@ -2450,6 +2557,7 @@
         feedbackLink: "FastPathJudging_Riveo.pdf",
         hasPitch: true,
         hasVideo: true,
+        badges: [BADGE_GRADUATE],
         certificates: [
           { name: "Graduation Certificate", url: "CertificateCompletion_Riveo_Elin.pdf" }
         ],
@@ -2475,6 +2583,7 @@
         feedbackLink: "FastPathJudging_SWE.pdf",
         hasPitch: true,
         hasVideo: false,
+        badges: [BADGE_GRADUATE],
         certificates: [
           { name: "Graduation Certificate", url: "CertificateCompletion_SWE_StephanieWong.pdf" }
         ],
@@ -2501,6 +2610,7 @@
         feedbackLink: "FastPathJudging_TLCRents.pdf",
         hasPitch: true,
         hasVideo: true,
+        badges: [BADGE_GRADUATE, BADGE_WINNER],
         certificates: [
           { name: "Graduation Certificate", url: "CertificateCompletion_TLC_ReubenAyoub.pdf" },
           { name: "CESIM Award", url: "certificate_CESIM_TLC_Reuben.pdf" }
@@ -2528,6 +2638,7 @@
         feedbackLink: "FastPathJudging_Twipes.pdf",
         hasPitch: true,
         hasVideo: true,
+        badges: [BADGE_GRADUATE, BADGE_FIRST_PLACE],
         certificates: [
           { name: "Graduation Certificate", url: "CertificateCompletion_Twipes_AL.pdf" },
           { name: "Pitch Winner", url: "Cert1st%20Place_Twipes_AL.pdf" }
@@ -2556,6 +2667,7 @@
         feedbackLink: "#PLACEHOLDER_FEEDBACK_LINK",
         hasPitch: true,
         hasVideo: true,
+        badges: [BADGE_GRADUATE],
         certificates: [
           { name: "Graduation Certificate", url: "CertificateCompletion_USAMDT_Joslyn.pdf" }
         ],
@@ -2578,7 +2690,8 @@
         websiteLabel: "spatialgisservices.com",
         summaryLink: "#PLACEHOLDER_SUMMARY_LINK",
         hasPitch: false,
-        hasVideo: false
+        hasVideo: false,
+        badges: [BADGE_GRADUATE]
       }
     ];
 
@@ -2734,7 +2847,7 @@
       clearTimeout(toast._timer);
       toast._timer = setTimeout(() => {
         toast.classList.remove('is-visible');
-      }, 2400);
+      }, 2800);
     }
 
     function updateEdgeFadeFor(el) {
@@ -2899,6 +3012,31 @@
         const isUnlocked = unlockedPasscodes.has(p.passcode.toLowerCase());
         const lockIcon = isUnlocked ? '&#128275;' : '&#128274;';
 
+        let badgesHtml = '';
+        if (p.badges && p.badges.length > 0) {
+          const badgeItems = p.badges.map(b => `
+            <a href="${b.url}" download="${b.url}" class="badge-item" title="Download ${b.label} badge for your email signature or LinkedIn" onclick="showToast('Downloading ${b.label} badge for LinkedIn & email signature')">
+              <img src="${b.url}" alt="2026 Fall FastPath ${b.label} Badge" class="badge-thumb" loading="lazy" />
+              <span class="badge-meta">
+                <span class="badge-name">${b.label}</span>
+                <span class="badge-dl-tag">&#8595; Download PNG</span>
+              </span>
+            </a>
+          `).join('');
+
+          badgesHtml = `
+            <div class="badge-shelf">
+              <div class="badge-shelf-header">
+                <span class="badge-shelf-title">Digital Badges</span>
+                <span class="badge-shelf-hint">For email signature &amp; LinkedIn</span>
+              </div>
+              <div class="badge-list">
+                ${badgeItems}
+              </div>
+            </div>
+          `;
+        }
+
         let actionButtons = `
           <a href="${p.summaryLink}" target="_blank" rel="noopener noreferrer" class="btn btn-outline-navy btn-sm btn-full-width">Company Summary</a>
         `;
@@ -2947,6 +3085,7 @@
             </div>
 
             <div>
+              ${badgesHtml}
               <div class="cohort-actions">
                 ${actionButtons}
               </div>
